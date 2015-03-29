@@ -1,0 +1,81 @@
+/* Header Overloads */
+.navbar-fixed-top {
+  background: #000;
+}
+
+.navbar-fixed-top li.page-scroll > a:hover,
+.navbar-fixed-top li.page-scroll > a:focus,
+.navbar-fixed-top .navbar-header.page-scroll > a:hover,
+.navbar-fixed-top .navbar-header.page-scroll > a:focus {
+    outline: 0;
+    color: #ADADAD;
+}
+
+.navbar-fixed-top .navbar-nav > li.active,
+.navbar-fixed-top .navbar-nav > .active > a,
+.navbar-fixed-top .navbar-nav > .active > a:focus {
+  color: #ADADAD;
+  background-color: #292929;
+}
+
+header {
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+    background-attachment: scroll;
+    background-image: url(../img/header-bg.png);
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+hr.star-light:after,
+hr.star-primary:after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: -.8em;
+    padding: 0 .25em;
+    font-family: FontAwesome;
+    font-size: 2em;
+}
+
+/* Footer Overloads */
+footer .footer-above {
+  background-color: #292929;
+}
+
+footer .footer-below {
+  background-color: #000;
+}
+
+#sponsors-and-links a:hover {
+  color: #000;
+}
+
+#contact-us,
+#contact-us table,
+#contact-us td {
+  font-size: 1.0em;
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+}
+
+#contact-us table {
+  margin-top: -25px;
+}
+
+#contact-us a {
+  color: #fff;
+}
+
+/* */
+.section-header p {
+  font-size: .9em;
+  margin-top: -15px;
+  padding-bottom: 30px;
+}
