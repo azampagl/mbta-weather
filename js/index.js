@@ -3,11 +3,7 @@
   /**
    *
    */
-  var init = function(error, stationSummaries, stationSeries) {
-    console.log(error);
-    console.log(stationSummaries);
-    console.log(stationSeries);
-    /*
+  var init = function(stationSummaries, stationSeries) {
     // Generate an event hanlder to share between the modules.
     var eventHandler = new Object();
 
@@ -22,13 +18,18 @@
         snow_slider: 'snow-slider',
       },
       stationSummaries, eventHandler);
-    summary.init();*/
+    summary.init();
   };
 
   // Load in our data sets and call the init function when ready.
-  queue()
-    .defer(d3.json, 'processing/station_summary.json')
-    .defer(d3.json, 'processing/station_series.json')
-    .await(init);
+  //queue()
+  //  .defer(d3.json, 'processing/station_summary.json')
+  //  .defer(d3.json, 'processing/station_series.json')
+  //  .await(init);
+  d3.json('/processing/station_summary.json', function(stationSummaries) {
+    d3.json('/processing/station_series.json', function(stationSeries) {
+      init(stationSummaries, stationSeries)
+    });
+  });
 
 })();
