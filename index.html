@@ -6,13 +6,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Snow and the MBTA">
+    <meta name="description" content="Weather and the MBTA">
     <meta name="author" content="filip piasevoli, aaron zampaglione">
 
-    <title>Snow and the MBTA</title>
+    <title>Weather and the MBTA</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="css/libs/bootstrap.min.css" rel="stylesheet">
+    <link href="css/libs/bootstrap-slider.css" rel="stylesheet">
     <link href="css/libs/freelancer.css" rel="stylesheet">
     <link href="css/libs/rickshaw.min.css" rel="stylesheet">
 
@@ -23,6 +24,9 @@
 
     <!-- Custom CSS -->
     <link href="css/mbta.css" rel="stylesheet">
+    <link href="css/chart.css" rel="stylesheet">
+    <link href="css/map.css" rel="stylesheet">
+    <link href="css/summary.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
 
 </head>
@@ -40,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Snow and the MBTA</a>
+                <a class="navbar-brand" href="#page-top">Weather and the MBTA</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -75,9 +79,9 @@
                 <div class="col-lg-12">
                     <img class="img-responsive" src="img/mbta.png" alt="">
                     <div class="intro-text">
-                        <span class="name">Snow and the MBTA</span>
+                        <span class="name">Weather and the MBTA</span>
                         <hr class="star-light">
-                        <span class="skills">The affects of snow on the MBTA.</span>
+                        <span class="skills">The affects of weather on the MBTA.</span>
                     </div>
                 </div>
             </div>
@@ -128,7 +132,16 @@
                   </div>
                   <div class="row">
                     <div class="col-lg-12">
-                        <center>Stats and Controls Here</center>
+                        <div id="summary">
+                          <br><br>
+                          <center>Summary and Controls Here</center>
+                          <br><br>
+                          <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                              <input id="snow-slider" type="text" />
+                            </div>
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -187,6 +200,9 @@
                         <h3>Contact</h3>
                         <table>
                           <tr>
+                            <td><a href="mailto:davidbrown@g.harvard.edu">David Brown</a></td>
+                          </tr>
+                          <tr>
                             <td><a href="mailto:fpiasevoli@g.harvard.edu">Filip Piasevoli</a></td>
                           </tr>
                           <tr>
@@ -222,9 +238,11 @@
     <script src="js/libs/jquery.js"></script>
     <script src="js/libs/d3.min.js"></script>
     <script src="js/libs/d3.layout.min.js"></script>
+    <script src="js/libs/queue.v1.min.js"></script>
     <script src="js/libs/bootstrap.min.js"></script>
 
     <script src="js/libs/jquery.easing.min.js"></script>
+    <script src="js/libs/bootstrap-slider.min.js"></script>
     <script src="js/libs/classie.js"></script>
     <script src="js/libs/cbpAnimatedHeader.js"></script>
 
@@ -234,6 +252,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/map.js"></script>
     <script src="js/chart.js"></script>
+    <script src="js/summary.js"></script>
     <script src="js/index.js"></script>
 
 </body>

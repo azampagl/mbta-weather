@@ -5,12 +5,14 @@
 /**
  *
  */
-Chart = function(graphElement, yAxisElement, eventHandler) {
+Chart = function(graphElement, yAxisElement, stations, eventHandler) {
 
   this.graphElement = graphElement;
   this.yAxisElement = yAxisElement;
-  this.eventHandler = eventHandler;
+  this.stations = stations;
+  this.eventHandler = $(eventHandler);
 
+  this.eventHandler.on("snowAmountChange", this.snowAmountChange);
 };
 
 /**
@@ -128,3 +130,10 @@ Chart.prototype.init = function() {
      .attr("transform", "rotate(-90)");*/
 
 };
+
+/**
+ *
+ */
+Chart.prototype.snowAmountChange = function(e, index) {
+  console.log("Chart.snowAmountChange: " + index);
+}

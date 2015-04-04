@@ -5,11 +5,13 @@
 /**
  *
  */
-Map = function(element, eventHandler) {
+Map = function(element, stations, eventHandler) {
 
   this.element = element;
-  this.eventHandler = eventHandler;
+  this.stations = stations;
+  this.eventHandler = $(eventHandler);
 
+  this.eventHandler.on("snowAmountChange", this.snowAmountChange);
 };
 
 /**
@@ -26,3 +28,10 @@ Map.prototype.init = function() {
   this.map = new google.maps.Map(document.getElementById(root.element), mapOptions);
 
 };
+
+/**
+ *
+ */
+Map.prototype.snowAmountChange = function(e, index) {
+  console.log("Map.snowAmountChange: " + index);
+}
