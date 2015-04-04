@@ -1,3 +1,6 @@
+// MAKE CHART GLOBAL FOR NOW FOR DEBUGGING.
+var chart;
+
 (function() {
 
   /**
@@ -10,14 +13,20 @@
     var map = new Map('map', stationSummaries, eventHandler);
     map.init();
 
-    var chart = new Chart('chart', 'chart-y-axis', stationSeries, eventHandler);
-    chart.init();
+    //var chart = new Chart({
+    chart = new Chart({
+      graph: 'chart',
+      y_axis: 'chart-y-axis',
+    }, stationSeries, eventHandler);
+
+    chart.init(1052, 0);
 
     var summary = new Summary({
-        root: 'summary',
-        snow_slider: 'snow-slider',
-      },
-      stationSummaries, eventHandler);
+      root: 'summary',
+      snow_slider: 'snow-slider',
+    },
+    stationSummaries, eventHandler);
+
     summary.init();
   };
 

@@ -1,13 +1,19 @@
+
+/*#chart .x_ticks_d3.plain {
+  padding-top: 50px;
+}*/
+
+
 #chart {
   position: relative;
-  left: 30px;
+  left: 40px;
 }
 
 #chart-y-axis {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 30px;
+  width: 40px;
 }
 
 
