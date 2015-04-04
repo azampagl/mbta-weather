@@ -35,8 +35,8 @@ var chart;
   //  .defer(d3.json, 'processing/station_summary.json')
   //  .defer(d3.json, 'processing/station_series.json')
   //  .await(init);
-  d3.json('/processing/station_summary.json', function(stationSummaries) {
-    d3.json('/processing/station_series.json', function(stationSeries) {
+  d3.json('processing/station_summary.json', function(stationSummaries) {
+    d3.json('processing/station_series.json', function(stationSeries) {
       init(stationSummaries, stationSeries)
     });
   });
