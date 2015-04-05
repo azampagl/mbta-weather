@@ -1,0 +1,1938 @@
+[
+	{
+		 "name": "Airport",
+		 "x": "950",
+		 "y": "284",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Alewife",
+		 "x": "422",
+		 "y": "122",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Allston St",
+		 "x": "235",
+		 "y": "359",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Andrew",
+		 "x": "866",
+		 "y": "686",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Aquarium",
+		 "x": "853",
+		 "y": "381",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Arlington",
+		 "x": "620",
+		 "y": "482",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Ashmont",
+		 "x": "828",
+		 "y": "929",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Assembly",
+		 "x": "806",
+		 "y": "141",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "BU Central",
+		 "x": "396",
+		 "y": "431",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "BU East",
+		 "x": "414",
+		 "y": "450",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "BU West",
+		 "x": "380",
+		 "y": "415",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Babcock St",
+		 "x": "325",
+		 "y": "360",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Back Bay",
+		 "x": "640",
+		 "y": "624",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Back of the Hill",
+		 "x": "407",
+		 "y": "705",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Beachmont",
+		 "x": "1076",
+		 "y": "159",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Beaconsfield",
+		 "x": "340",
+		 "y": "583",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Blandford St",
+		 "x": "431",
+		 "y": "466",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Boston College",
+		 "x": "99",
+		 "y": "483",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Bowdoin",
+		 "x": "731",
+		 "y": "355",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Boylston",
+		 "x": "672",
+		 "y": "479",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Braintree",
+		 "x": "1042",
+		 "y": "1039",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Brandon Hall",
+		 "x": "248",
+		 "y": "485",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Brigham Circle",
+		 "x": "472",
+		 "y": "641",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Broadway",
+		 "x": "866",
+		 "y": "635",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Brookline Hills",
+		 "x": "357",
+		 "y": "565",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Brookline Village",
+		 "x": "377",
+		 "y": "546",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Butler",
+		 "x": "806",
+		 "y": "993",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Capen St",
+		 "x": "700",
+		 "y": "993",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Cedar Grove",
+		 "x": "817",
+		 "y": "967",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Central",
+		 "x": "597",
+		 "y": "298",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Central Ave",
+		 "x": "752",
+		 "y": "993",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Charles/MGH",
+		 "x": "694",
+		 "y": "394",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Chesnut Hill Ave",
+		 "x": "147",
+		 "y": "448",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Chestnut Hill",
+		 "x": "301",
+		 "y": "620",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Chinatown",
+		 "x": "730",
+		 "y": "533",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Chiswick Rd",
+		 "x": "163",
+		 "y": "431",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Cleveland Circle",
+		 "x": "123",
+		 "y": "595",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Community College",
+		 "x": "806",
+		 "y": "210",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Coolidge Corner",
+		 "x": "280",
+		 "y": "451",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Copley",
+		 "x": "568",
+		 "y": "482",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Davis",
+		 "x": "466",
+		 "y": "166",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Dean Rd",
+		 "x": "172",
+		 "y": "560",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Downtown Crossing",
+		 "x": "781",
+		 "y": "480",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Eliot",
+		 "x": "244",
+		 "y": "677",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Englewood Ave",
+		 "x": "153",
+		 "y": "579",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Fairbanks St",
+		 "x": "228",
+		 "y": "504",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Fenway",
+		 "x": "414",
+		 "y": "508",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Fenwood Rd",
+		 "x": "455",
+		 "y": "658",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Fields Corner",
+		 "x": "818",
+		 "y": "882",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Forest Hills",
+		 "x": "389",
+		 "y": "874",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Government Center",
+		 "x": "766",
+		 "y": "390",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Green St",
+		 "x": "428",
+		 "y": "833",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Griggs St",
+		 "x": "253",
+		 "y": "342",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Harvard",
+		 "x": "554",
+		 "y": "254",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Harvard Ave",
+		 "x": "280",
+		 "y": "331",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Hawes St",
+		 "x": "379",
+		 "y": "454",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Hay Market",
+		 "x": "806",
+		 "y": "351",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Haymarket",
+		 "x": "806",
+		 "y": "351",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Heath",
+		 "x": "391",
+		 "y": "722",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Hynes Convention Ctr",
+		 "x": "515",
+		 "y": "482",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "JFK/UMass",
+		 "x": "866",
+		 "y": "736",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Jackson Sq",
+		 "x": "507",
+		 "y": "755",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Kendall/MIT",
+		 "x": "642",
+		 "y": "342",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Kenmore",
+		 "x": "462",
+		 "y": "482",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Kent St",
+		 "x": "360",
+		 "y": "435",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Lechmere",
+		 "x": "762",
+		 "y": "246",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Longwood",
+		 "x": "395",
+		 "y": "525",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Longwood Medical Area",
+		 "x": "488",
+		 "y": "625",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Malden Center",
+		 "x": "806",
+		 "y": "74",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Mass. Ave",
+		 "x": "609",
+		 "y": "653",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Mattapan",
+		 "x": "673",
+		 "y": "993",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Maverick",
+		 "x": "925",
+		 "y": "309",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Milton",
+		 "x": "780",
+		 "y": "993",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Mission Park",
+		 "x": "439",
+		 "y": "674",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Museum of Fine Arts",
+		 "x": "505",
+		 "y": "608",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Newton Centre",
+		 "x": "282",
+		 "y": "639",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Newton Highlands",
+		 "x": "263",
+		 "y": "659",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "North Quincy",
+		 "x": "949",
+		 "y": "842",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "North Station",
+		 "x": "806",
+		 "y": "290",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Northeastern",
+		 "x": "520",
+		 "y": "594",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Oak Grove",
+		 "x": "806",
+		 "y": "40",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Orient Heights",
+		 "x": "1042",
+		 "y": "191",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Packards Corner",
+		 "x": "307",
+		 "y": "342",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Park St",
+		 "x": "729",
+		 "y": "429",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Pleasant St",
+		 "x": "344",
+		 "y": "376",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Porter",
+		 "x": "510",
+		 "y": "210",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Prudential",
+		 "x": "535",
+		 "y": "514",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Quincy Adams",
+		 "x": "1042",
+		 "y": "987",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Quincy Center",
+		 "x": "1018",
+		 "y": "951",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Reservoir",
+		 "x": "320",
+		 "y": "602",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Revere Beach",
+		 "x": "1108",
+		 "y": "126",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Riverside",
+		 "x": "177",
+		 "y": "731",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Riverway",
+		 "x": "423",
+		 "y": "691",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Roxbury Crossing",
+		 "x": "547",
+		 "y": "715",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Ruggles",
+		 "x": "578",
+		 "y": "685",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Savin Hill",
+		 "x": "818",
+		 "y": "858",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Shawmut",
+		 "x": "818",
+		 "y": "906",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "South St",
+		 "x": "128",
+		 "y": "465",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "South Station",
+		 "x": "832",
+		 "y": "532",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "St. Marys St",
+		 "x": "395",
+		 "y": "471",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "St. Paul St B",
+		 "x": "361",
+		 "y": "396",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "St. Paul St C",
+		 "x": "300",
+		 "y": "431",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "State",
+		 "x": "806",
+		 "y": "423",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Stony Brook",
+		 "x": "468",
+		 "y": "795",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Suffolk Downs",
+		 "x": "1077",
+		 "y": "158",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Sullivan Sq",
+		 "x": "806",
+		 "y": "174",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Summit Ave",
+		 "x": "266",
+		 "y": "467",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Sutherland Rd",
+		 "x": "182",
+		 "y": "413",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Symphony",
+		 "x": "532",
+		 "y": "575",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Tappan St",
+		 "x": "191",
+		 "y": "542",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Tufts Medical Center",
+		 "x": "673",
+		 "y": "590",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Valley Rd",
+		 "x": "728",
+		 "y": "993",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Waban",
+		 "x": "225",
+		 "y": "696",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Warren St",
+		 "x": "217",
+		 "y": "378",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Washington Sq",
+		 "x": "209",
+		 "y": "523",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Washington St",
+		 "x": "199",
+		 "y": "397",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Wellington",
+		 "x": "806",
+		 "y": "108",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Wollaston",
+		 "x": "983",
+		 "y": "917",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Wonderland",
+		 "x": "1147",
+		 "y": "86",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Wood Island",
+		 "x": "1010",
+		 "y": "225",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}, 
+	{
+		 "name": "Woodland",
+		 "x": "207",
+		 "y": "714",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Riverside", "Waban"	]
+				 }, 
+				 {
+					 "line": "Blue",
+					 "edges": [	"Aquarium", "Government Center"	]
+				 }
+			]
+	}
+]
