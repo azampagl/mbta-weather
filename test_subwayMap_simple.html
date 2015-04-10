@@ -6,42 +6,50 @@
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script>
 
-	var diameter = 960,
-		format = d3.format(",d"),
-		color = d3.scale.category20c();
-
-	var bubble = d3.layout.pack()
-		.sort(null)
-		.size([diameter, diameter])
-		.padding(1.5);
+	var diameter = 960;
 
 	var svg = d3.select("body").append("svg")
 		.attr("width", diameter)
 		.attr("height", diameter)
-		.attr("class", "bubble");
+		.attr("class", "map");
 
 	var mapScale = 0.5;
 	var stationSize = 10;
 	d3.json("processing/station_map.json", function(error, d) {
+	  var stationsData = d;
+	  
 	  var newStations = svg.selectAll(".node")
-		  .data(d)
+		  .data(stationsData)
 		  .enter()
 		  .append("g")
 		  .attr("class", "node")
 		  .attr("transform", function(d) { return "translate(" + mapScale * d.x + "," + mapScale * d.y + ")"; });
-		  
-	  newStations.append("circle")
+	  
+	  var stationDots = newStations.append("circle")
 		  .attr("r", mapScale * stationSize)
 		  .attr("class", "stationDot");
-	  
+		  
 	  var hitBoxSize = (mapScale * stationSize) * 4;
-	  newStations.append("rect")
+	  var stationHitBoxes = newStations.append("rect")
 		  .attr("width", hitBoxSize)
 		  .attr("height", hitBoxSize)
 		  .attr("x", -(hitBoxSize)/2)
 		  .attr("y", -(hitBoxSize)/2)
 		  .attr("class", "stationHitBox")
 		  .style("visibility", "hidden");
+		  //.on("mouseover", mouseoverStation)
+		  //.on("mouseout", mouseoutStation);
+
+	  // line generator for nice, smooth lines
+	  var line = d3.svg.line.radial()
+		  .interpolate("bundle")
+		  .tension(.85)
+		  .x(function(d) { return d.y; })
+		  .y(function(d) { return d.x / 180 * Math.PI; });
+	  var links = newStations.append("path")
+		  .attr("d", function(d){ return line(d);})
+		  .style("stroke", rgb(128, 128, 128));
+	  
 		  
 	});
 
