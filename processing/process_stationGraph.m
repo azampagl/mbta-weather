@@ -103,7 +103,7 @@ for(i=1:length(stations.names))
                 fprintf(fid, ', ');
             end
         end
-        fprintf(fid, '\t]\n');
+        fprintf(fid, '\t] \n');
         fprintf(fid, '\t\t\t\t }');
         if(j < length(stations.connections))
             fprintf(fid, ', ');
