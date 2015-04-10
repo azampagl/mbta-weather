@@ -13,12 +13,34 @@ var chart;
     var map = new Map('map', stationSummaries, eventHandler);
     map.init();
 
-    //var chart = new Chart({
-    chart = new Chart({
-      graph: 'chart',
-      y_axis: 'chart-y-axis',
-    }, stationSeries, eventHandler);
+    var chartElements = {
+      parent: '#chart-container',
+      graph: '#chart',
+      title: '#chart-title',
+      y_axis: '#chart-y-axis',
+      x_axis: '#chart-x-axis',
+      y_axis_title: '#chart-y-axis-title',
+      x_axis_title: '#chart-x-axis-title',
+    };
 
+    var chartOptions = {
+      height: 270,
+      width: d3.select(chartElements.parent)[0][0].clientWidth,
+      title: {
+        height: 30,
+      },
+      x_axis: {
+        height: 25,
+      },
+      x_axis_title: {
+        height: 25,
+      },
+      y_axis: {
+        width: 80,
+      },
+    };
+
+    chart = new Chart(chartElements, chartOptions, stationSeries, eventHandler);
     chart.init(1052, 0);
 
     var summary = new Summary({

@@ -27,3 +27,17 @@
   content: '\2744';
   color: #3399FF;
 }
+
+.summary_text{
+  font-size: 20px;
+}
+
+#summary_title{
+  font-size: 25px;
+  color: #3399FF;
+}
+
+.summary_point{
+  text-align: right;
+  width: 200px;
+}
