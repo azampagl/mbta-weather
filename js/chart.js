@@ -107,67 +107,43 @@ Chart.prototype.init = function(stationId, snowAmountId) {
     .style("left", "0")
     .style("width", root.options.y_axis.width + "px");
 
-  //root.seriesData[0] = [];
-  /*var station = root.data[this.selectedStation];
-  for (var i = 0; i < station.x.length; i++) {
-    root.seriesData[0].push({x: station.x[i], y: station.y_base[i]})
-  }*/
-
   root.graph = new Rickshaw.Graph({
     element: d3.select(root.elements.graph).node(),
     renderer: 'line',
     height: root.options.height - root.options.title.height - root.options.x_axis.height - root.options.x_axis_title.height,
     series: [
       {
-        color: '#000',
-        data: root.seriesData[0],
-        name: 'Normal Entries'
-      },
-      {
         color: '#005CE6',
         data: root.seriesData[1],
         name: 'Snow Entries'
-      }]
+      },
+      {
+        color: '#000',
+        data: root.seriesData[0],
+        name: 'Normal Entries'
+      },]
   });
 
+  var timeFormat = function(d) {
+    var hours = Math.floor(d);
+    var minutes = (d - hours) * 60;
+    var ampm = hours >= 12 ? 'pm' : 'am';
 
+    hours = hours % 12;
+    hours = hours ? hours : 12;
 
-  /*var unit = {}
-  unit.formatTime = function(d) {
-    console.log(d);
-    return d.toUTCString().match(/(\d+:\d+):/)[1];
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+    return hours + ":" + minutes + " " + ampm;
   };
-  unit.formatter = function(d) {
-    return this.formatTime(d)
-  };
-  unit.name = "5 minute";
-  unit.seconds = 300;
 
-  var xAxis = new Rickshaw.Graph.Axis.Time({
-    graph: root.graph,
-    //timeUnit: unit,
-    //timeFixture: new Rickshaw.Fixtures.Time.Local()
-  });*/
-  var x_axis = new Rickshaw.Graph.Axis.X({
+  var xAxis = new Rickshaw.Graph.Axis.X({
     graph: root.graph,
     //orientation: 'top',
-    tickFormat: function(d) {
-      var hours = Math.floor(d);
-      var minutes = (d - hours) * 60;
-      var ampm = hours >= 12 ? 'pm' : 'am';
-
-      hours = hours % 12;
-      hours = hours ? hours : 12;
-
-      hours = hours < 10 ? '0' + hours : hours;
-      minutes = minutes < 10 ? '0' + minutes : minutes;
-
-      return hours + ":" + minutes + " " + ampm;
-    },
+    tickFormat: timeFormat,
     ticks: 10,
   });
-
-
 
   var yAxis = new Rickshaw.Graph.Axis.Y({
     graph: root.graph,
@@ -175,6 +151,26 @@ Chart.prototype.init = function(stationId, snowAmountId) {
     tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
     ticks: 10,
     element: d3.select(root.elements.y_axis).node(),
+  });
+
+  var legend = new Rickshaw.Graph.Legend({
+    graph: root.graph,
+    element: d3.select(root.elements.legend).node(),
+  });
+
+  var hoverDetail = new Rickshaw.Graph.HoverDetail({
+    graph: root.graph,
+    xFormatter: timeFormat,
+    formatter: function(series, x, y) {
+      var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
+      var content = swatch + series.name + ": " + parseInt(y);
+      return content;
+    }
+  });
+
+  var highlight = new Rickshaw.Graph.Behavior.Series.Highlight({
+    graph: root.graph,
+    legend: legend
   });
 
   root.selectedSnowAmountId = snowAmountId;
@@ -207,10 +203,7 @@ Chart.prototype.init = function(stationId, snowAmountId) {
      element: document.getElementById('timeline')
    });*/
 
-   /*var legend = new Rickshaw.Graph.Legend({
-     graph: graph,
-     element: document.getElementById('chart-snow-legend')
-   });*/
+
 
    /*Rickshaw.Graph.Behavior.Series.Toggle.prototype.updateBehaviour = function() {
      console.log("hello");
@@ -282,23 +275,6 @@ Chart.prototype.render = function() {
   d3.select(root.elements.graph + " > svg")
     .style("top", "100px")
     .attr("height", root.options.height - root.options.title.height - root.options.x_axis_title.height);
-    //.style("height", (root.options.height - root.options.title.height - 25) + "px");
-    //.style("padding-top", "100px")
-    //.style("height", (root.options.height - root.options.title.height - root.options.x_axis.height) + "px");
-
-
-
-  //d3.select(root.elements.y_axis)
-  //  .style("bottom", (root.options.x_axis.height) + "px");
-
-  /*d3.select("#chart > svg > path.path")
-    .attr("transform", "translate(30, 0)");
-
-  d3.select("#chart > svg > g.x_grid_d3")
-    .attr("transform", "translate(30, 0)");
-
-  d3.select("#chart > svg > g.y_grid")
-    .attr("transform", "translate(30, 0)");*/
 
   d3.selectAll(root.elements.graph + " > svg > g.x_ticks_d3.plain g > text")
     .attr("transform", "translate(5, " + root.options.x_axis.height + ")");

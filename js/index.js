@@ -17,6 +17,7 @@ var chart;
       parent: '#chart-container',
       graph: '#chart',
       title: '#chart-title',
+      legend: '#chart-legend',
       y_axis: '#chart-y-axis',
       x_axis: '#chart-x-axis',
       y_axis_title: '#chart-y-axis-title',
