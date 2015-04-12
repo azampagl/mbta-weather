@@ -1,3 +1,10 @@
+.rickshaw_legend {
+	color: #000;
+	background: transparent;
+  position: absolute;
+  right: 0;
+  margin-top: 20px;
+}
 
 /*#chart .x_ticks_d3.plain {
   padding-top: 50px;
