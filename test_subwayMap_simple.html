@@ -3,18 +3,41 @@
     <title>Test of the Subway Map SVG</title>
   </head>
   <body bgcolor=white>
+	<br>
+	<br>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script>
 
 	var diameter = 960;
 
+	var stationText = d3.select("body").append("p")
+			.classed("stationName", true)
+			.style("padding-left", "5em")
+			.style("font-weight", "bold")
+			.style("font-size", "2em");
+	stationText.text("\u00A0");  // &nbsp  (non-breaking space)
+	
 	var svg = d3.select("body").append("svg")
 		.attr("width", diameter)
 		.attr("height", diameter)
 		.attr("class", "map");
 
-	var mapScale = 0.5;
-	var stationSize = 10;
+	var mapScale = 0.5;   // max x is 1147 and max y is 1039
+	var stationSize = 8;
+	var undergroundOpacity = 0.8;
+	var aboveGroundOpacity = 0.6;
+	var aboveGroundColor = "gray"
+	drawSubwayLine("processing/line_blue.json", svg, mapScale, "blue", undergroundOpacity);
+	drawSubwayLine("processing/line_orange.json", svg, mapScale, "orange", undergroundOpacity);
+	drawSubwayLine("processing/line_green.json", svg, mapScale, "green", undergroundOpacity);
+	drawSubwayLine("processing/line_greenB.json", svg, mapScale, aboveGroundColor, aboveGroundOpacity);
+	drawSubwayLine("processing/line_greenC.json", svg, mapScale, aboveGroundColor, aboveGroundOpacity);
+	drawSubwayLine("processing/line_greenD.json", svg, mapScale, aboveGroundColor, aboveGroundOpacity);
+	drawSubwayLine("processing/line_greenE_underground.json", svg, mapScale, "green", undergroundOpacity);
+	drawSubwayLine("processing/line_greenE.json", svg, mapScale, aboveGroundColor, aboveGroundOpacity);
+	drawSubwayLine("processing/line_red.json", svg, mapScale, "red", undergroundOpacity);
+	drawSubwayLine("processing/line_redB.json", svg, mapScale, "red", undergroundOpacity);
+	
 	d3.json("processing/station_map.json", function(error, d) {
 	  var stationsData = d;
 	  
@@ -23,35 +46,68 @@
 		  .enter()
 		  .append("g")
 		  .attr("class", "node")
+		  .classed("aboveGround", function(d){ return parseInt(d.underground) == 0 })
+		  .classed("underGround", function(d){ return parseInt(d.underground) != 0 })
 		  .attr("transform", function(d) { return "translate(" + mapScale * d.x + "," + mapScale * d.y + ")"; });
 	  
 	  var stationDots = newStations.append("circle")
-		  .attr("r", mapScale * stationSize)
-		  .attr("class", "stationDot");
+		  .attr("r", function(d){
+				// make above ground stations a smaller radius
+				if(parseInt(d.underground)){
+				   return mapScale * stationSize;
+				}else{
+				   return 0.25 * mapScale * stationSize;
+				}
+		    })
+		  .attr("class", function(d){return (d.name).replace(/[\s/.]/g, '')})  		// the station names include some annoying characters for setting the class, remove white space, forward slahses, and periods
+		  .style("stroke", "black")
+		  .style("stroke-width", 1)
+		  .style("fill", "gray");
 		  
 	  var hitBoxSize = (mapScale * stationSize) * 4;
-	  var stationHitBoxes = newStations.append("rect")
+	  var undergrounds = newStations.filter(".underground");
+	  var stationHitBoxes = undergrounds.append("rect")
 		  .attr("width", hitBoxSize)
 		  .attr("height", hitBoxSize)
 		  .attr("x", -(hitBoxSize)/2)
 		  .attr("y", -(hitBoxSize)/2)
 		  .attr("class", "stationHitBox")
 		  .style("visibility", "hidden");
-		  //.on("mouseover", mouseoverStation)
-		  //.on("mouseout", mouseoutStation);
-
-	  // line generator for nice, smooth lines
-	  var line = d3.svg.line.radial()
-		  .interpolate("bundle")
-		  .tension(.85)
-		  .x(function(d) { return d.y; })
-		  .y(function(d) { return d.x / 180 * Math.PI; });
-	  var links = newStations.append("path")
-		  .attr("d", function(d){ return line(d);})
-		  .style("stroke", rgb(128, 128, 128));
-	  
 		  
+	  undergrounds.on("mouseover", function(d){
+				d3.selectAll(".stationName").text(d.name);
+				d3.selectAll("."+(d.name).replace(/[\s/.]/g, '')).attr("r", 2 * mapScale * stationSize)
+			})
+		  .on("mouseout", function(d){
+				d3.selectAll(".stationName").text("\u00A0");
+				d3.selectAll("."+(d.name).replace(/[\s/.]/g, '')).attr("r", mapScale * stationSize)
+			});
 	});
+	
+	function drawSubwayLine(jsonFile, svgContainer, mapScale, color, opacity){
+	  // line generator for nice, smooth lines
+	//  var line = d3.svg.line()
+	//	  .interpolate("bundle")
+	//	  .tension(.85)
+	//	  .x(function(d) { return mapScale * d.x; })
+	//	  .y(function(d) { return mapScale * d.y; });
+	var line = d3.svg.line()
+		  .interpolate("cardinal")
+		  .x(function(d) { return mapScale * d.x; })
+		  .y(function(d) { return mapScale * d.y; });
+	  
+	  
+	  var lineGroup = svgContainer.append('g');
+	  d3.json(jsonFile, function(error, lineData) {
+		  
+		  var links = lineGroup.append("path")
+			  .attr("d", line(lineData))
+			  .style("stroke", color)
+			  .style("stroke-width", 3)
+			  .style("fill", "none")
+			  .style("stroke-opacity", opacity);
+	  });
+	}
 
 	</script>
 	

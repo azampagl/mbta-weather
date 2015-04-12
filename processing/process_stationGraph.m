@@ -12,7 +12,8 @@ nameCol = 1;
 lineCol = 2;
 xCol = 3;
 yCol = 4;
-edgeStartCol = 5;
+underGroundCol = 5;
+edgeStartCol = 6;
 
 % read in the excel file
 [~,~, raw] = xlsread('station_graph.xls');
@@ -41,13 +42,18 @@ for(i=1:numStations)
 end
 
 
+%%
+
 % create a Matlab cell struct that is convienent for the printing
 for(i=1:length(stations.names))
     stationIdx = find(strcmpi(stations.names{i}, strtrim(names)));
     stations.x(i) = raw{headerOffset+stationIdx(1), xCol};
     stations.y(i) = raw{headerOffset+stationIdx(1), yCol};
+    stations.underground(i) = raw{headerOffset+stationIdx(1), underGroundCol};
     
-    stations.connections{1}.line = raw{headerOffset+stationIdx(1), lineCol};
+    stations.connections{i}.line = {};
+    stations.connections{i}.edges = {};
+    stations.connections{i}.line{1} = raw{headerOffset+stationIdx(1), lineCol};
     rawConnections = {raw{headerOffset+stationIdx(1), edgeStartCol:end}};
     connections = {};
     for(j=1:length(rawConnections))
@@ -55,7 +61,7 @@ for(i=1:length(stations.names))
             connections{length(connections)+1} = rawConnections{j};
         end
     end
-    stations.connections{1}.edges = connections;
+    stations.connections{i}.edges{1} = connections;
     
     % second line entries
     for(j = 2:length(stationIdx))
@@ -65,7 +71,11 @@ for(i=1:length(stations.names))
             haveErr= true;
         end
         
-        stations.connections{j}.line = raw{headerOffset+stationIdx(j), lineCol};
+        % if a station is both underground and aboveground mark it as
+        % underground
+        stations.underground(i) = max(stations.underground(i), raw{headerOffset+stationIdx(j), underGroundCol});
+        
+        stations.connections{i}.line{j} = raw{headerOffset+stationIdx(j), lineCol};
         rawConnections = {raw{headerOffset+stationIdx(j), edgeStartCol:end}};
         connections = {};
         for(h=1:length(rawConnections))
@@ -73,7 +83,7 @@ for(i=1:length(stations.names))
                 connections{length(connections)+1} = rawConnections{h};
             end
         end
-        stations.connections{j}.edges = connections;
+        stations.connections{i}.edges{j} = connections;
     end
 end
 
@@ -91,21 +101,22 @@ for(i=1:length(stations.names))
     fprintf(fid, '\t\t "%s": "%s",\n', 'name', stations.names{i});
     fprintf(fid, '\t\t "%s": "%d",\n', 'x', stations.x(i));
     fprintf(fid, '\t\t "%s": "%d",\n', 'y', stations.y(i));
+    fprintf(fid, '\t\t "%s": "%d",\n', 'underground', stations.underground(i));
     fprintf(fid, '\t\t "%s": \n', 'connections');
     fprintf(fid, '\t\t\t[\n');
-    for(j=1:length(stations.connections))
+    for(j=1:length(stations.connections{i}.line))
         fprintf(fid, '\t\t\t\t {\n');
-        fprintf(fid, '\t\t\t\t\t "%s": "%s",\n', 'line', stations.connections{j}.line);
+        fprintf(fid, '\t\t\t\t\t "%s": "%s",\n', 'line', stations.connections{i}.line{j});
         fprintf(fid, '\t\t\t\t\t "%s": [\t', 'edges');
-        for(k=1:length(stations.connections{j}.edges))
-            fprintf(fid, '"%s"', stations.connections{j}.edges{k});
-            if(k < length(stations.connections{j}.edges))
+        for(k=1:length(stations.connections{i}.edges{j}))
+            fprintf(fid, '"%s"', stations.connections{i}.edges{j}{k});
+            if(k < length(stations.connections{i}.edges{j}))
                 fprintf(fid, ', ');
             end
         end
         fprintf(fid, '\t] \n');
         fprintf(fid, '\t\t\t\t }');
-        if(j < length(stations.connections))
+        if(j < length(stations.connections{i}.line))
             fprintf(fid, ', ');
         end
         fprintf(fid, '\n');
@@ -122,4 +133,47 @@ end
 fprintf(fid, ']');
 
 fclose(fid);
+
+
+%%
+
+%% create the json data struct that represents the subway map graph
+Green = {'Lechmere', 'North Station', 'Haymarket', 'Government Center', 'Park St', 'Boylston', 'Arlington', 'Copley', 'Hynes Convention Ctr', 'Kenmore'};
+process_writeLine( 'line_green.json', stations, Green );
+GreenE_underground = {'Copley', 'Prudential'};
+process_writeLine( 'line_greenE_underground.json', stations, GreenE_underground );
+GreenE = {'Prudential', 'Symphony', 'Northeastern', 'Museum of Fine Arts', ...
+    'Longwood Medical Area', 'Brigham Circle', 'Fenwood Rd', 'Mission Park', ...
+    'Riverway', 'Back of the Hill', 'Heath'};
+process_writeLine( 'line_greenE.json', stations, GreenE );
+GreenD = {'Kenmore', 'Fenway', 'Longwood', 'Brookline Village', ...
+    'Brookline Hills', 'Beaconsfield', 'Reservoir', 'Chestnut Hill', 'Newton Centre', 'Newton Highlands', ...
+    'Eliot', 'Waban', 'Woodland', 'Riverside'};
+process_writeLine( 'line_greenD.json', stations, GreenD );
+GreenC = {'Kenmore', 'St. Marys St', 'Hawes St', 'Kent St', 'St. Paul St C', 'Coolidge Corner', ...
+    'Summit Ave', 'Brandon Hall', 'Fairbanks St', 'Washington Sq', 'Tappan St', ...
+    'Dean Rd', 'Englewood Ave', 'Cleveland Circle'};
+process_writeLine( 'line_greenC.json', stations, GreenC );
+GreenB = {'Kenmore', 'Blandford St', 'BU East', 'BU Central', 'BU West', 'St. Paul St B', 'Pleasant St'...
+    'Babcock St', 'Packards Corner', 'Harvard Ave', 'Griggs St', 'Allston St', 'Warren St', ...
+    'Washington St', 'Sutherland Rd', 'Chiswick Rd', 'Chesnut Hill Ave', 'South St', 'Boston College'};
+process_writeLine( 'line_greenB.json', stations, GreenB );
+
+Blue = {'Bowdoin', 'Government Center', 'State', 'Aquarium', 'Maverick', 'Airport', ...
+    'Wood Island', 'Orient Heights', 'Suffolk Downs', 'Beachmont', 'Revere Beach', 'Wonderland'};
+process_writeLine( 'line_blue.json', stations, Blue );
+
+Red = {'Alewife', 'Davis', 'Porter', 'Harvard', 'Central', 'Kendall/MIT', 'Charles/MGH', 'Park St',...
+    'Downtown Crossing', 'South Station', 'Broadway', 'Andrew', 'JFK/UMass', 'Savin Hill', ...
+    'Fields Corner', 'Shawmut', 'Ashmont', 'Cedar Grove', 'Butler', 'Milton', 'Central Ave', ...
+    'Valley Rd', 'Capen St', 'Mattapan'};
+process_writeLine( 'line_red.json', stations, Red );
+RedBrain = {'JFK/UMass', 'North Quincy', 'Wollaston', 'Quincy Center', 'Quincy Adams', 'Braintree'};
+process_writeLine( 'line_redB.json', stations, RedBrain );
+
+Orange = {'Oak Grove', 'Malden Center', 'Wellington', 'Assembly', 'Sullivan Sq', 'Community College',...
+    'North Station', 'Hay Market', 'State', 'Downtown Crossing', 'Chinatown', 'Tufts Medical Center', ...
+    'Back Bay', 'Mass. Ave', 'Ruggles', 'Roxbury Crossing', 'Jackson Sq', 'Stony Brook', 'Green St', ...
+    'Forest Hills'};
+process_writeLine( 'line_orange.json', stations, Orange );
 

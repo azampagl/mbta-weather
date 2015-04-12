@@ -3,15 +3,12 @@
 		 "name": "Airport",
 		 "x": "950",
 		 "y": "284",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
 					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Wood Island", "Maverick"	] 
 				 }
 			]
 	}, 
@@ -19,15 +16,12 @@
 		 "name": "Alewife",
 		 "x": "422",
 		 "y": "122",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Davis"	] 
 				 }
 			]
 	}, 
@@ -35,15 +29,12 @@
 		 "name": "Allston St",
 		 "x": "235",
 		 "y": "359",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Warren St", "Griggs St"	] 
 				 }
 			]
 	}, 
@@ -51,15 +42,12 @@
 		 "name": "Andrew",
 		 "x": "866",
 		 "y": "686",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"JFK/UMass ", "Broadway"	] 
 				 }
 			]
 	}, 
@@ -67,15 +55,12 @@
 		 "name": "Aquarium",
 		 "x": "853",
 		 "y": "381",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
 					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Maverick", "State"	] 
 				 }
 			]
 	}, 
@@ -83,31 +68,25 @@
 		 "name": "Arlington",
 		 "x": "620",
 		 "y": "482",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Copley", "Boylston"	] 
 				 }
 			]
 	}, 
 	{
 		 "name": "Ashmont",
-		 "x": "828",
+		 "x": "818",
 		 "y": "929",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Cedar Grove", "Shawmut"	] 
 				 }
 			]
 	}, 
@@ -115,15 +94,12 @@
 		 "name": "Assembly",
 		 "x": "806",
 		 "y": "141",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Sullivan Sq", "Wellington"	] 
 				 }
 			]
 	}, 
@@ -131,15 +107,12 @@
 		 "name": "BU Central",
 		 "x": "396",
 		 "y": "431",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"BU West", "BU East"	] 
 				 }
 			]
 	}, 
@@ -147,15 +120,12 @@
 		 "name": "BU East",
 		 "x": "414",
 		 "y": "450",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"BU Central", "Blandford St"	] 
 				 }
 			]
 	}, 
@@ -163,15 +133,12 @@
 		 "name": "BU West",
 		 "x": "380",
 		 "y": "415",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"St. Paul St B", "BU Central"	] 
 				 }
 			]
 	}, 
@@ -179,15 +146,12 @@
 		 "name": "Babcock St",
 		 "x": "325",
 		 "y": "360",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Packards Corner", "Pleasant St"	] 
 				 }
 			]
 	}, 
@@ -195,15 +159,12 @@
 		 "name": "Back Bay",
 		 "x": "640",
 		 "y": "624",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Mass. Ave", "Tufts Medical Center"	] 
 				 }
 			]
 	}, 
@@ -211,31 +172,25 @@
 		 "name": "Back of the Hill",
 		 "x": "407",
 		 "y": "705",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Heath", "Riverway"	] 
 				 }
 			]
 	}, 
 	{
 		 "name": "Beachmont",
-		 "x": "1076",
-		 "y": "159",
+		 "x": "1077",
+		 "y": "158",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
 					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Revere Beach", "Suffolk Downs"	] 
 				 }
 			]
 	}, 
@@ -243,15 +198,12 @@
 		 "name": "Beaconsfield",
 		 "x": "340",
 		 "y": "583",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Reservoir", "Brookline Hills"	] 
 				 }
 			]
 	}, 
@@ -259,15 +211,12 @@
 		 "name": "Blandford St",
 		 "x": "431",
 		 "y": "466",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"BU East", "Kenmore"	] 
 				 }
 			]
 	}, 
@@ -275,15 +224,12 @@
 		 "name": "Boston College",
 		 "x": "99",
 		 "y": "483",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"South Station"	] 
 				 }
 			]
 	}, 
@@ -291,15 +237,12 @@
 		 "name": "Bowdoin",
 		 "x": "731",
 		 "y": "355",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
 					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Government Center"	] 
 				 }
 			]
 	}, 
@@ -307,15 +250,12 @@
 		 "name": "Boylston",
 		 "x": "672",
 		 "y": "479",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Arlington", "Park St"	] 
 				 }
 			]
 	}, 
@@ -323,15 +263,12 @@
 		 "name": "Braintree",
 		 "x": "1042",
 		 "y": "1039",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Quincy Adams"	] 
 				 }
 			]
 	}, 
@@ -339,15 +276,12 @@
 		 "name": "Brandon Hall",
 		 "x": "248",
 		 "y": "485",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Fairbanks St", "Summit Ave"	] 
 				 }
 			]
 	}, 
@@ -355,15 +289,12 @@
 		 "name": "Brigham Circle",
 		 "x": "472",
 		 "y": "641",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Fenwood Rd", "Longwood Medical Area"	] 
 				 }
 			]
 	}, 
@@ -371,15 +302,12 @@
 		 "name": "Broadway",
 		 "x": "866",
 		 "y": "635",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Andrew", "South Station"	] 
 				 }
 			]
 	}, 
@@ -387,15 +315,12 @@
 		 "name": "Brookline Hills",
 		 "x": "357",
 		 "y": "565",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Beaconsfield", "Brookline Village"	] 
 				 }
 			]
 	}, 
@@ -403,15 +328,12 @@
 		 "name": "Brookline Village",
 		 "x": "377",
 		 "y": "546",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Brookline Hills", "Longwood Medical Area"	] 
 				 }
 			]
 	}, 
@@ -419,15 +341,12 @@
 		 "name": "Butler",
 		 "x": "806",
 		 "y": "993",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Milton", "Cedar Grove"	] 
 				 }
 			]
 	}, 
@@ -435,31 +354,25 @@
 		 "name": "Capen St",
 		 "x": "700",
 		 "y": "993",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Mattapan", "Valley Rd"	] 
 				 }
 			]
 	}, 
 	{
 		 "name": "Cedar Grove",
-		 "x": "817",
+		 "x": "818",
 		 "y": "967",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Butler", "Ashmont"	] 
 				 }
 			]
 	}, 
@@ -467,15 +380,12 @@
 		 "name": "Central",
 		 "x": "597",
 		 "y": "298",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Kendall/MIT", "Harvard"	] 
 				 }
 			]
 	}, 
@@ -483,15 +393,12 @@
 		 "name": "Central Ave",
 		 "x": "752",
 		 "y": "993",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Valley Rd", "Milton"	] 
 				 }
 			]
 	}, 
@@ -499,15 +406,12 @@
 		 "name": "Charles/MGH",
 		 "x": "694",
 		 "y": "394",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Park St", "Kendall/MIT"	] 
 				 }
 			]
 	}, 
@@ -515,15 +419,12 @@
 		 "name": "Chesnut Hill Ave",
 		 "x": "147",
 		 "y": "448",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"South Station", "Chiswick Rd"	] 
 				 }
 			]
 	}, 
@@ -531,15 +432,12 @@
 		 "name": "Chestnut Hill",
 		 "x": "301",
 		 "y": "620",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Newton Centre", "Reservoir"	] 
 				 }
 			]
 	}, 
@@ -547,15 +445,12 @@
 		 "name": "Chinatown",
 		 "x": "730",
 		 "y": "533",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Tufts Medical Center", "Downtown Crossing"	] 
 				 }
 			]
 	}, 
@@ -563,15 +458,12 @@
 		 "name": "Chiswick Rd",
 		 "x": "163",
 		 "y": "431",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Chesnut Hill Ave", "Sutherland Rd"	] 
 				 }
 			]
 	}, 
@@ -579,15 +471,12 @@
 		 "name": "Cleveland Circle",
 		 "x": "123",
 		 "y": "595",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Englewood Ave"	] 
 				 }
 			]
 	}, 
@@ -595,15 +484,12 @@
 		 "name": "Community College",
 		 "x": "806",
 		 "y": "210",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"North Station", "Sullivan Sq"	] 
 				 }
 			]
 	}, 
@@ -611,15 +497,12 @@
 		 "name": "Coolidge Corner",
 		 "x": "280",
 		 "y": "451",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Summit Ave", "St. Paul St C"	] 
 				 }
 			]
 	}, 
@@ -627,15 +510,12 @@
 		 "name": "Copley",
 		 "x": "568",
 		 "y": "482",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Prudential", "Hynes Convention Ctr", "Arlington"	] 
 				 }
 			]
 	}, 
@@ -643,15 +523,12 @@
 		 "name": "Davis",
 		 "x": "466",
 		 "y": "166",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Porter", "Alewife"	] 
 				 }
 			]
 	}, 
@@ -659,15 +536,12 @@
 		 "name": "Dean Rd",
 		 "x": "172",
 		 "y": "560",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Englewood Ave", "Tappan St"	] 
 				 }
 			]
 	}, 
@@ -675,15 +549,16 @@
 		 "name": "Downtown Crossing",
 		 "x": "781",
 		 "y": "480",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
+					 "line": "Red",
+					 "edges": [	"South Station", "Park St"	] 
 				 }, 
 				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Chinatown", "State"	] 
 				 }
 			]
 	}, 
@@ -691,15 +566,12 @@
 		 "name": "Eliot",
 		 "x": "244",
 		 "y": "677",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Waban", "Newton Highlands"	] 
 				 }
 			]
 	}, 
@@ -707,15 +579,12 @@
 		 "name": "Englewood Ave",
 		 "x": "153",
 		 "y": "579",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Cleveland Circle", "Dean Rd"	] 
 				 }
 			]
 	}, 
@@ -723,15 +592,12 @@
 		 "name": "Fairbanks St",
 		 "x": "228",
 		 "y": "504",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Washington Sq", "Brandon Hall"	] 
 				 }
 			]
 	}, 
@@ -739,15 +605,12 @@
 		 "name": "Fenway",
 		 "x": "414",
 		 "y": "508",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Longwood Medical Area", "Kenmore"	] 
 				 }
 			]
 	}, 
@@ -755,15 +618,12 @@
 		 "name": "Fenwood Rd",
 		 "x": "455",
 		 "y": "658",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Mission Park", "Brigham Circle"	] 
 				 }
 			]
 	}, 
@@ -771,15 +631,12 @@
 		 "name": "Fields Corner",
 		 "x": "818",
 		 "y": "882",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Shawmut", "Savin Hill"	] 
 				 }
 			]
 	}, 
@@ -787,15 +644,12 @@
 		 "name": "Forest Hills",
 		 "x": "389",
 		 "y": "874",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Green St"	] 
 				 }
 			]
 	}, 
@@ -803,15 +657,16 @@
 		 "name": "Government Center",
 		 "x": "766",
 		 "y": "390",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
+					 "line": "Blue",
+					 "edges": [	"State", "Bowdoin"	] 
 				 }, 
 				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Green",
+					 "edges": [	"Park St", "Haymarket"	] 
 				 }
 			]
 	}, 
@@ -819,15 +674,12 @@
 		 "name": "Green St",
 		 "x": "428",
 		 "y": "833",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Forest Hills", "Stony Brook"	] 
 				 }
 			]
 	}, 
@@ -835,15 +687,12 @@
 		 "name": "Griggs St",
 		 "x": "253",
 		 "y": "342",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Allston St", "Harvard Ave"	] 
 				 }
 			]
 	}, 
@@ -851,15 +700,12 @@
 		 "name": "Harvard",
 		 "x": "554",
 		 "y": "254",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Central", "Porter"	] 
 				 }
 			]
 	}, 
@@ -867,15 +713,12 @@
 		 "name": "Harvard Ave",
 		 "x": "280",
 		 "y": "331",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Griggs St", "Packards Corner"	] 
 				 }
 			]
 	}, 
@@ -883,15 +726,12 @@
 		 "name": "Hawes St",
 		 "x": "379",
 		 "y": "454",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Kent St", "St. Marys St"	] 
 				 }
 			]
 	}, 
@@ -899,15 +739,12 @@
 		 "name": "Hay Market",
 		 "x": "806",
 		 "y": "351",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"State", "North Station"	] 
 				 }
 			]
 	}, 
@@ -915,15 +752,12 @@
 		 "name": "Haymarket",
 		 "x": "806",
 		 "y": "351",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Government Center", "North Station"	] 
 				 }
 			]
 	}, 
@@ -931,15 +765,12 @@
 		 "name": "Heath",
 		 "x": "391",
 		 "y": "722",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Back of the Hill"	] 
 				 }
 			]
 	}, 
@@ -947,15 +778,12 @@
 		 "name": "Hynes Convention Ctr",
 		 "x": "515",
 		 "y": "482",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Kenmore", "Copley"	] 
 				 }
 			]
 	}, 
@@ -963,15 +791,12 @@
 		 "name": "JFK/UMass",
 		 "x": "866",
 		 "y": "736",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Savin Hill", "North Quincy", "Andrew"	] 
 				 }
 			]
 	}, 
@@ -979,15 +804,12 @@
 		 "name": "Jackson Sq",
 		 "x": "507",
 		 "y": "755",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Stony Brook", "Roxbury Crossing"	] 
 				 }
 			]
 	}, 
@@ -995,15 +817,12 @@
 		 "name": "Kendall/MIT",
 		 "x": "642",
 		 "y": "342",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Charles/MGH", "Central"	] 
 				 }
 			]
 	}, 
@@ -1011,15 +830,12 @@
 		 "name": "Kenmore",
 		 "x": "462",
 		 "y": "482",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Fenway", "Hynes Convention Ctr", "St. Marys St", "Blandford St"	] 
 				 }
 			]
 	}, 
@@ -1027,15 +843,12 @@
 		 "name": "Kent St",
 		 "x": "360",
 		 "y": "435",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"St. Paul St C", "Hawes St"	] 
 				 }
 			]
 	}, 
@@ -1043,15 +856,12 @@
 		 "name": "Lechmere",
 		 "x": "762",
 		 "y": "246",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"North Station"	] 
 				 }
 			]
 	}, 
@@ -1059,15 +869,12 @@
 		 "name": "Longwood",
 		 "x": "395",
 		 "y": "525",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Brookline Village", "Fenway"	] 
 				 }
 			]
 	}, 
@@ -1075,15 +882,12 @@
 		 "name": "Longwood Medical Area",
 		 "x": "488",
 		 "y": "625",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Brigham Circle", "Museum of Fine Arts"	] 
 				 }
 			]
 	}, 
@@ -1091,15 +895,12 @@
 		 "name": "Malden Center",
 		 "x": "806",
 		 "y": "74",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Wellington", "Oak Grove"	] 
 				 }
 			]
 	}, 
@@ -1107,15 +908,12 @@
 		 "name": "Mass. Ave",
 		 "x": "609",
 		 "y": "653",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Ruggles", "Back Bay"	] 
 				 }
 			]
 	}, 
@@ -1123,15 +921,12 @@
 		 "name": "Mattapan",
 		 "x": "673",
 		 "y": "993",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Capen St"	] 
 				 }
 			]
 	}, 
@@ -1139,15 +934,12 @@
 		 "name": "Maverick",
 		 "x": "925",
 		 "y": "309",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
 					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Airport", "Aquarium"	] 
 				 }
 			]
 	}, 
@@ -1155,15 +947,12 @@
 		 "name": "Milton",
 		 "x": "780",
 		 "y": "993",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Central Ave", "Butler"	] 
 				 }
 			]
 	}, 
@@ -1171,15 +960,12 @@
 		 "name": "Mission Park",
 		 "x": "439",
 		 "y": "674",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Riverway", "Fenwood Rd"	] 
 				 }
 			]
 	}, 
@@ -1187,15 +973,12 @@
 		 "name": "Museum of Fine Arts",
 		 "x": "505",
 		 "y": "608",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Longwood Medical Area", "Northeastern"	] 
 				 }
 			]
 	}, 
@@ -1203,15 +986,12 @@
 		 "name": "Newton Centre",
 		 "x": "282",
 		 "y": "639",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Newton Highlands", "Chestnut Hill"	] 
 				 }
 			]
 	}, 
@@ -1219,15 +999,12 @@
 		 "name": "Newton Highlands",
 		 "x": "263",
 		 "y": "659",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Eliot", "Newton Centre"	] 
 				 }
 			]
 	}, 
@@ -1235,15 +1012,12 @@
 		 "name": "North Quincy",
 		 "x": "949",
 		 "y": "842",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Wollaston", "JFK/UMass "	] 
 				 }
 			]
 	}, 
@@ -1251,15 +1025,16 @@
 		 "name": "North Station",
 		 "x": "806",
 		 "y": "290",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
+					 "line": "Orange",
+					 "edges": [	"Hay Market", "Community College"	] 
 				 }, 
 				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Green",
+					 "edges": [	"Haymarket", "Lechmere"	] 
 				 }
 			]
 	}, 
@@ -1267,15 +1042,12 @@
 		 "name": "Northeastern",
 		 "x": "520",
 		 "y": "594",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Museum of Fine Arts", "Symphony"	] 
 				 }
 			]
 	}, 
@@ -1283,31 +1055,25 @@
 		 "name": "Oak Grove",
 		 "x": "806",
 		 "y": "40",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Malden Center"	] 
 				 }
 			]
 	}, 
 	{
 		 "name": "Orient Heights",
-		 "x": "1042",
-		 "y": "191",
+		 "x": "1010",
+		 "y": "225",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
 					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Suffolk Downs", "Wood Island"	] 
 				 }
 			]
 	}, 
@@ -1315,15 +1081,12 @@
 		 "name": "Packards Corner",
 		 "x": "307",
 		 "y": "342",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Harvard Ave", "Babcock St"	] 
 				 }
 			]
 	}, 
@@ -1331,15 +1094,16 @@
 		 "name": "Park St",
 		 "x": "729",
 		 "y": "429",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
+					 "line": "Red",
+					 "edges": [	"Downtown Crossing", "Charles/MGH"	] 
 				 }, 
 				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Green",
+					 "edges": [	"Boylston", "Government Center"	] 
 				 }
 			]
 	}, 
@@ -1347,15 +1111,12 @@
 		 "name": "Pleasant St",
 		 "x": "344",
 		 "y": "376",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Babcock St", "St. Paul St B"	] 
 				 }
 			]
 	}, 
@@ -1363,15 +1124,12 @@
 		 "name": "Porter",
 		 "x": "510",
 		 "y": "210",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Harvard", "Davis"	] 
 				 }
 			]
 	}, 
@@ -1379,15 +1137,12 @@
 		 "name": "Prudential",
 		 "x": "535",
 		 "y": "514",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Symphony", "Copley"	] 
 				 }
 			]
 	}, 
@@ -1395,15 +1150,12 @@
 		 "name": "Quincy Adams",
 		 "x": "1042",
 		 "y": "987",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Braintree", "Quincy Center"	] 
 				 }
 			]
 	}, 
@@ -1411,15 +1163,12 @@
 		 "name": "Quincy Center",
 		 "x": "1018",
 		 "y": "951",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Quincy Adams", "Wollaston"	] 
 				 }
 			]
 	}, 
@@ -1427,15 +1176,12 @@
 		 "name": "Reservoir",
 		 "x": "320",
 		 "y": "602",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Chestnut Hill", "Beaconsfield"	] 
 				 }
 			]
 	}, 
@@ -1443,15 +1189,12 @@
 		 "name": "Revere Beach",
 		 "x": "1108",
 		 "y": "126",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
 					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Wonderland", "Beachmont"	] 
 				 }
 			]
 	}, 
@@ -1459,15 +1202,12 @@
 		 "name": "Riverside",
 		 "x": "177",
 		 "y": "731",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Woodland"	] 
 				 }
 			]
 	}, 
@@ -1475,15 +1215,12 @@
 		 "name": "Riverway",
 		 "x": "423",
 		 "y": "691",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Back of the Hill", "Mission Park"	] 
 				 }
 			]
 	}, 
@@ -1491,15 +1228,12 @@
 		 "name": "Roxbury Crossing",
 		 "x": "547",
 		 "y": "715",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Jackson Sq", "Ruggles"	] 
 				 }
 			]
 	}, 
@@ -1507,15 +1241,12 @@
 		 "name": "Ruggles",
 		 "x": "578",
 		 "y": "685",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Roxbury Crossing", "Mass. Ave"	] 
 				 }
 			]
 	}, 
@@ -1523,15 +1254,12 @@
 		 "name": "Savin Hill",
 		 "x": "818",
 		 "y": "858",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Fields Corner", "JFK/UMass "	] 
 				 }
 			]
 	}, 
@@ -1539,15 +1267,12 @@
 		 "name": "Shawmut",
 		 "x": "818",
 		 "y": "906",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Ashmont", "Fields Corner"	] 
 				 }
 			]
 	}, 
@@ -1555,15 +1280,12 @@
 		 "name": "South St",
 		 "x": "128",
 		 "y": "465",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Boston College", "Chesnut Hill Ave"	] 
 				 }
 			]
 	}, 
@@ -1571,15 +1293,12 @@
 		 "name": "South Station",
 		 "x": "832",
 		 "y": "532",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Broadway", "Downtown Crossing"	] 
 				 }
 			]
 	}, 
@@ -1587,15 +1306,12 @@
 		 "name": "St. Marys St",
 		 "x": "395",
 		 "y": "471",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Hawes St", "Kenmore"	] 
 				 }
 			]
 	}, 
@@ -1603,15 +1319,12 @@
 		 "name": "St. Paul St B",
 		 "x": "361",
 		 "y": "396",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Pleasant St", "BU West"	] 
 				 }
 			]
 	}, 
@@ -1619,15 +1332,12 @@
 		 "name": "St. Paul St C",
 		 "x": "300",
 		 "y": "431",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Coolidge Corner", "Kent St"	] 
 				 }
 			]
 	}, 
@@ -1635,15 +1345,16 @@
 		 "name": "State",
 		 "x": "806",
 		 "y": "423",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
+					 "line": "Orange",
+					 "edges": [	"Downtown Crossing", "Hay Market"	] 
 				 }, 
 				 {
 					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Aquarium", "Government Center"	] 
 				 }
 			]
 	}, 
@@ -1651,31 +1362,25 @@
 		 "name": "Stony Brook",
 		 "x": "468",
 		 "y": "795",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Green St", "Jackson Sq"	] 
 				 }
 			]
 	}, 
 	{
 		 "name": "Suffolk Downs",
-		 "x": "1077",
-		 "y": "158",
+		 "x": "1042",
+		 "y": "191",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
 					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Beachmont", "Orient Heights"	] 
 				 }
 			]
 	}, 
@@ -1683,15 +1388,12 @@
 		 "name": "Sullivan Sq",
 		 "x": "806",
 		 "y": "174",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Community College", "Assembly"	] 
 				 }
 			]
 	}, 
@@ -1699,15 +1401,12 @@
 		 "name": "Summit Ave",
 		 "x": "266",
 		 "y": "467",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Brandon Hall", "Coolidge Corner"	] 
 				 }
 			]
 	}, 
@@ -1715,15 +1414,12 @@
 		 "name": "Sutherland Rd",
 		 "x": "182",
 		 "y": "413",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Chiswick Rd", "Washington St"	] 
 				 }
 			]
 	}, 
@@ -1731,15 +1427,12 @@
 		 "name": "Symphony",
 		 "x": "532",
 		 "y": "575",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Northeastern", "Prudential"	] 
 				 }
 			]
 	}, 
@@ -1747,15 +1440,12 @@
 		 "name": "Tappan St",
 		 "x": "191",
 		 "y": "542",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Dean Rd", "Washington Sq"	] 
 				 }
 			]
 	}, 
@@ -1763,15 +1453,12 @@
 		 "name": "Tufts Medical Center",
 		 "x": "673",
 		 "y": "590",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Back Bay", "Chinatown"	] 
 				 }
 			]
 	}, 
@@ -1779,15 +1466,12 @@
 		 "name": "Valley Rd",
 		 "x": "728",
 		 "y": "993",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Capen St", "Central Ave"	] 
 				 }
 			]
 	}, 
@@ -1795,15 +1479,12 @@
 		 "name": "Waban",
 		 "x": "225",
 		 "y": "696",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Woodland", "Eliot"	] 
 				 }
 			]
 	}, 
@@ -1811,15 +1492,12 @@
 		 "name": "Warren St",
 		 "x": "217",
 		 "y": "378",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Washington St", "Allston St"	] 
 				 }
 			]
 	}, 
@@ -1827,15 +1505,12 @@
 		 "name": "Washington Sq",
 		 "x": "209",
 		 "y": "523",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Tappan St", "Fairbanks St"	] 
 				 }
 			]
 	}, 
@@ -1843,15 +1518,12 @@
 		 "name": "Washington St",
 		 "x": "199",
 		 "y": "397",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Sutherland Rd", "Warren St"	] 
 				 }
 			]
 	}, 
@@ -1859,15 +1531,12 @@
 		 "name": "Wellington",
 		 "x": "806",
 		 "y": "108",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Orange",
+					 "edges": [	"Assembly", "Malden Center"	] 
 				 }
 			]
 	}, 
@@ -1875,15 +1544,12 @@
 		 "name": "Wollaston",
 		 "x": "983",
 		 "y": "917",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "line": "Red",
+					 "edges": [	"Quincy Center", "North Quincy"	] 
 				 }
 			]
 	}, 
@@ -1891,31 +1557,25 @@
 		 "name": "Wonderland",
 		 "x": "1147",
 		 "y": "86",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
 					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Revere Beach"	] 
 				 }
 			]
 	}, 
 	{
 		 "name": "Wood Island",
-		 "x": "1010",
-		 "y": "225",
+		 "x": "977",
+		 "y": "257",
+		 "underground": "1",
 		 "connections": 
 			[
 				 {
-					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
 					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Orient Heights", "Airport"	] 
 				 }
 			]
 	}, 
@@ -1923,15 +1583,12 @@
 		 "name": "Woodland",
 		 "x": "207",
 		 "y": "714",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"Riverside", "Waban"	]
-				 }, 
-				 {
-					 "line": "Blue",
-					 "edges": [	"Aquarium", "Government Center"	]
+					 "edges": [	"Riverside", "Waban"	] 
 				 }
 			]
 	}
