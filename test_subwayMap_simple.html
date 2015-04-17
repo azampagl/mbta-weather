@@ -1,6 +1,16 @@
 <html>
   <head>
     <title>Test of the Subway Map SVG</title>
+	<style>  
+	g{
+		pointer-events: all;
+	}
+	path{
+		pointer-events: all;
+	}
+}
+	</style>
+	
   </head>
   <body bgcolor=white>
 	<br>
@@ -24,19 +34,68 @@
 
 	var mapScale = 0.5;   // max x is 1147 and max y is 1039
 	var stationSize = 8;
-	var undergroundOpacity = 0.8;
-	var aboveGroundOpacity = 0.6;
+	var undergroundOpacity = 0.4;
+	var aboveGroundOpacity = 0.2;
 	var aboveGroundColor = "gray"
-	drawSubwayLine("processing/line_blue.json", svg, mapScale, "blue", undergroundOpacity);
-	drawSubwayLine("processing/line_orange.json", svg, mapScale, "orange", undergroundOpacity);
-	drawSubwayLine("processing/line_green.json", svg, mapScale, "green", undergroundOpacity);
-	drawSubwayLine("processing/line_greenB.json", svg, mapScale, aboveGroundColor, aboveGroundOpacity);
-	drawSubwayLine("processing/line_greenC.json", svg, mapScale, aboveGroundColor, aboveGroundOpacity);
-	drawSubwayLine("processing/line_greenD.json", svg, mapScale, aboveGroundColor, aboveGroundOpacity);
-	drawSubwayLine("processing/line_greenE_underground.json", svg, mapScale, "green", undergroundOpacity);
-	drawSubwayLine("processing/line_greenE.json", svg, mapScale, aboveGroundColor, aboveGroundOpacity);
-	drawSubwayLine("processing/line_red.json", svg, mapScale, "red", undergroundOpacity);
-	drawSubwayLine("processing/line_redB.json", svg, mapScale, "red", undergroundOpacity);
+	var blueLine = svg.append("g").attr("class", "line blue");
+	drawSubwayLine("processing/line_blue.json", blueLine, mapScale, "blue", undergroundOpacity);
+	var orangeLine = svg.append("g").attr("class", "line orange");
+	drawSubwayLine("processing/line_orange.json", orangeLine, mapScale, "orange", undergroundOpacity);
+	var greenLine = svg.append("g").attr("class", "line green");
+	drawSubwayLine("processing/line_green.json", greenLine, mapScale, "green", undergroundOpacity);
+	drawSubwayLine("processing/line_greenB.json", greenLine, mapScale, aboveGroundColor, aboveGroundOpacity);
+	drawSubwayLine("processing/line_greenC.json", greenLine, mapScale, aboveGroundColor, aboveGroundOpacity);
+	drawSubwayLine("processing/line_greenD.json", greenLine, mapScale, aboveGroundColor, aboveGroundOpacity);
+	drawSubwayLine("processing/line_greenE_underground.json", greenLine, mapScale, "green", undergroundOpacity);
+	drawSubwayLine("processing/line_greenE.json", greenLine, mapScale, aboveGroundColor, aboveGroundOpacity);
+	var redLine = svg.append("g").attr("class", "line red");
+	drawSubwayLine("processing/line_red.json", redLine, mapScale, "red", undergroundOpacity);
+	drawSubwayLine("processing/line_redB.json", redLine, mapScale, "red", undergroundOpacity);
+	drawSubwayLine("processing/line_redM.json", redLine, mapScale, aboveGroundColor, aboveGroundOpacity);
+	
+	redLine.on("mouseover", function(d){
+				d3.selectAll(".stationName").text("Red Line");
+				var lin = d3.selectAll(".line.red").selectAll("path")
+					.style("stroke-width", 4);
+			});
+	redLine.on("mouseout", function(d){
+				d3.selectAll(".stationName").text("\u00A0");
+				var lin = d3.selectAll(".line.red").selectAll("path")
+					.style("stroke-width", 3);
+			});
+			
+	greenLine.on("mouseover", function(d){
+				d3.selectAll(".stationName").text("Green Line");
+				var lin = d3.selectAll(".line.green").selectAll("path")
+					.style("stroke-width", 4);
+			});
+	greenLine.on("mouseout", function(d){
+				d3.selectAll(".stationName").text("\u00A0");
+				var lin = d3.selectAll(".line.green").selectAll("path")
+					.style("stroke-width", 3);
+			});
+			
+	orangeLine.on("mouseover", function(d){
+				d3.selectAll(".stationName").text("Orange Line");
+				var lin = d3.selectAll(".line.orange").selectAll("path")
+					.style("stroke-width", 4);
+			});
+	orangeLine.on("mouseout", function(d){
+				d3.selectAll(".stationName").text("\u00A0");
+				var lin = d3.selectAll(".line.orange").selectAll("path")
+					.style("stroke-width", 3);
+			});
+			
+	blueLine.on("mouseover", function(d){
+				d3.selectAll(".stationName").text("Blue Line");
+				var lin = d3.selectAll(".line.blue").selectAll("path")
+					.style("stroke-width", 4);
+			});
+	blueLine.on("mouseout", function(d){
+				d3.selectAll(".stationName").text("\u00A0");
+				var lin = d3.selectAll(".line.blue").selectAll("path")
+					.style("stroke-width", 3);
+			});
 	
 	d3.json("processing/station_map.json", function(error, d) {
 	  var stationsData = d;
@@ -105,7 +164,8 @@
 			  .style("stroke", color)
 			  .style("stroke-width", 3)
 			  .style("fill", "none")
-			  .style("stroke-opacity", opacity);
+			  .style("stroke-opacity", opacity)
+			  .style("pointer-events", "stroke");
 	  });
 	}
 
