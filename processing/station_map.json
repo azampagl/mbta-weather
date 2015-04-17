@@ -341,7 +341,7 @@
 		 "name": "Butler",
 		 "x": "806",
 		 "y": "993",
-		 "underground": "1",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
@@ -354,7 +354,7 @@
 		 "name": "Capen St",
 		 "x": "700",
 		 "y": "993",
-		 "underground": "1",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
@@ -367,7 +367,7 @@
 		 "name": "Cedar Grove",
 		 "x": "818",
 		 "y": "967",
-		 "underground": "1",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
@@ -393,7 +393,7 @@
 		 "name": "Central Ave",
 		 "x": "752",
 		 "y": "993",
-		 "underground": "1",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
@@ -921,7 +921,7 @@
 		 "name": "Mattapan",
 		 "x": "673",
 		 "y": "993",
-		 "underground": "1",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
@@ -947,7 +947,7 @@
 		 "name": "Milton",
 		 "x": "780",
 		 "y": "993",
-		 "underground": "1",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
@@ -1466,7 +1466,7 @@
 		 "name": "Valley Rd",
 		 "x": "728",
 		 "y": "993",
-		 "underground": "1",
+		 "underground": "0",
 		 "connections": 
 			[
 				 {
