@@ -1,0 +1,22 @@
+
+
+#timeline .axis {
+  /*font: 10px sans-serif;*/
+}
+
+#timeline .axis path,
+#timeline .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+#timeline .x.axis path {
+  display: none;
+}
+
+#timeline .line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}

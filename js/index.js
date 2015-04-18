@@ -6,9 +6,19 @@ var chart;
   /**
    *
    */
-  var init = function(stationSummaries, stationSeries) {
+  var init = function(timelineSummary, stationSummaries, stationSeries) {
     // Generate an event hanlder to share between the modules.
     var eventHandler = new Object();
+
+    var timeline = new Timeline(
+      {
+        parent: '#timeline-container',
+        chart: '#timeline',
+      },
+      timelineSummary,
+      eventHandler
+    );
+    timeline.init();
 
     var map = new Map('map', stationSummaries, eventHandler);
     map.init();
@@ -58,9 +68,11 @@ var chart;
   //  .defer(d3.json, 'processing/station_summary.json')
   //  .defer(d3.json, 'processing/station_series.json')
   //  .await(init);
-  d3.json('processing/station_summary.json', function(stationSummaries) {
-    d3.json('processing/station_series.json', function(stationSeries) {
-      init(stationSummaries, stationSeries)
+  d3.json('processing/full_summary.json', function(timelineSummary) {
+    d3.json('processing/station_summary.json', function(stationSummaries) {
+      d3.json('processing/station_series.json', function(stationSeries) {
+        init(timelineSummary, stationSummaries, stationSeries);
+      });
     });
   });
 
