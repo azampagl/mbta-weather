@@ -35,17 +35,19 @@ Chart.prototype.filterData = function(data) {
   var keys = ['0', '0_2', '2_4', '4_8', '8_15', '15']
 
   data.forEach(function(d) {
+    var weather = d['weekday']['snow'];
+
     //
     var y_snow = [];
     keys.forEach(function(key) {
-      y_snow.push(d.mean_ent_snow[key]);
+      y_snow.push(weather.mean_ent_snow[key]);
     });
 
     //
     filteredData[d.station_id] = {
       name: d.station_name,
       x: d.time_intervals,
-      y_base: d.mean_ent,
+      y_base: weather.mean_ent,
       y_snow: y_snow
     }
   });
