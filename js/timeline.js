@@ -6,25 +6,45 @@
  *
  */
 Timeline = function(elements, data, eventHandler) {
+  var root = this;
 
   this.elements = elements;
-  this.data = this.filterData(data);
+  this.data = data;
   this.eventHandler = $(eventHandler);
 
+  this.controlKeys = {
+    "snow": ['snow', 'snow_02', 'snow_24', 'snow_48', 'snow_815', 'snow_15'],
+  };
+
+  root.eventHandler.on("snowAmountChange", function(e, id) {
+    root.snowAmountChange(id);
+  });
 };
 
 /**
  *
  */
-Timeline.prototype.filterData = function(data) {
-  filteredData = {};
+Timeline.prototype.displayData = function(data) {
+  var root = this;
 
-  filteredData = [
-    {x: new Date("January 1, 2013 00:00:00"), y: 6.281247165532879},
+  var filteredData = [];
+
+  console.log(root.data);
+
+  for (var i = 0; i < root.data['days'].length; i++) {
+    //console.log(data['days'][i]);
+    //console.log();
+    //console.log(data['entries'][i]);
+    //break;
+    filteredData.push({x: new Date(root.data['days'][i].split("T")[0]), y: root.data['entries'][i]});
+  }
+
+  /*filteredData = [
+    ,
     {x: new Date("July 30, 2013 00:00:00"), y: 7.24063492063492},
     {x: new Date("March 1, 2014 00:00:00"), y: 7.040566893424036},
     {x: new Date("February 20, 2015 00:00:00"), y: 8.340566893424036},
-  ];
+  ];*/
 
   return filteredData;
 };
@@ -34,6 +54,8 @@ Timeline.prototype.filterData = function(data) {
  */
 Timeline.prototype.init = function() {
   var root = this;
+
+  var data = root.displayData();
 
   var margin = {top: 20.5, right: 10, bottom: 30, left: 30.5};
   var width = $(root.elements.chart).parent().width() - margin.left - margin.right;
@@ -57,8 +79,8 @@ Timeline.prototype.init = function() {
     .x(function(d) { return x(d.x); })
     .y(function(d) { return y(d.y); });
 
-  x.domain(d3.extent(root.data, function(d) { return d.x; }));
-  y.domain(d3.extent(root.data, function(d) { return d.y; }));
+  x.domain(d3.extent(data, function(d) { return d.x; }));
+  y.domain(d3.extent(data, function(d) { return d.y; }));
 
   var svg = d3.select(root.elements.chart)
     .attr("width", width + margin.left + margin.right)
@@ -82,17 +104,33 @@ Timeline.prototype.init = function() {
     .text("Value");
 
   svg.append("path")
-    .datum(root.data)
+    .datum(data)
     .attr("class", "line")
     .attr("d", line);
 
   svg.selectAll(".bar")
-    .data(root.data)
+    .data(data)
   .enter()
   .append("rect")
     .attr("class", "bar")
-    .attr("x", function(d) { return x(d.x); })
-    .attr("width", 1)
-    .attr("y", function(d) { return y(d.y); })
-    .attr("height", function(d) { return height - y(d.y); });
+    .attr("x", function(d) { return x(d.x) - 3; })
+    .attr("width", 7)
+    .attr("opacity", 0.0)
+    .attr("y", function(d) { return 0; })
+    .attr("height", function(d) { return height; });
+};
+
+/**
+ *
+ */
+Timeline.prototype.snowAmountChange = function(id) {
+  var root = this;
+
+  d3.select(root.elements.chart).selectAll(".bar")
+    .attr("opacity", function(d, i) {
+      if (root.data[root.controlKeys["snow"][id]][i]) {
+        return 0.1;
+      }
+      return 0.0;
+    });
 };
