@@ -4,6 +4,7 @@
 		 "x": "950",
 		 "y": "284",
 		 "underground": "1",
+		 "id": "1011",
 		 "connections": 
 			[
 				 {
@@ -17,6 +18,7 @@
 		 "x": "422",
 		 "y": "122",
 		 "underground": "1",
+		 "id": "1032",
 		 "connections": 
 			[
 				 {
@@ -30,6 +32,7 @@
 		 "x": "235",
 		 "y": "359",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -43,6 +46,7 @@
 		 "x": "866",
 		 "y": "686",
 		 "underground": "1",
+		 "id": "1002",
 		 "connections": 
 			[
 				 {
@@ -56,6 +60,7 @@
 		 "x": "853",
 		 "y": "381",
 		 "underground": "1",
+		 "id": "1012",
 		 "connections": 
 			[
 				 {
@@ -69,6 +74,7 @@
 		 "x": "620",
 		 "y": "482",
 		 "underground": "1",
+		 "id": "1054",
 		 "connections": 
 			[
 				 {
@@ -82,6 +88,7 @@
 		 "x": "818",
 		 "y": "929",
 		 "underground": "1",
+		 "id": "1043",
 		 "connections": 
 			[
 				 {
@@ -94,7 +101,8 @@
 		 "name": "Assembly",
 		 "x": "806",
 		 "y": "141",
-		 "underground": "1",
+		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -108,6 +116,7 @@
 		 "x": "396",
 		 "y": "431",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -121,6 +130,7 @@
 		 "x": "414",
 		 "y": "450",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -134,6 +144,7 @@
 		 "x": "380",
 		 "y": "415",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -147,6 +158,7 @@
 		 "x": "325",
 		 "y": "360",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -160,6 +172,7 @@
 		 "x": "640",
 		 "y": "624",
 		 "underground": "1",
+		 "id": "1080",
 		 "connections": 
 			[
 				 {
@@ -173,6 +186,7 @@
 		 "x": "407",
 		 "y": "705",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -186,6 +200,7 @@
 		 "x": "1077",
 		 "y": "158",
 		 "underground": "1",
+		 "id": "1016",
 		 "connections": 
 			[
 				 {
@@ -199,6 +214,7 @@
 		 "x": "340",
 		 "y": "583",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -212,6 +228,7 @@
 		 "x": "431",
 		 "y": "466",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -225,6 +242,7 @@
 		 "x": "99",
 		 "y": "483",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -238,6 +256,7 @@
 		 "x": "731",
 		 "y": "355",
 		 "underground": "1",
+		 "id": "1019",
 		 "connections": 
 			[
 				 {
@@ -251,6 +270,7 @@
 		 "x": "672",
 		 "y": "479",
 		 "underground": "1",
+		 "id": "1053",
 		 "connections": 
 			[
 				 {
@@ -264,6 +284,7 @@
 		 "x": "1042",
 		 "y": "1039",
 		 "underground": "1",
+		 "id": "1020",
 		 "connections": 
 			[
 				 {
@@ -277,6 +298,7 @@
 		 "x": "248",
 		 "y": "485",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -290,6 +312,7 @@
 		 "x": "472",
 		 "y": "641",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -303,6 +326,7 @@
 		 "x": "866",
 		 "y": "635",
 		 "underground": "1",
+		 "id": "1112",
 		 "connections": 
 			[
 				 {
@@ -316,6 +340,7 @@
 		 "x": "357",
 		 "y": "565",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -329,6 +354,7 @@
 		 "x": "377",
 		 "y": "546",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -342,6 +368,7 @@
 		 "x": "806",
 		 "y": "993",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -355,6 +382,7 @@
 		 "x": "700",
 		 "y": "993",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -368,6 +396,7 @@
 		 "x": "818",
 		 "y": "967",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -381,6 +410,7 @@
 		 "x": "597",
 		 "y": "298",
 		 "underground": "1",
+		 "id": "1036",
 		 "connections": 
 			[
 				 {
@@ -394,6 +424,7 @@
 		 "x": "752",
 		 "y": "993",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -407,6 +438,7 @@
 		 "x": "694",
 		 "y": "394",
 		 "underground": "1",
+		 "id": "2106",
 		 "connections": 
 			[
 				 {
@@ -420,6 +452,7 @@
 		 "x": "147",
 		 "y": "448",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -433,6 +466,7 @@
 		 "x": "301",
 		 "y": "620",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -446,6 +480,7 @@
 		 "x": "730",
 		 "y": "533",
 		 "underground": "1",
+		 "id": "1078",
 		 "connections": 
 			[
 				 {
@@ -459,6 +494,7 @@
 		 "x": "163",
 		 "y": "431",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -472,6 +508,7 @@
 		 "x": "123",
 		 "y": "595",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -485,6 +522,7 @@
 		 "x": "806",
 		 "y": "210",
 		 "underground": "1",
+		 "id": "1074",
 		 "connections": 
 			[
 				 {
@@ -498,6 +536,7 @@
 		 "x": "280",
 		 "y": "451",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -511,6 +550,7 @@
 		 "x": "568",
 		 "y": "482",
 		 "underground": "1",
+		 "id": "1055",
 		 "connections": 
 			[
 				 {
@@ -524,6 +564,7 @@
 		 "x": "466",
 		 "y": "166",
 		 "underground": "1",
+		 "id": "1033",
 		 "connections": 
 			[
 				 {
@@ -537,6 +578,7 @@
 		 "x": "172",
 		 "y": "560",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -550,6 +592,7 @@
 		 "x": "781",
 		 "y": "480",
 		 "underground": "1",
+		 "id": "1039",
 		 "connections": 
 			[
 				 {
@@ -567,6 +610,7 @@
 		 "x": "244",
 		 "y": "677",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -580,6 +624,7 @@
 		 "x": "153",
 		 "y": "579",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -593,6 +638,7 @@
 		 "x": "228",
 		 "y": "504",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -606,6 +652,7 @@
 		 "x": "414",
 		 "y": "508",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -619,6 +666,7 @@
 		 "x": "455",
 		 "y": "658",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -632,6 +680,7 @@
 		 "x": "818",
 		 "y": "882",
 		 "underground": "1",
+		 "id": "1041",
 		 "connections": 
 			[
 				 {
@@ -645,6 +694,7 @@
 		 "x": "389",
 		 "y": "874",
 		 "underground": "1",
+		 "id": "1087",
 		 "connections": 
 			[
 				 {
@@ -658,6 +708,7 @@
 		 "x": "766",
 		 "y": "390",
 		 "underground": "1",
+		 "id": "1051",
 		 "connections": 
 			[
 				 {
@@ -675,6 +726,7 @@
 		 "x": "428",
 		 "y": "833",
 		 "underground": "1",
+		 "id": "1086",
 		 "connections": 
 			[
 				 {
@@ -688,6 +740,7 @@
 		 "x": "253",
 		 "y": "342",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -701,6 +754,7 @@
 		 "x": "554",
 		 "y": "254",
 		 "underground": "1",
+		 "id": "1035",
 		 "connections": 
 			[
 				 {
@@ -714,6 +768,7 @@
 		 "x": "280",
 		 "y": "331",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -727,6 +782,7 @@
 		 "x": "379",
 		 "y": "454",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -740,6 +796,7 @@
 		 "x": "806",
 		 "y": "351",
 		 "underground": "1",
+		 "id": "1076",
 		 "connections": 
 			[
 				 {
@@ -753,6 +810,7 @@
 		 "x": "806",
 		 "y": "351",
 		 "underground": "1",
+		 "id": "1076",
 		 "connections": 
 			[
 				 {
@@ -766,6 +824,7 @@
 		 "x": "391",
 		 "y": "722",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -779,6 +838,7 @@
 		 "x": "515",
 		 "y": "482",
 		 "underground": "1",
+		 "id": "1057",
 		 "connections": 
 			[
 				 {
@@ -792,6 +852,7 @@
 		 "x": "866",
 		 "y": "736",
 		 "underground": "1",
+		 "id": "1004",
 		 "connections": 
 			[
 				 {
@@ -805,6 +866,7 @@
 		 "x": "507",
 		 "y": "755",
 		 "underground": "1",
+		 "id": "1084",
 		 "connections": 
 			[
 				 {
@@ -818,6 +880,7 @@
 		 "x": "642",
 		 "y": "342",
 		 "underground": "1",
+		 "id": "1037",
 		 "connections": 
 			[
 				 {
@@ -831,6 +894,7 @@
 		 "x": "462",
 		 "y": "482",
 		 "underground": "1",
+		 "id": "1059",
 		 "connections": 
 			[
 				 {
@@ -844,6 +908,7 @@
 		 "x": "360",
 		 "y": "435",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -857,11 +922,12 @@
 		 "x": "762",
 		 "y": "246",
 		 "underground": "1",
+		 "id": "1061",
 		 "connections": 
 			[
 				 {
 					 "line": "Green",
-					 "edges": [	"North Station"	] 
+					 "edges": [	"Science Park"	] 
 				 }
 			]
 	}, 
@@ -870,6 +936,7 @@
 		 "x": "395",
 		 "y": "525",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -883,6 +950,7 @@
 		 "x": "488",
 		 "y": "625",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -896,6 +964,7 @@
 		 "x": "806",
 		 "y": "74",
 		 "underground": "1",
+		 "id": "1071",
 		 "connections": 
 			[
 				 {
@@ -909,6 +978,7 @@
 		 "x": "609",
 		 "y": "653",
 		 "underground": "1",
+		 "id": "1081",
 		 "connections": 
 			[
 				 {
@@ -922,6 +992,7 @@
 		 "x": "673",
 		 "y": "993",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -935,6 +1006,7 @@
 		 "x": "925",
 		 "y": "309",
 		 "underground": "1",
+		 "id": "1010",
 		 "connections": 
 			[
 				 {
@@ -948,6 +1020,7 @@
 		 "x": "780",
 		 "y": "993",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -961,6 +1034,7 @@
 		 "x": "439",
 		 "y": "674",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -974,6 +1048,7 @@
 		 "x": "505",
 		 "y": "608",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -987,6 +1062,7 @@
 		 "x": "282",
 		 "y": "639",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1000,6 +1076,7 @@
 		 "x": "263",
 		 "y": "659",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1013,6 +1090,7 @@
 		 "x": "949",
 		 "y": "842",
 		 "underground": "1",
+		 "id": "1005",
 		 "connections": 
 			[
 				 {
@@ -1026,6 +1104,7 @@
 		 "x": "806",
 		 "y": "290",
 		 "underground": "1",
+		 "id": "1075",
 		 "connections": 
 			[
 				 {
@@ -1034,7 +1113,7 @@
 				 }, 
 				 {
 					 "line": "Green",
-					 "edges": [	"Haymarket", "Lechmere"	] 
+					 "edges": [	"Haymarket", "Science Park"	] 
 				 }
 			]
 	}, 
@@ -1043,6 +1122,7 @@
 		 "x": "520",
 		 "y": "594",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1056,6 +1136,7 @@
 		 "x": "806",
 		 "y": "40",
 		 "underground": "1",
+		 "id": "1070",
 		 "connections": 
 			[
 				 {
@@ -1069,6 +1150,7 @@
 		 "x": "1010",
 		 "y": "225",
 		 "underground": "1",
+		 "id": "1014",
 		 "connections": 
 			[
 				 {
@@ -1082,6 +1164,7 @@
 		 "x": "307",
 		 "y": "342",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1095,6 +1178,7 @@
 		 "x": "729",
 		 "y": "429",
 		 "underground": "1",
+		 "id": "1052",
 		 "connections": 
 			[
 				 {
@@ -1112,6 +1196,7 @@
 		 "x": "344",
 		 "y": "376",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1125,6 +1210,7 @@
 		 "x": "510",
 		 "y": "210",
 		 "underground": "1",
+		 "id": "1034",
 		 "connections": 
 			[
 				 {
@@ -1138,6 +1224,7 @@
 		 "x": "535",
 		 "y": "514",
 		 "underground": "1",
+		 "id": "1058",
 		 "connections": 
 			[
 				 {
@@ -1151,6 +1238,7 @@
 		 "x": "1042",
 		 "y": "987",
 		 "underground": "1",
+		 "id": "1103",
 		 "connections": 
 			[
 				 {
@@ -1164,6 +1252,7 @@
 		 "x": "1018",
 		 "y": "951",
 		 "underground": "1",
+		 "id": "1007",
 		 "connections": 
 			[
 				 {
@@ -1177,6 +1266,7 @@
 		 "x": "320",
 		 "y": "602",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1190,6 +1280,7 @@
 		 "x": "1108",
 		 "y": "126",
 		 "underground": "1",
+		 "id": "1017",
 		 "connections": 
 			[
 				 {
@@ -1202,7 +1293,8 @@
 		 "name": "Riverside",
 		 "x": "177",
 		 "y": "731",
-		 "underground": "0",
+		 "underground": "1",
+		 "id": "1101",
 		 "connections": 
 			[
 				 {
@@ -1216,6 +1308,7 @@
 		 "x": "423",
 		 "y": "691",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1229,6 +1322,7 @@
 		 "x": "547",
 		 "y": "715",
 		 "underground": "1",
+		 "id": "1083",
 		 "connections": 
 			[
 				 {
@@ -1242,6 +1336,7 @@
 		 "x": "578",
 		 "y": "685",
 		 "underground": "1",
+		 "id": "1082",
 		 "connections": 
 			[
 				 {
@@ -1255,6 +1350,7 @@
 		 "x": "818",
 		 "y": "858",
 		 "underground": "1",
+		 "id": "1040",
 		 "connections": 
 			[
 				 {
@@ -1264,10 +1360,25 @@
 			]
 	}, 
 	{
+		 "name": "Science Park",
+		 "x": "784",
+		 "y": "268",
+		 "underground": "1",
+		 "id": "1060",
+		 "connections": 
+			[
+				 {
+					 "line": "Green",
+					 "edges": [	"Lechmere", "North Station"	] 
+				 }
+			]
+	}, 
+	{
 		 "name": "Shawmut",
 		 "x": "818",
 		 "y": "906",
 		 "underground": "1",
+		 "id": "1042",
 		 "connections": 
 			[
 				 {
@@ -1281,6 +1392,7 @@
 		 "x": "128",
 		 "y": "465",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1294,6 +1406,7 @@
 		 "x": "832",
 		 "y": "532",
 		 "underground": "1",
+		 "id": "1009",
 		 "connections": 
 			[
 				 {
@@ -1307,6 +1420,7 @@
 		 "x": "395",
 		 "y": "471",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1320,6 +1434,7 @@
 		 "x": "361",
 		 "y": "396",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1333,6 +1448,7 @@
 		 "x": "300",
 		 "y": "431",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1346,6 +1462,7 @@
 		 "x": "806",
 		 "y": "423",
 		 "underground": "1",
+		 "id": "1077",
 		 "connections": 
 			[
 				 {
@@ -1363,6 +1480,7 @@
 		 "x": "468",
 		 "y": "795",
 		 "underground": "1",
+		 "id": "1085",
 		 "connections": 
 			[
 				 {
@@ -1376,6 +1494,7 @@
 		 "x": "1042",
 		 "y": "191",
 		 "underground": "1",
+		 "id": "1015",
 		 "connections": 
 			[
 				 {
@@ -1389,6 +1508,7 @@
 		 "x": "806",
 		 "y": "174",
 		 "underground": "1",
+		 "id": "1073",
 		 "connections": 
 			[
 				 {
@@ -1402,6 +1522,7 @@
 		 "x": "266",
 		 "y": "467",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1415,6 +1536,7 @@
 		 "x": "182",
 		 "y": "413",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1427,7 +1549,8 @@
 		 "name": "Symphony",
 		 "x": "532",
 		 "y": "575",
-		 "underground": "0",
+		 "underground": "1",
+		 "id": "1056",
 		 "connections": 
 			[
 				 {
@@ -1441,6 +1564,7 @@
 		 "x": "191",
 		 "y": "542",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1454,6 +1578,7 @@
 		 "x": "673",
 		 "y": "590",
 		 "underground": "1",
+		 "id": "1079",
 		 "connections": 
 			[
 				 {
@@ -1467,6 +1592,7 @@
 		 "x": "728",
 		 "y": "993",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1480,6 +1606,7 @@
 		 "x": "225",
 		 "y": "696",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1493,6 +1620,7 @@
 		 "x": "217",
 		 "y": "378",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1506,6 +1634,7 @@
 		 "x": "209",
 		 "y": "523",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1519,6 +1648,7 @@
 		 "x": "199",
 		 "y": "397",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {
@@ -1532,6 +1662,7 @@
 		 "x": "806",
 		 "y": "108",
 		 "underground": "1",
+		 "id": "1072",
 		 "connections": 
 			[
 				 {
@@ -1545,6 +1676,7 @@
 		 "x": "983",
 		 "y": "917",
 		 "underground": "1",
+		 "id": "1006",
 		 "connections": 
 			[
 				 {
@@ -1558,6 +1690,7 @@
 		 "x": "1147",
 		 "y": "86",
 		 "underground": "1",
+		 "id": "1018",
 		 "connections": 
 			[
 				 {
@@ -1571,6 +1704,7 @@
 		 "x": "977",
 		 "y": "257",
 		 "underground": "1",
+		 "id": "1013",
 		 "connections": 
 			[
 				 {
@@ -1584,6 +1718,7 @@
 		 "x": "207",
 		 "y": "714",
 		 "underground": "0",
+		 "id": "0",
 		 "connections": 
 			[
 				 {

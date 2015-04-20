@@ -13,7 +13,8 @@ lineCol = 2;
 xCol = 3;
 yCol = 4;
 underGroundCol = 5;
-edgeStartCol = 6;
+idCol = 6;
+edgeStartCol = 7;
 
 % read in the excel file
 [~,~, raw] = xlsread('station_graph.xls');
@@ -50,6 +51,7 @@ for(i=1:length(stations.names))
     stations.x(i) = raw{headerOffset+stationIdx(1), xCol};
     stations.y(i) = raw{headerOffset+stationIdx(1), yCol};
     stations.underground(i) = raw{headerOffset+stationIdx(1), underGroundCol};
+    stations.id(i) = raw{headerOffset+stationIdx(1), idCol};
     
     stations.connections{i}.line = {};
     stations.connections{i}.edges = {};
@@ -102,6 +104,7 @@ for(i=1:length(stations.names))
     fprintf(fid, '\t\t "%s": "%d",\n', 'x', stations.x(i));
     fprintf(fid, '\t\t "%s": "%d",\n', 'y', stations.y(i));
     fprintf(fid, '\t\t "%s": "%d",\n', 'underground', stations.underground(i));
+    fprintf(fid, '\t\t "%s": "%d",\n', 'id', stations.id(i));
     fprintf(fid, '\t\t "%s": \n', 'connections');
     fprintf(fid, '\t\t\t[\n');
     for(j=1:length(stations.connections{i}.line))
@@ -140,9 +143,9 @@ fclose(fid);
 %% create the json data struct that represents the subway map graph
 Green = {'Lechmere', 'North Station', 'Haymarket', 'Government Center', 'Park St', 'Boylston', 'Arlington', 'Copley', 'Hynes Convention Ctr', 'Kenmore'};
 process_writeLine( 'line_green.json', stations, Green );
-GreenE_underground = {'Copley', 'Prudential'};
+GreenE_underground = {'Copley', 'Prudential', 'Symphony'};
 process_writeLine( 'line_greenE_underground.json', stations, GreenE_underground );
-GreenE = {'Prudential', 'Symphony', 'Northeastern', 'Museum of Fine Arts', ...
+GreenE = {'Symphony', 'Northeastern', 'Museum of Fine Arts', ...
     'Longwood Medical Area', 'Brigham Circle', 'Fenwood Rd', 'Mission Park', ...
     'Riverway', 'Back of the Hill', 'Heath'};
 process_writeLine( 'line_greenE.json', stations, GreenE );
