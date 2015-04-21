@@ -141,7 +141,7 @@ fclose(fid);
 %%
 
 %% create the json data struct that represents the subway map graph
-Green = {'Lechmere', 'North Station', 'Haymarket', 'Government Center', 'Park St', 'Boylston', 'Arlington', 'Copley', 'Hynes Convention Ctr', 'Kenmore'};
+Green = {'Lechmere', 'Science Park', 'North Station', 'Haymarket', 'Government Center', 'Park St', 'Boylston', 'Arlington', 'Copley', 'Hynes Convention Ctr', 'Kenmore'};
 process_writeLine( 'line_green.json', stations, Green );
 GreenE_underground = {'Copley', 'Prudential', 'Symphony'};
 process_writeLine( 'line_greenE_underground.json', stations, GreenE_underground );
