@@ -50,14 +50,14 @@ SubwayMap = function(_parentElement, mapScale, stationMapData, line_blue, line_o
 SubwayMap.prototype.init = function() {
     var myMap = this;
 	
-	myMap.stationText = d3.select("body").append("p")
+	myMap.stationText = myMap.parentElement.append("p")
 			.classed("selectionName", true)
 			.style("padding-left", "5em")
 			.style("font-weight", "bold")
 			.style("font-size", "2em");
 	myMap.stationText.text("(click to select)");  // &nbsp  (non-breaking space) = \u00A0
 	
-	myMap.svg = d3.select("body").append("svg")
+	myMap.svg = myMap.parentElement.append("svg")
 		.attr("width", myMap.width)
 		.attr("height", myMap.height)
 		.attr("class", "map");
@@ -191,16 +191,18 @@ SubwayMap.prototype.init = function() {
 	  .attr("class", function(d){return (d.name).replace(/[\s/.]/g, '')})  		// the station names include some annoying characters for setting the class, remove white space, forward slahses, and periods
 	  .style("stroke", "black")
 	  .style("stroke-width", 1)
-	  .style("fill", "gray");
+	  .style("fill", "gray")
+	  .style("pointer-events", "all");
 	  
 	var hitBoxSize = (myMap.mapScale * myMap.stationSize) * 4;
-	var undergrounds = newStations.filter(".underground");
+	var undergrounds = newStations.filter(".underGround");
 	var stationHitBoxes = undergrounds.append("rect")
 	  .attr("width", hitBoxSize)
 	  .attr("height", hitBoxSize)
 	  .attr("x", -(hitBoxSize)/2)
 	  .attr("y", -(hitBoxSize)/2)
 	  .attr("class", "stationHitBox")
+	  .style("pointer-events", "all")
 	  .style("visibility", "hidden");
 
 	undergrounds.on("mouseover", function(d){
