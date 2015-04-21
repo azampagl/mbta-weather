@@ -53,20 +53,13 @@
 					var subwayMap = new SubwayMap(d3.select("#subwayMap"), 0.5, station_map, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, MyEventHandler);
 
 					// bind the eventHandler to the things related to map
-					$(MyEventHandler).bind("selectionChange", function(event, startDate, endDate){
+					$(MyEventHandler).bind("selectionChange", function(event){
 						//anotherVis.onSelectionChange(startDate, endDate);
 					});
 					
-					
-					
-                    initVis();
                 }
             }
 			
-			
-			function initVis(){
-				
-            }
 		
 		});
 		
