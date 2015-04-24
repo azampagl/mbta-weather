@@ -210,13 +210,15 @@ SubwayMap.prototype.init = function() {
 
 	// start with Harvard as selection
 	var harvardStation = stationDots.filter(".Harvard")
-	harvardStation.classed('selected', true);
+	d3.select(harvardStation[0][0].parentNode).classed('selected', true);
 	var harData = harvardStation.data();
 	d3.selectAll(".selectionName").transition().text("Selected: " + harData[0].name);
 	newSel = harData[0].id;
 	myMap.updateSelection(newSel);
 	
 	
+	
+	// MOUSE EVENTS
 	undergrounds.on("mouseover", function(d){
 			//var xPos = d3.mouse(this)[0];   // this often looks pretty poor on top of the subway lines
 			//var yPos = d3.mouse(this)[1];
