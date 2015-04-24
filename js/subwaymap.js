@@ -43,7 +43,7 @@ SubwayMap = function(_parentElement, stationMapData, line_blue, line_orange,
 	this.undergroundOpacity = 0.4;
 	this.aboveGroundOpacity = 0.4;
 	this.aboveGroundColor = "gray";
-
+	
     this.init();
 }
 
@@ -290,7 +290,7 @@ SubwayMap.prototype.updateSelection = function(newSelection){
 		.style("stroke-width", 4)
 		.style("stroke-opacity", 0.8);
 
-	stations = d3.selectAll('.node').filter('.underground');
+	stations = d3.selectAll('.node').filter('.underGround');
 	selectedStation = stations.filter('.selected');
 	stations.selectAll('circle')
 		.attr("r", myMap.mapScale * myMap.stationSize);
