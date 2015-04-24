@@ -110,33 +110,53 @@
     </section>
 
     <!-- Visuals Section -->
-    <section id="visuals">
+    <section>
         <div class="container">
             <div class="row section-header">
-                <div class="col-lg-12 text-center">
+                <div id="visuals" class="col-lg-12 text-center">
                     <h2>Visuals</h2>
                     <hr class="star-primary">
-                    <p>Lorem ipsum dolor sit amet, odio nonumes</p>
                 </div>
             </div>
             <div class="row">
-              <div id="timeline-container" class="col-lg-12">
-                <svg id="timeline"></svg>
+              <div class="col-lg-12">
+                <div class="visual-container">
+                  <div class="visual-container-header">
+                    <div class="visual-container-header-top"></div>
+                    <p class="visual-container-header-text">MBTA Entries Timeline</p>
+                    <div class="visual-container-header-seperator"></div>
+                  </div>
+                  <svg id="timeline"></svg>
+                </div>
               </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                  <div id="subwaymap"></div>
+                  <div class="visual-container">
+                    <div class="visual-container-header">
+                      <div class="visual-container-header-top"></div>
+                      <p class="visual-container-header-text">Station Selection</p>
+                      <div class="visual-container-header-seperator"></div>
+                    </div>
+                    <div id="subwaymap"></div>
+                  </div>
                 </div>
                 <div class="col-lg-6">
-                  <div id="chart-container" class="col-lg-12">
-                    <div id="chart-y-axis"></div>
-                    <div id="chart-y-axis-title"></div>
-                    <div id="chart-x-axis"></div>
-                    <div id="chart-x-axis-title"></div>
-                    <div id="chart-title"></div>
-                    <div id="chart-legend"></div>
-                    <div id="chart"></div>
+                  <div class="visual-container">
+                    <div class="visual-container-header">
+                      <div class="visual-container-header-top"></div>
+                      <p class="visual-container-header-text">Station Average Hourly Entries</p>
+                      <div class="visual-container-header-seperator"></div>
+                    </div>
+                    <div id="chart-container">
+                      <div id="chart-y-axis"></div>
+                      <div id="chart-y-axis-title"></div>
+                      <div id="chart-x-axis"></div>
+                      <div id="chart-x-axis-title"></div>
+                      <div id="chart-title"></div>
+                      <div id="chart-legend"></div>
+                      <div id="chart"></div>
+                    </div>
                   </div>
                 </div>
             </div>

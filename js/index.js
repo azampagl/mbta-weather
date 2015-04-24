@@ -20,9 +20,9 @@ $(function() {
 	.defer(d3.json, 'processing/line_redB.json')
 	.defer(d3.json, 'processing/line_redM.json')
     .await(init);
-  
+
   // error should be "null" if no error
-  function init(error, timelineSummary, stationSummaries, stationSeries, station_map, line_blue, line_orange, line_green, 
+  function init(error, timelineSummary, stationSummaries, stationSeries, station_map, line_blue, line_orange, line_green,
 					line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM) {
     if (!error) {
 
@@ -33,7 +33,7 @@ $(function() {
 		var mapScale = 0.33;
 		var subwayMap = new SubwayMap(d3.select("#subwaymap"), mapScale, station_map, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, MyEventHandler);
 
-		
+
 		var timeline = new Timeline(
 		  {
 			parent: '#timeline-container',
@@ -60,7 +60,7 @@ $(function() {
 		  height: 270,
 		  width: d3.select(chartElements.parent)[0][0].clientWidth,
 		  title: {
-			height: 30,
+			height: 10,
 		  },
 		  x_axis: {
 			height: 25,
@@ -83,17 +83,15 @@ $(function() {
 		stationSummaries, MyEventHandler);
 
 		summary.init();
-			
+
 		// bind the eventHandler to the things related to selecting in the map
 		$(MyEventHandler).bind("selectionChange", function(event){
 			// TODO
 			//anotherVis.onSelectionChange(startDate, endDate);
 		});
-					
+
     }
   };
 
 
 });
-			
-			
