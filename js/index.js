@@ -30,8 +30,7 @@ $(function() {
 		var MyEventHandler = new Object();
 
 				// Instantiate map
-		var mapScale = 0.33;
-		var subwayMap = new SubwayMap(d3.select("#subwaymap"), mapScale, station_map, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, MyEventHandler);
+		var subwayMap = new SubwayMap(d3.select("#subwaymap"), station_map, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, MyEventHandler);
 
 		
 		var timeline = new Timeline(
