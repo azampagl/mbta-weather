@@ -30,8 +30,8 @@ SubwayMap = function(_parentElement, stationMapData, line_blue, line_orange,
 	var width = _parentElement.node().getBoundingClientRect().width;
 	
     // define all constants
-    this.margin = {top: 20, right: 20, bottom: 20, left: 20};
-	this.mapScale = Math.min((1.0 / 1200.0) * width, (1.0 / 1100.0) * $(document).height() );   // max x is 1147 and max y is 1039
+    this.margin = {top: 10, right: 10, bottom: 10, left: 10};
+	this.mapScale = Math.min((1.0 / 1160.0) * width, (1.0 / 1050.0) * $(document).height() );   // max x is 1147 and max y is 1039
 	this.width = this.mapScale * 1200.0 + this.margin.left + this.margin.right,
     this.height = this.mapScale * 1100.0 + this.margin.top + this.margin.bottom;
 	
@@ -53,12 +53,13 @@ SubwayMap = function(_parentElement, stationMapData, line_blue, line_orange,
 SubwayMap.prototype.init = function() {
     var myMap = this;
 
-	myMap.stationText = myMap.parentElement.append("p")
+	/*myMap.stationText = myMap.parentElement.append("p")
 			.classed("selectionName", true)
 			.style("padding-left", "5em")
 			.style("font-weight", "bold")
 			.style("font-size", "2em");
 	myMap.stationText.text("(click to select)");  // &nbsp  (non-breaking space) = \u00A0
+	*/
 
 	myMap.svg = myMap.parentElement.append("svg")
 		.attr("width", myMap.width)
@@ -212,7 +213,7 @@ SubwayMap.prototype.init = function() {
 	var harvardStation = stationDots.filter(".Harvard")
 	d3.select(harvardStation[0][0].parentNode).classed('selected', true);
 	var harData = harvardStation.data();
-	d3.selectAll(".selectionName").transition().text("Selected: " + harData[0].name);
+	//d3.selectAll(".selectionName").transition().text("Selected: " + harData[0].name);
 	newSel = harData[0].id;
 	myMap.updateSelection(newSel);
 	
@@ -251,7 +252,7 @@ SubwayMap.prototype.init = function() {
 				
 				this.classList.add('selected');
 				var myData = d3.select(this).data();
-				d3.selectAll(".selectionName").text("Selected: " + myData);
+				//d3.selectAll(".selectionName").text("Selected: " + myData);
 				newSel = myData;
 				myMap.updateSelection(newSel);
 			}
@@ -267,7 +268,7 @@ SubwayMap.prototype.init = function() {
 			
 				this.classList.add('selected');
 				var myData = d3.select(this).select("circle").data();
-				d3.selectAll(".selectionName").transition().text("Selected: " + myData[0].name);
+				//d3.selectAll(".selectionName").transition().text("Selected: " + myData[0].name);
 				newSel = myData[0].id;
 				myMap.updateSelection(newSel);
 			}
@@ -314,9 +315,10 @@ SubwayMap.prototype.drawSubwayLineArray = function(lineData, svgContainer, mapSc
 	lineGroup.append("path")
 	  .attr("d", line(lineData))
 	  .style("stroke-width", 11)
+	  .style("stroke", "black")
 	  .style("fill", "none")
-	  .style('visiblity', 'hidden')
-	  .style("pointer-events", "stroke");
+	  .style("pointer-events", "stroke")
+	  .style("visibility", "hidden");
 
 	// visible path
 	var links = lineGroup.append("path")
