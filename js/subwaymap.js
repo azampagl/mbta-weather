@@ -1,14 +1,14 @@
 /**
  * subway map object for HW3 of CS171
  * @param _parentElement -- the HTML or SVG element (D3 node) to which to attach the vis
- * @param mapScale - 1.0 size is 1147 width x 1039 height in pixels
+ *      map is scaled to fit in the parents WIDTH
  * @param stationMapData -- the data array containing station names
  * @param stationLineData -- the meta-data / data description object
  *          parameters line_blue, line_orange, line_green, line_greenB, line_grenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM
  * @param eventListener -- the event listener
  * @constructor
  */
-SubwayMap = function(_parentElement, mapScale, stationMapData, line_blue, line_orange,
+SubwayMap = function(_parentElement, stationMapData, line_blue, line_orange,
 		line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, eventListener){
     this.parentElement = _parentElement;
 	this.eventHandler = $(eventListener);
@@ -28,16 +28,17 @@ SubwayMap = function(_parentElement, mapScale, stationMapData, line_blue, line_o
 	this.line_redM = line_redM;
 
 	var width = _parentElement.node().getBoundingClientRect().width;
-
+	
     // define all constants
     this.margin = {top: 20, right: 20, bottom: 20, left: 20};
-    //var style = window.getComputedStyle(this.parentElement.node(), null);  // could get fancier detecting parent element size
-	this.width = width - this.margin.left - this.margin.right,
-    this.height = width - this.margin.top - this.margin.bottom;
-
+	this.mapScale = Math.min((1.0 / 1200.0) * width, (1.0 / 1100.0) * $(document).height() );   // max x is 1147 and max y is 1039
+	this.width = this.mapScale * 1200.0 + this.margin.left + this.margin.right,
+    this.height = this.mapScale * 1100.0 + this.margin.top + this.margin.bottom;
+	
+	
 	this.stationText=[]
 	this.svg=[];
-	this.mapScale = mapScale;   // max x is 1147 and max y is 1039
+	//this.mapScale = mapScale;   // max x is 1147 and max y is 1039
 	this.stationSize = 8;
 	this.undergroundOpacity = 0.4;
 	this.aboveGroundOpacity = 0.4;
@@ -207,6 +208,17 @@ SubwayMap.prototype.init = function() {
 	  .style("pointer-events", "all")
 	  .style("visibility", "hidden");
 
+	// start with Harvard as selection
+	var harvardStation = stationDots.filter(".Harvard")
+	d3.select(harvardStation[0][0].parentNode).classed('selected', true);
+	var harData = harvardStation.data();
+	d3.selectAll(".selectionName").transition().text("Selected: " + harData[0].name);
+	newSel = harData[0].id;
+	myMap.updateSelection(newSel);
+	
+	
+	
+	// MOUSE EVENTS
 	undergrounds.on("mouseover", function(d){
 			//var xPos = d3.mouse(this)[0];   // this often looks pretty poor on top of the subway lines
 			//var yPos = d3.mouse(this)[1];
@@ -231,13 +243,12 @@ SubwayMap.prototype.init = function() {
 	d3.selectAll(".line").on("click", function(d){
 			alreadySelected = this.classList.contains("selected");
 
-			// zero out selection
-			d3.selectAll('.selected')
-				.classed('selected', false);
-			d3.selectAll(".selectionName").text("(click to select)");
-
 			var newSel = [];
 			if(!alreadySelected) {
+				// zero out other selections
+				d3.selectAll('.selected')
+					.classed('selected', false);
+				
 				this.classList.add('selected');
 				var myData = d3.select(this).data();
 				d3.selectAll(".selectionName").text("Selected: " + myData);
@@ -248,16 +259,15 @@ SubwayMap.prototype.init = function() {
 	undergrounds.on("click", function(d){
 			alreadySelected = this.classList.contains("selected");
 
-			// zero out selection
-			d3.selectAll('.selected')
-				.classed('selected', false);
-			d3.selectAll(".selectionName").text("(click to select)");
-
 			var newSel = [];
 			if(!alreadySelected) {
+				// zero out other selections
+				d3.selectAll('.selected')
+					.classed('selected', false);
+			
 				this.classList.add('selected');
 				var myData = d3.select(this).select("circle").data();
-				d3.selectAll(".selectionName").text("Selected: " + myData[0].name);
+				d3.selectAll(".selectionName").transition().text("Selected: " + myData[0].name);
 				newSel = myData[0].id;
 				myMap.updateSelection(newSel);
 			}
