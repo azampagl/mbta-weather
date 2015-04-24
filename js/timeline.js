@@ -57,9 +57,9 @@ Timeline.prototype.init = function() {
 
   var data = root.displayData();
 
-  var margin = {top: 20.5, right: 10, bottom: 30, left: 31};
+  var margin = {top: 15, right: 10, bottom: 20, left: 50};
   var width = $(root.elements.chart).parent().width() - margin.left - margin.right;
-  var height = 150 - margin.top - margin.bottom;
+  var height = 120 - margin.top - margin.bottom;
 
   var x = d3.time.scale()
     .range([0, width]);
@@ -68,7 +68,7 @@ Timeline.prototype.init = function() {
     .range([height, 0]);
 
   x.domain(d3.extent(data, function(d) { return d.x; }));
-  y.domain(d3.extent(data, function(d) { return d.y; }));
+  y.domain([200000, 500000]);
 
   var xAxis = d3.svg.axis()
     .scale(x)
@@ -78,7 +78,7 @@ Timeline.prototype.init = function() {
     .scale(y)
     .orient("left")
     .tickValues(y.domain())
-    .tickFormat(d3.format("s"));
+    .tickFormat(d3.format(".2s"));
 
   var line = d3.svg.line()
     .x(function(d) { return x(d.x); })
@@ -101,11 +101,10 @@ Timeline.prototype.init = function() {
   .append("text")
     .attr("class", "title")
     .attr("transform", "rotate(-90)")
-    .attr("x", -height / 2 - 25)
+    .attr("x", -height / 2 - 15)
     .attr("y", -10)
     .style("text-align", "center")
-    //.attr("dy", ".6em")
-    .text("Total Entries");
+    .text("Entries");
 
   svg.append("path")
     .datum(data)

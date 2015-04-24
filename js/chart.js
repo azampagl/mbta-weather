@@ -129,6 +129,7 @@ Chart.prototype.init = function(stationId, snowAmountId) {
     .style("height", root.options.x_axis.height + "px")
     .style("width", root.options.width + root.options.y_axis.width + "px")
     .style("text-align", "center")
+    .style("font-size", "12px")
     .text("Time");
 
   d3.select(root.elements.y_axis_title)
@@ -141,6 +142,7 @@ Chart.prototype.init = function(stationId, snowAmountId) {
     .style("-webkit-transform", "rotate(-90deg)")
     .style("transform", "rotate(-90deg)")
     .style("text-align", "center")
+    .style("font-size", "12px")
     .text("Entries");
 
   d3.select(root.elements.graph)

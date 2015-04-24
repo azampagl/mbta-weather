@@ -57,7 +57,7 @@ $(function() {
 
 		var chartOptions = {
 		  height: 270,
-		  width: d3.select(chartElements.parent)[0][0].clientWidth,
+		  width: d3.select(chartElements.parent)[0][0].clientWidth - 20,
 		  title: {
 			height: 10,
 		  },
@@ -65,10 +65,10 @@ $(function() {
 			height: 25,
 		  },
 		  x_axis_title: {
-			height: 25,
+			height: 20,
 		  },
 		  y_axis: {
-			width: 80,
+			width: 50,
 		  },
 		};
 
