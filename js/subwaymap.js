@@ -27,11 +27,13 @@ SubwayMap = function(_parentElement, mapScale, stationMapData, line_blue, line_o
 	this.line_redB = line_redB;
 	this.line_redM = line_redM;
 
+	var width = _parentElement.node().getBoundingClientRect().width;
+
     // define all constants
     this.margin = {top: 20, right: 20, bottom: 20, left: 20};
     //var style = window.getComputedStyle(this.parentElement.node(), null);  // could get fancier detecting parent element size
-	this.width = mapScale*1200 + this.margin.left + this.margin.right,
-    this.height = mapScale*1100 + this.margin.top + this.margin.bottom;
+	this.width = width - this.margin.left - this.margin.right,
+    this.height = width - this.margin.top - this.margin.bottom;
 
 	this.stationText=[]
 	this.svg=[];
