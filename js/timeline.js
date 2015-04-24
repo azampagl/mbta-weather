@@ -57,9 +57,9 @@ Timeline.prototype.init = function() {
 
   var data = root.displayData();
 
-  var margin = {top: 20.5, right: 10, bottom: 30, left: 30.5};
+  var margin = {top: 20.5, right: 10, bottom: 30, left: 31};
   var width = $(root.elements.chart).parent().width() - margin.left - margin.right;
-  var height = 250 - margin.top - margin.bottom;
+  var height = 150 - margin.top - margin.bottom;
 
   var x = d3.time.scale()
     .range([0, width]);
@@ -67,20 +67,22 @@ Timeline.prototype.init = function() {
   var y = d3.scale.linear()
     .range([height, 0]);
 
+  x.domain(d3.extent(data, function(d) { return d.x; }));
+  y.domain(d3.extent(data, function(d) { return d.y; }));
+
   var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom");
 
   var yAxis = d3.svg.axis()
     .scale(y)
-    .orient("left");
+    .orient("left")
+    .tickValues(y.domain())
+    .tickFormat(d3.format("s"));
 
   var line = d3.svg.line()
     .x(function(d) { return x(d.x); })
     .y(function(d) { return y(d.y); });
-
-  x.domain(d3.extent(data, function(d) { return d.x; }));
-  y.domain(d3.extent(data, function(d) { return d.y; }));
 
   var svg = d3.select(root.elements.chart)
     .attr("width", width + margin.left + margin.right)
@@ -99,9 +101,11 @@ Timeline.prototype.init = function() {
   .append("text")
     .attr("class", "title")
     .attr("transform", "rotate(-90)")
-    .attr("y", 6)
-    .attr("dy", ".71em")
-    .text("Value");
+    .attr("x", -height / 2 - 25)
+    .attr("y", -10)
+    .style("text-align", "center")
+    //.attr("dy", ".6em")
+    .text("Total Entries");
 
   svg.append("path")
     .datum(data)
