@@ -31,8 +31,43 @@ Chart = function(elements, options, data, eventHandler) {
 Chart.prototype.filterData = function(data) {
   filteredData = {};
 
+  //console.log(data);
+
   //
-  var keys = ['0', '0_2', '2_4', '4_8', '8_15', '15']
+  var keys = ['0', '0_2', '2_4', '4_8', '8_15', '15'];
+
+  //
+  var lines = {
+    "Red": "Red Line",
+    "Blue": "Blue Line",
+    "Green": "Green Line",
+    "Orange": "Orange Line",
+  };
+
+  for (var key in lines) {
+    var line = lines[key];
+    filteredData[line] = {
+      name: line,
+      x: data[0].time_intervals.slice(),
+      //y_base: y_base_init.slice(),
+      //y_snow: y_init.slice()
+    };
+
+    var num_time_intervals = data[0].time_intervals.length;
+    filteredData[line].y_base = [];
+    for (var i = 0; i < num_time_intervals; i++) {
+      filteredData[line].y_base.push(0.0);
+    }
+
+    var num_snow_bins = Object.keys(data[0]['weekday']['snow'].mean_ent_snow).length;
+    filteredData[line].y_snow = [];
+    for (var i = 0; i < num_snow_bins; i++) {
+      filteredData[line].y_snow[i] = [];
+      for (var j = 0; j < num_time_intervals; j++) {
+        filteredData[line].y_snow[i].push(0.0);
+      }
+    }
+  }
 
   data.forEach(function(d) {
     var weather = d['weekday']['snow'];
@@ -50,6 +85,19 @@ Chart.prototype.filterData = function(data) {
       y_base: weather.mean_ent,
       y_snow: y_snow
     }
+
+    d.line.forEach(function(line) {
+      var key = lines[line];
+      for (var i = 0; i < weather.mean_ent.length; i++) {
+        filteredData[key].y_base[i] += weather.mean_ent[i];
+      }
+
+      for (var i = 0; i < y_snow.length; i++) {
+        for (var j = 0; j < y_snow[i].length; j++) {
+          filteredData[key].y_snow[i][j] += y_snow[i][j];
+        }
+      }
+    });
   });
 
   return filteredData;
@@ -72,7 +120,7 @@ Chart.prototype.init = function(stationId, snowAmountId) {
     .style("height", root.options.title.height + "px")
     .style("width", root.options.width + root.options.y_axis.width + "px")
     .style("text-align", "center")
-    .text("Average Hourly Entries for " + root.data[stationId].name)
+    .text("Average Hourly Entries");
 
   d3.select(root.elements.x_axis_title)
     .style("position", "absolute")

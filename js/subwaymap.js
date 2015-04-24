@@ -5,18 +5,18 @@
  * @param stationMapData -- the data array containing station names
  * @param stationLineData -- the meta-data / data description object
  *          parameters line_blue, line_orange, line_green, line_greenB, line_grenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM
- * @param eventListener -- the event listener 
+ * @param eventListener -- the event listener
  * @constructor
  */
-SubwayMap = function(_parentElement, mapScale, stationMapData, line_blue, line_orange, 
+SubwayMap = function(_parentElement, mapScale, stationMapData, line_blue, line_orange,
 		line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, eventListener){
     this.parentElement = _parentElement;
 	this.eventHandler = $(eventListener);
 	this.currentSelection = [];
-	
+
     this.stationMap = stationMapData;
 	this.line_blue = line_blue;
-	this.line_orange = line_orange; 
+	this.line_orange = line_orange;
 	this.line_green = line_green;
 	this.line_greenB = line_greenB;
 	this.line_greenC = line_greenC;
@@ -40,7 +40,7 @@ SubwayMap = function(_parentElement, mapScale, stationMapData, line_blue, line_o
 	this.undergroundOpacity = 0.4;
 	this.aboveGroundOpacity = 0.4;
 	this.aboveGroundColor = "gray";
-	
+
     this.init();
 }
 
@@ -49,34 +49,34 @@ SubwayMap = function(_parentElement, mapScale, stationMapData, line_blue, line_o
  */
 SubwayMap.prototype.init = function() {
     var myMap = this;
-	
+
 	myMap.stationText = myMap.parentElement.append("p")
 			.classed("selectionName", true)
 			.style("padding-left", "5em")
 			.style("font-weight", "bold")
 			.style("font-size", "2em");
 	myMap.stationText.text("(click to select)");  // &nbsp  (non-breaking space) = \u00A0
-	
+
 	myMap.svg = myMap.parentElement.append("svg")
 		.attr("width", myMap.width)
 		.attr("height", myMap.height)
 		.attr("class", "map");
-	
+
 	// a rect to eat the selection clicks inside the svg so we can nullify the selection
-	var clickEater = myMap.svg.append("rect")
+	/*var clickEater = myMap.svg.append("rect")
 		.attr("width", myMap.width)
 		.attr("height", myMap.height)
 		.attr("class", "selectionClickEater")
 		.style("fill", "white")
-	    .on("click", function(d){			
+	    .on("click", function(d){
 				// zero out selection
 				d3.selectAll('.selected')
 					.classed('selected', false);
 				d3.selectAll(".selectionName").text("(click to select)");
 				myMap.updateSelection([]);
-			});
-		
-		
+			});*/
+
+
 	var blueLine = myMap.svg.append("g").attr("class", "line blue").data(["Blue Line"]);
 	myMap.drawSubwayLineArray(myMap.line_blue, blueLine, myMap.mapScale, "blue", myMap.undergroundOpacity);
 	var orangeLine = myMap.svg.append("g").attr("class", "line orange").data(["Orange Line"]);
@@ -92,11 +92,11 @@ SubwayMap.prototype.init = function() {
 	myMap.drawSubwayLineArray(myMap.line_red, redLine, myMap.mapScale, "red", myMap.undergroundOpacity);
 	myMap.drawSubwayLineArray(myMap.line_redB, redLine, myMap.mapScale, "red", myMap.undergroundOpacity);
 	myMap.drawSubwayLineArray(myMap.line_redM, redLine, myMap.mapScale, myMap.aboveGroundColor, myMap.aboveGroundOpacity);
-	
+
 	redLine.on("mouseover", function(d){
 				var xPos = 100 * myMap.mapScale;
 				var yPos = 1000 * myMap.mapScale
-				
+
 				//d3.select(this).append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 				myMap.svg.append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 					.attr("text-anchor", "left")
@@ -111,11 +111,11 @@ SubwayMap.prototype.init = function() {
 				var lin = d3.selectAll(".line.red").selectAll(".subwayPath")
 					.style("stroke-width", 3);
 			});
-			
+
 	greenLine.on("mouseover", function(d){
 				var xPos = 100 * myMap.mapScale;
 				var yPos = 1000 * myMap.mapScale
-				
+
 				//d3.select(this).append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 				myMap.svg.append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 					.attr("text-anchor", "left")
@@ -130,11 +130,11 @@ SubwayMap.prototype.init = function() {
 				var lin = d3.selectAll(".line.green").selectAll(".subwayPath")
 					.style("stroke-width", 3);
 			});
-			
+
 	orangeLine.on("mouseover", function(d){
 				var xPos = 100 * myMap.mapScale;
 				var yPos = 1000 * myMap.mapScale
-				
+
 				//d3.select(this).append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 				myMap.svg.append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 					.attr("text-anchor", "left")
@@ -149,11 +149,11 @@ SubwayMap.prototype.init = function() {
 				var lin = d3.selectAll(".line.orange").selectAll(".subwayPath")
 					.style("stroke-width", 3);
 			});
-			
+
 	blueLine.on("mouseover", function(d){
 				var xPos = 100 * myMap.mapScale;
 				var yPos = 1000 * myMap.mapScale
-				
+
 				//d3.select(this).append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 				myMap.svg.append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 					.attr("text-anchor", "left")
@@ -168,7 +168,7 @@ SubwayMap.prototype.init = function() {
 				var lin = d3.selectAll(".line.blue").selectAll(".subwayPath")
 					.style("stroke-width", 3);
 			});
-	
+
 	var stationsData = myMap.stationMap;
 	var newStations = myMap.svg.selectAll(".node")
 	  .data(stationsData)
@@ -193,7 +193,7 @@ SubwayMap.prototype.init = function() {
 	  .style("stroke-width", 1)
 	  .style("fill", "gray")
 	  .style("pointer-events", "all");
-	  
+
 	var hitBoxSize = (myMap.mapScale * myMap.stationSize) * 4;
 	var undergrounds = newStations.filter(".underGround");
 	var stationHitBoxes = undergrounds.append("rect")
@@ -210,7 +210,7 @@ SubwayMap.prototype.init = function() {
 			//var yPos = d3.mouse(this)[1];
 			var xPos = 100 * myMap.mapScale;
 			var yPos = 1000 * myMap.mapScale
-			
+
 			//d3.select(this).append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 			myMap.svg.append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 				.attr("text-anchor", "left")
@@ -228,37 +228,37 @@ SubwayMap.prototype.init = function() {
 
 	d3.selectAll(".line").on("click", function(d){
 			alreadySelected = this.classList.contains("selected");
-			
+
 			// zero out selection
 			d3.selectAll('.selected')
 				.classed('selected', false);
 			d3.selectAll(".selectionName").text("(click to select)");
-			
+
 			var newSel = [];
 			if(!alreadySelected) {
 				this.classList.add('selected');
 				var myData = d3.select(this).data();
 				d3.selectAll(".selectionName").text("Selected: " + myData);
 				newSel = myData;
+				myMap.updateSelection(newSel);
 			}
-			myMap.updateSelection(newSel);
 		});
 	undergrounds.on("click", function(d){
 			alreadySelected = this.classList.contains("selected");
-			
+
 			// zero out selection
 			d3.selectAll('.selected')
 				.classed('selected', false);
 			d3.selectAll(".selectionName").text("(click to select)");
-			
+
 			var newSel = [];
 			if(!alreadySelected) {
 				this.classList.add('selected');
 				var myData = d3.select(this).select("circle").data();
 				d3.selectAll(".selectionName").text("Selected: " + myData[0].name);
 				newSel = myData[0].id;
+				myMap.updateSelection(newSel);
 			}
-			myMap.updateSelection();
 		});
 };
 
@@ -273,7 +273,7 @@ SubwayMap.prototype.updateSelection = function(newSelection){
 	selectedLine.selectAll(".subwayPath")
 		.style("stroke-width", 4)
 		.style("stroke-opacity", 0.8);
-	
+
 	stations = d3.selectAll('.node').filter('.underground');
 	selectedStation = stations.filter('.selected');
 	stations.selectAll('circle')
@@ -281,7 +281,7 @@ SubwayMap.prototype.updateSelection = function(newSelection){
 	selectedStation.selectAll('circle')
 		.attr("r", 2 * myMap.mapScale * myMap.stationSize);
 	if(newSelection != myMap.currentSelection){
-		myMap.eventHandler.trigger("selectionChange", newSelection);
+		myMap.eventHandler.trigger("stationChange", newSelection);
 		myMap.currentSelection = newSelection;
 	}
 };
@@ -294,11 +294,11 @@ SubwayMap.prototype.drawSubwayLineArray = function(lineData, svgContainer, mapSc
 		  .interpolate("cardinal")
 		  .x(function(d) { return mapScale * d.x; })
 		  .y(function(d) { return mapScale * d.y; });
-	  
-	  
+
+
 	var lineGroup = svgContainer.append('g');
-	  
-	// hidden path to increase hitbox size for selection 
+
+	// hidden path to increase hitbox size for selection
 	lineGroup.append("path")
 	  .attr("d", line(lineData))
 	  .style("stroke-width", 11)

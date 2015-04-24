@@ -29,7 +29,7 @@ Timeline.prototype.displayData = function(data) {
 
   var filteredData = [];
 
-  console.log(root.data);
+  //console.log(root.data);
 
   for (var i = 0; i < root.data['days'].length; i++) {
     //console.log(data['days'][i]);
