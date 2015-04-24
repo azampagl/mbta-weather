@@ -113,14 +113,14 @@ Chart.prototype.init = function(stationId, snowAmountId) {
     .style("position", "relative")
     .style("height", root.options.height + "px");
 
-  d3.select(root.elements.title)
+  /*d3.select(root.elements.title)
     .style("position", "absolute")
     .style("top", "0")
     .style("bottom", "0")
     .style("height", root.options.title.height + "px")
     .style("width", root.options.width + root.options.y_axis.width + "px")
     .style("text-align", "center")
-    .text("Average Hourly Entries");
+    .text("Average Hourly Entries");*/
 
   d3.select(root.elements.x_axis_title)
     .style("position", "absolute")
@@ -177,15 +177,16 @@ Chart.prototype.init = function(stationId, snowAmountId) {
   var timeFormat = function(d) {
     var hours = Math.floor(d);
     var minutes = (d - hours) * 60;
-    var ampm = hours >= 12 ? 'pm' : 'am';
+    var ampm = hours >= 12 ? 'PM' : 'AM';
 
     hours = hours % 12;
     hours = hours ? hours : 12;
 
-    hours = hours < 10 ? '0' + hours : hours;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
+    //hours = hours < 10 ? '0' + hours : hours;
+    //minutes = minutes < 10 ? '0' + minutes : minutes;
 
-    return hours + ":" + minutes + " " + ampm;
+    //return hours + ":" + minutes + " " + ampm;
+    return hours + " " + ampm;
   };
 
   var xAxis = new Rickshaw.Graph.Axis.X({
