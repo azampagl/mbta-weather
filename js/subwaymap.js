@@ -30,8 +30,8 @@ SubwayMap = function(_parentElement, stationMapData, line_blue, line_orange,
 	var width = _parentElement.node().getBoundingClientRect().width;
 	
     // define all constants
-    this.margin = {top: 20, right: 20, bottom: 20, left: 20};
-	this.mapScale = Math.min((1.0 / 1200.0) * width, (1.0 / 1100.0) * $(document).height() );   // max x is 1147 and max y is 1039
+    this.margin = {top: 20, right: 10, bottom: 10, left: 20};
+	this.mapScale = Math.min((1.0 / 1160.0) * width, (1.0 / 1050.0) * $(document).height() );   // max x is 1147 and max y is 1039
 	this.width = this.mapScale * 1200.0 + this.margin.left + this.margin.right,
     this.height = this.mapScale * 1100.0 + this.margin.top + this.margin.bottom;
 	
@@ -53,17 +53,21 @@ SubwayMap = function(_parentElement, stationMapData, line_blue, line_orange,
 SubwayMap.prototype.init = function() {
     var myMap = this;
 
-	myMap.stationText = myMap.parentElement.append("p")
+	/*myMap.stationText = myMap.parentElement.append("p")
 			.classed("selectionName", true)
 			.style("padding-left", "5em")
 			.style("font-weight", "bold")
 			.style("font-size", "2em");
 	myMap.stationText.text("(click to select)");  // &nbsp  (non-breaking space) = \u00A0
+	*/
 
 	myMap.svg = myMap.parentElement.append("svg")
 		.attr("width", myMap.width)
 		.attr("height", myMap.height)
-		.attr("class", "map");
+		.attr("class", "map")
+		.append("g")
+		.attr("transform", function(d) { return "translate(" + myMap.margin.left + "," + myMap.margin.top + ")"; });
+
 
 	// a rect to eat the selection clicks inside the svg so we can nullify the selection
 	/*var clickEater = myMap.svg.append("rect")
@@ -180,7 +184,7 @@ SubwayMap.prototype.init = function() {
 	  .attr("class", "node")
 	  .classed("aboveGround", function(d){ return parseInt(d.underground) == 0 })
 	  .classed("underGround", function(d){ return parseInt(d.underground) != 0 })
-	  .attr("transform", function(d) { return "translate(" + myMap.mapScale * d.x + "," + myMap.mapScale * d.y + ")"; });
+	  .attr("transform", function(d) { return "translate(" + myMap.mapScale * (d.x-99) + "," + myMap.mapScale * (d.y-40) + ")"; });  // min x and y are 99 and 40 respectively
 
 	var stationDots = newStations.append("circle")
 	  .attr("r", function(d){
@@ -212,7 +216,7 @@ SubwayMap.prototype.init = function() {
 	var harvardStation = stationDots.filter(".Harvard")
 	d3.select(harvardStation[0][0].parentNode).classed('selected', true);
 	var harData = harvardStation.data();
-	d3.selectAll(".selectionName").transition().text("Selected: " + harData[0].name);
+	//d3.selectAll(".selectionName").transition().text("Selected: " + harData[0].name);
 	newSel = harData[0].id;
 	myMap.updateSelection(newSel);
 	
@@ -223,7 +227,7 @@ SubwayMap.prototype.init = function() {
 			//var xPos = d3.mouse(this)[0];   // this often looks pretty poor on top of the subway lines
 			//var yPos = d3.mouse(this)[1];
 			var xPos = 100 * myMap.mapScale;
-			var yPos = 1000 * myMap.mapScale
+			var yPos = 900 * myMap.mapScale
 
 			//d3.select(this).append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 			myMap.svg.append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
@@ -251,7 +255,7 @@ SubwayMap.prototype.init = function() {
 				
 				this.classList.add('selected');
 				var myData = d3.select(this).data();
-				d3.selectAll(".selectionName").text("Selected: " + myData);
+				//d3.selectAll(".selectionName").text("Selected: " + myData);
 				newSel = myData;
 				myMap.updateSelection(newSel);
 			}
@@ -267,7 +271,7 @@ SubwayMap.prototype.init = function() {
 			
 				this.classList.add('selected');
 				var myData = d3.select(this).select("circle").data();
-				d3.selectAll(".selectionName").transition().text("Selected: " + myData[0].name);
+				//d3.selectAll(".selectionName").transition().text("Selected: " + myData[0].name);
 				newSel = myData[0].id;
 				myMap.updateSelection(newSel);
 			}
@@ -304,8 +308,8 @@ SubwayMap.prototype.drawSubwayLineArray = function(lineData, svgContainer, mapSc
 	// line generator for nice, smooth lines
 	var line = d3.svg.line()
 		  .interpolate("cardinal")
-		  .x(function(d) { return mapScale * d.x; })
-		  .y(function(d) { return mapScale * d.y; });
+		  .x(function(d) { return mapScale * (d.x-99); })    // min x is 99 in green line
+		  .y(function(d) { return mapScale * (d.y-40); });	 // min y is 40 in orange line
 
 
 	var lineGroup = svgContainer.append('g');
@@ -314,9 +318,10 @@ SubwayMap.prototype.drawSubwayLineArray = function(lineData, svgContainer, mapSc
 	lineGroup.append("path")
 	  .attr("d", line(lineData))
 	  .style("stroke-width", 11)
+	  .style("stroke", "black")
 	  .style("fill", "none")
-	  .style('visiblity', 'hidden')
-	  .style("pointer-events", "stroke");
+	  .style("pointer-events", "stroke")
+	  .style("visibility", "hidden");
 
 	// visible path
 	var links = lineGroup.append("path")
