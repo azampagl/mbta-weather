@@ -14,6 +14,10 @@ SubwayMap = function(_parentElement, stationMapData, line_blue, line_orange,
 	this.eventHandler = $(eventListener);
 	this.currentSelection = [];
 
+	this.eventHandler.on("snowAmountChange", function(e, id) {
+		this.snowAmountChange(id);
+	  });
+
     this.stationMap = stationMapData;
 	this.line_blue = line_blue;
 	this.line_orange = line_orange;
@@ -43,6 +47,12 @@ SubwayMap = function(_parentElement, stationMapData, line_blue, line_orange,
 	this.undergroundOpacity = 0.4;
 	this.aboveGroundOpacity = 0.4;
 	this.aboveGroundColor = "gray";
+
+	this.yHooverTextPos = 170;
+	this.xHooverTextPos = 100;
+	
+	this.yColorbar = 850;
+	this.xColorbar = 390;
 	
     this.init();
 }
@@ -101,8 +111,8 @@ SubwayMap.prototype.init = function() {
 	myMap.drawSubwayLineArray(myMap.line_redM, redLine, myMap.mapScale, myMap.aboveGroundColor, myMap.aboveGroundOpacity);
 
 	redLine.on("mouseover", function(d){
-				var xPos = 100 * myMap.mapScale;
-				var yPos = 1000 * myMap.mapScale
+				var xPos = myMap.xHooverTextPos * myMap.mapScale;
+				var yPos = myMap.yHooverTextPos * myMap.mapScale
 
 				//d3.select(this).append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 				myMap.svg.append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
@@ -120,8 +130,8 @@ SubwayMap.prototype.init = function() {
 			});
 
 	greenLine.on("mouseover", function(d){
-				var xPos = 100 * myMap.mapScale;
-				var yPos = 1000 * myMap.mapScale
+				var xPos = myMap.xHooverTextPos * myMap.mapScale;
+				var yPos = myMap.yHooverTextPos * myMap.mapScale
 
 				//d3.select(this).append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 				myMap.svg.append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
@@ -139,8 +149,8 @@ SubwayMap.prototype.init = function() {
 			});
 
 	orangeLine.on("mouseover", function(d){
-				var xPos = 100 * myMap.mapScale;
-				var yPos = 1000 * myMap.mapScale
+				var xPos = myMap.xHooverTextPos * myMap.mapScale;
+				var yPos = myMap.yHooverTextPos * myMap.mapScale
 
 				//d3.select(this).append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 				myMap.svg.append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
@@ -158,8 +168,8 @@ SubwayMap.prototype.init = function() {
 			});
 
 	blueLine.on("mouseover", function(d){
-				var xPos = 100 * myMap.mapScale;
-				var yPos = 1000 * myMap.mapScale
+				var xPos = myMap.xHooverTextPos * myMap.mapScale;
+				var yPos = myMap.yHooverTextPos * myMap.mapScale
 
 				//d3.select(this).append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 				myMap.svg.append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
@@ -177,6 +187,11 @@ SubwayMap.prototype.init = function() {
 			});
 
 	var stationsData = myMap.stationMap;
+	// add in default color
+	for(var i = 0; i < stationsData.length; i++){
+		stationsData[i].color = myMap.aboveGroundColor;
+	}
+	
 	var newStations = myMap.svg.selectAll(".node")
 	  .data(stationsData)
 	  .enter()
@@ -197,12 +212,13 @@ SubwayMap.prototype.init = function() {
 		})
 	  .attr("class", function(d){return (d.name).replace(/[\s/.]/g, '')})  		// the station names include some annoying characters for setting the class, remove white space, forward slahses, and periods
 	  .style("stroke", "black")
+	  .style("fill", function(d){return (d.color).replace(/[\s/.]/g, '')})
 	  .style("stroke-width", 1)
-	  .style("fill", "gray")
 	  .style("pointer-events", "all");
 
 	var hitBoxSize = (myMap.mapScale * myMap.stationSize) * 4;
 	var undergrounds = newStations.filter(".underGround");
+	
 	var stationHitBoxes = undergrounds.append("rect")
 	  .attr("width", hitBoxSize)
 	  .attr("height", hitBoxSize)
@@ -211,7 +227,9 @@ SubwayMap.prototype.init = function() {
 	  .attr("class", "stationHitBox")
 	  .style("pointer-events", "all")
 	  .style("visibility", "hidden");
-
+	
+	
+	  
 	// start with Harvard as selection
 	var harvardStation = stationDots.filter(".Harvard")
 	d3.select(harvardStation[0][0].parentNode).classed('selected', true);
@@ -221,13 +239,11 @@ SubwayMap.prototype.init = function() {
 	myMap.updateSelection(newSel);
 	
 	
-	
-	// MOUSE EVENTS
 	undergrounds.on("mouseover", function(d){
 			//var xPos = d3.mouse(this)[0];   // this often looks pretty poor on top of the subway lines
 			//var yPos = d3.mouse(this)[1];
-			var xPos = 100 * myMap.mapScale;
-			var yPos = 900 * myMap.mapScale
+			var xPos = myMap.xHooverTextPos * myMap.mapScale;
+			var yPos = myMap.yHooverTextPos * myMap.mapScale;
 
 			//d3.select(this).append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
 			myMap.svg.append("text").classed("mouseName", true).attr("font-weight", "bold").attr("font-size", "1em")
@@ -241,7 +257,9 @@ SubwayMap.prototype.init = function() {
 		})
 	  .on("mouseout", function(d){
 			d3.selectAll(".mouseName").remove();
-			d3.selectAll("."+(d.name).replace(/[\s/.]/g, '')).style("fill", "gray");;
+			//d3.selectAll("."+(d.name).replace(/[\s/.]/g, ''))
+			//.style("fill", function(d, i){return d});
+			undergrounds.selectAll("circle").style("fill", function(d,i){return d.color});  // reset everything
 		})
 
 	d3.selectAll(".line").on("click", function(d){
@@ -279,10 +297,11 @@ SubwayMap.prototype.init = function() {
 };
 
 // function to highlight elements with 'selected' class type
+// 		newSelection is a unique id for the selected element (must support !=)
 SubwayMap.prototype.updateSelection = function(newSelection){
 	var myMap = this;
-	lines = d3.selectAll('.line');
-	selectedLine = lines.filter('.selected');
+	var lines = d3.selectAll('.line');
+	var selectedLine = lines.filter('.selected');
 	lines.selectAll(".subwayPath")
 		.style("stroke-width", 3)
 		.style("stroke-opacity", 0.4);
@@ -290,8 +309,8 @@ SubwayMap.prototype.updateSelection = function(newSelection){
 		.style("stroke-width", 4)
 		.style("stroke-opacity", 0.8);
 
-	stations = d3.selectAll('.node').filter('.underGround');
-	selectedStation = stations.filter('.selected');
+	var stations = d3.selectAll('.node').filter('.underGround');
+	var selectedStation = stations.filter('.selected');
 	stations.selectAll('circle')
 		.attr("r", myMap.mapScale * myMap.stationSize);
 	selectedStation.selectAll('circle')
@@ -301,6 +320,102 @@ SubwayMap.prototype.updateSelection = function(newSelection){
 		myMap.currentSelection = newSelection;
 	}
 };
+
+// adjust the fill color of the stations to match their shrinkage
+SubwayMap.prototype.snowAmountChange = function(id){
+	var myMap = this;
+
+	var stations = d3.selectAll('.node.underGround');
+	var n_stations = stations[0].length;
+	
+	var myData = stations.data();
+	if(id == 0){
+		// 'None condition'
+		for (var i = 0; i < n_stations; i++) {
+			myData[i].color = "gray";
+		}
+		stations.data(myData);
+	}else{
+		
+		// find the ridership for our current filters
+		var riders = new Array(n_stations);
+		var normRiders = new Array(n_stations);
+		var perChange = new Array(n_stations);		
+		// var stationData = stations.data();
+		for (var i = 0; i < n_stations; i++) {
+			perChange[i] = (Math.random()*0.05);
+			normRiders[i] = (Math.round(Math.random() * 40000)+5000);
+			riders[i] = (Math.round(normRiders[i] * perChange[i]));
+			//var stationID = stationData[i].id;
+			//perChange[i] = riders[i] / normRiders[i];
+		}
+		var maximumChange = Math.max.apply(Math, perChange);;  // maximum percent change over all stations with current filters
+		// second loop now that maximum value is known
+		var hue = 105; // 105 is a green [range 0-360]
+		var sat = .5; // neutral saturation
+		var lightness = 0;
+		for (var i = 0; i < n_stations; i++) {
+			lightness = (1 - perChange[i]/maximumChange)*0.7 + 0.15;  // range of 0.15 to 0.85
+			myData[i].color = d3.hsl(hue, sat, lightness);
+		}
+		stations.data(myData);
+		
+		
+		// NOT WORKING ... move into variable of the subwaymap class instead of storing in each element -DB
+		// now applying the data makes the color super easy
+		//var stationCircs = stations.selectAll('circle')
+		//	.data(myColor);
+		//	.style("fill", function(d){return d});  // They all get the color of myColor[0] for some reason	
+		//console.log(stations)
+		
+		// add a colorbar
+		var oneDecimalFormat = d3.format(".1f");
+		var colorbarWidth = 250;
+		myMap.addColorbar(myMap.mapScale * myMap.xColorbar, myMap.mapScale * myMap.yColorbar, myMap.mapScale * colorbarWidth, hue, sat, 0.15, 0.85,  oneDecimalFormat(maximumChange * -100) + ' %', '0 %');
+	}
+	//console.log(stations.selectAll('circle'))
+	stations.selectAll('circle')
+			.style("fill", function(d){return d.color});
+};
+
+// a colorbar for a single hue where only the lightness is changed
+SubwayMap.prototype.addColorbar = function(x, y, width, hue, sat, minLightness, maxLightness, minLabel, maxLabel){
+	var colorbar = this.svg.append("g").attr("class", "colorbar");
+	
+	var numColors = Math.min(10, Math.max( 3, width/10));   // minimum of 3 colors and maximum of 10 shades in colorbar with natural size of 10 px per color
+	var colorSplotchWidth = width/numColors;
+	var colorSplotchHeight = Math.min(colorSplotchWidth, 15) // 15 px max height for colors
+	var xs = new Array(numColors);
+	for(var i=0; i< numColors; i++){
+		xs[i] = x + i * colorSplotchWidth;
+	}
+	
+	colorbar.append("g")
+		.attr("class", "swatches")
+		.selectAll("rect")
+		.data(xs)
+		.enter()
+		.append("rect")
+		.attr("x", function(d,i){return d})
+		.attr("y", y)
+		.attr("width", colorSplotchWidth)
+		.attr("height", colorSplotchHeight)
+		.style("fill", function(d,i){return d3.hsl(hue, sat, minLightness + (i/numColors * maxLightness))});
+		
+	colorbar.append("text")
+		.attr("x", x-colorSplotchWidth)
+		.attr("y", y-15)
+		.style("text-align", "center")
+		.text(minLabel);
+		
+	colorbar.append("text")
+		.attr("x", x+width)
+		.attr("y", y-15)
+		.style("text-align", "center")
+		.text(maxLabel);
+};
+
+
 
 // helper function for drawing the subway lines as a path
 // line data is imported with x and y cartesian map position (pixels)
