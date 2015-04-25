@@ -7,6 +7,7 @@ $(function() {
   queue().defer(d3.json, 'processing/full_summary.json')
 	.defer(d3.json, 'processing/station_summary.json')
     .defer(d3.json, 'processing/station_series.json')
+	.defer(d3.json, 'processing/station_map_numbers.json')
 	.defer(d3.json, 'processing/station_map.json')
 	.defer(d3.json, 'processing/line_blue.json')
 	.defer(d3.json, 'processing/line_orange.json')
@@ -22,7 +23,7 @@ $(function() {
     .await(init);
 
   // error should be "null" if no error
-  function init(error, timelineSummary, stationSummaries, stationSeries, station_map, line_blue, line_orange, line_green,
+  function init(error, timelineSummary, stationSummaries, stationSeries, station_map_numbers, station_map, line_blue, line_orange, line_green,
 					line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM) {
     if (!error) {
 
@@ -30,7 +31,7 @@ $(function() {
 		var MyEventHandler = new Object();
 
 				// Instantiate map
-		var subwayMap = new SubwayMap(d3.select("#subwaymap"), station_map, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, MyEventHandler);
+		var subwayMap = new SubwayMap(d3.select("#subwaymap"), station_map, station_map_numbers, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, MyEventHandler);
 
 
 		var timeline = new Timeline(

@@ -3,22 +3,24 @@
  * @param _parentElement -- the HTML or SVG element (D3 node) to which to attach the vis
  *      map is scaled to fit in the parents WIDTH
  * @param stationMapData -- the data array containing station names
+ * @param stationSummaryData -- the data array containing the summaries per station for each of our filter categories
  * @param stationLineData -- the meta-data / data description object
  *          parameters line_blue, line_orange, line_green, line_greenB, line_grenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM
  * @param eventListener -- the event listener
  * @constructor
  */
-SubwayMap = function(_parentElement, stationMapData, line_blue, line_orange,
+SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_blue, line_orange,
 		line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, eventListener){
     this.parentElement = _parentElement;
 	this.eventHandler = $(eventListener);
 	this.currentSelection = [];
-
+	
 	this.eventHandler.on("snowAmountChange", function(e, id) {
 		this.snowAmountChange(id);
 	  });
 
     this.stationMap = stationMapData;
+	this.stationEntries = stationSummaryData;
 	this.line_blue = line_blue;
 	this.line_orange = line_orange;
 	this.line_green = line_green;
@@ -31,6 +33,13 @@ SubwayMap = function(_parentElement, stationMapData, line_blue, line_orange,
 	this.line_redB = line_redB;
 	this.line_redM = line_redM;
 
+	this.snowBinKeys = ["no_snow", "0", "(0, 2)", "(2, 4)", "(4, 8)", "(8, 15)", "15"];
+	this.rainBinKeys = ["no_rain", "drizzle", "rain_not_drizzle"];
+	this.dayCategory = 1;  // 1 = weekday, 2 = weekend
+	this.snowBinIdx = 0;  // 0 off, index into this.snowBinKeys
+	this.rainBinIdx = 0;  // 0 off, index into this.rainBinKeys
+	
+	
 	var width = _parentElement.node().getBoundingClientRect().width;
 	
     // define all constants
@@ -53,6 +62,7 @@ SubwayMap = function(_parentElement, stationMapData, line_blue, line_orange,
 	
 	this.yColorbar = 850;
 	this.xColorbar = 390;
+	this.colorbar = d3.select("colorbar");
 	
     this.init();
 }
@@ -321,20 +331,125 @@ SubwayMap.prototype.updateSelection = function(newSelection){
 	}
 };
 
-// adjust the fill color of the stations to match their shrinkage
-SubwayMap.prototype.snowAmountChange = function(id){
+// adjust the fill color of the stations to match their shrinkage of ridership
+// snowTickIdx is tick index - ie 0, 1, 2, 3
+// rainTickIdx is tick index - ie 0, 1, 2, 3
+// dayFlag is 0 is no change, 1 = weekday, 2 = weekend
+SubwayMap.prototype.filterChange = function(snowTickIdx, rainTickIdx, dayFlag){
+	var myMap = this;
+	
+	myMap.snowBinIdx = id;
+	
+	myMap.rainBinIdx = id;  // different than snow since the 0 idx is redundant to off in our stationEntries data array
+	
+	if(dayFlag == 1 || dayFlag == 2){
+		myMap.dayCategory = dayFlag;  // 1 = weekday, 2 = weekend
+	}
+	
+	myMap.updateColoring();
+}
+
+// adjust the fill color of the stations to match their shrinkage of ridership
+//  1 = weekday, 2 = weekend
+SubwayMap.prototype.filterChange = function(dayFlag){
+	var myMap = this;
+	myMap.dayCategory = dayFlag;  // 1 = weekday, 2 = weekend
+	
+	myMap.updateColoring();
+}
+
+// get the entries after the snow and rain is applied and using dayCategory flags from the this.stationEntries data array
+// using the specified station ID
+SubwayMap.prototype.getEntriesWithWeather = function(stationID){
+	var myMap = this;
+	
+	var key1 = "";
+	if(myMap.snowBinIdx == 0 && myMap.rainBinIdx == 0){
+		if(myMap.dayCategory == 2){
+			key1 = "weekend_daily_avg";
+		}else if(myMap.dayCategory == 1){
+			key1 = "weekday_daily_avg";
+		}
+		
+		for(var i = 0; i < myMap.stationEntries.length; i++){
+			if(stationEntries[i]["station_id"]){
+				return stationEntries[i][key1];
+			}
+		}
+	}
+	
+	key1 = "weekend";
+	if(myMap.dayCategory == 1){ key1 = "weekday"; }
+	
+	var key2 = "snow"
+	var key3 = myMap.snowBinKeys[myMap.snowBinIdx];
+	if(myMap.rainBinIdx > 0){ 
+		// since we already covered the case where both rain and snow are 0, we know either rain is set or snow is (both is not an allowed setting)
+		key2 = "rain"; 
+		key3 = myMap.rainBinKeys[myMap.rainBinIdx];
+	}
+	for(var i = 0; i < myMap.stationEntries.length; i++){
+		if(stationEntries[i]["station_id"]){
+			return stationEntries[i][key1][key2][key3];
+		}
+	}
+};
+
+// get the normal entries using the snow and rain and dayCategory flags from the this.stationEntries data array
+// using the specified station ID
+//
+//   ie with a snow bin get the winter average
+//   and without get the global average
+SubwayMap.prototype.getNormEntries = function(stationID){
+	var myMap = this;
+	
+	var key1 = "";
+	if(myMap.snowBinIdx == 0 && myMap.rainBinIdx == 0){
+		if(myMap.dayCategory == 2){
+			key1 = "weekend_daily_avg";
+		}else if(myMap.dayCategory == 1){
+			key1 = "weekday_daily_avg";
+		}
+		
+		for(var i = 0; i < myMap.stationEntries.length; i++){
+			if(stationEntries[i]["station_id"]){
+				return stationEntries[i][key1];
+			}
+		}
+	}
+	
+	key1 = "weekend";
+	if(myMap.dayCategory == 1){ key1 = "weekday"; }
+	
+	var key2 = "snow"
+	var key3 = myMap.snowBinKeys[0];  // the no snow index
+	if(myMap.rainBinIdx > 0){ 
+		// since we already covered the case where both rain and snow are 0, we know either rain is set or snow is (both is not an allowed setting)
+		key2 = "rain"; 
+		key3 = myMap.rainBinKeys[0];  // the no rain index
+	}
+	for(var i = 0; i < myMap.stationEntries.length; i++){
+		if(stationEntries[i]["station_id"]){
+			return stationEntries[i][key1][key2][key3];
+		}
+	}
+	
+};
+
+SubwayMap.prototype.updateColoring = function(){
 	var myMap = this;
 
 	var stations = d3.selectAll('.node.underGround');
 	var n_stations = stations[0].length;
 	
 	var myData = stations.data();
-	if(id == 0){
+	if(this.snowBinIdx < 0 && this.rainBinIdx < 0){
 		// 'None condition'
 		for (var i = 0; i < n_stations; i++) {
 			myData[i].color = "gray";
 		}
 		stations.data(myData);
+		myMap.colorbar.remove();
 	}else{
 		
 		// find the ridership for our current filters
@@ -343,11 +458,10 @@ SubwayMap.prototype.snowAmountChange = function(id){
 		var perChange = new Array(n_stations);		
 		// var stationData = stations.data();
 		for (var i = 0; i < n_stations; i++) {
-			perChange[i] = (Math.random()*0.05);
-			normRiders[i] = (Math.round(Math.random() * 40000)+5000);
-			riders[i] = (Math.round(normRiders[i] * perChange[i]));
-			//var stationID = stationData[i].id;
-			//perChange[i] = riders[i] / normRiders[i];
+			var stationID = stationData[i].id;
+			riders[i] = myMap.getEntriesWithWeather(stationID);
+			normRiders[i] = myMap.getNormEntries(stationID);
+			perChange[i] = riders[i] / normRiders[i];
 		}
 		var maximumChange = Math.max.apply(Math, perChange);;  // maximum percent change over all stations with current filters
 		// second loop now that maximum value is known
@@ -380,7 +494,7 @@ SubwayMap.prototype.snowAmountChange = function(id){
 
 // a colorbar for a single hue where only the lightness is changed
 SubwayMap.prototype.addColorbar = function(x, y, width, hue, sat, minLightness, maxLightness, minLabel, maxLabel){
-	var colorbar = this.svg.append("g").attr("class", "colorbar");
+	myMap.colorbar = this.svg.append("g").attr("class", "colorbar");
 	
 	var numColors = Math.min(10, Math.max( 3, width/10));   // minimum of 3 colors and maximum of 10 shades in colorbar with natural size of 10 px per color
 	var colorSplotchWidth = width/numColors;
