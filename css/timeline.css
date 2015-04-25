@@ -1,7 +1,7 @@
 
 
 #timeline .axis {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 #timeline .axis path,
@@ -17,6 +17,6 @@
 
 #timeline .line {
   fill: none;
-  stroke: steelblue;
+  stroke: #1a1a1a;
   stroke-width: 1.5px;
 }

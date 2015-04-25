@@ -1,3 +1,18 @@
+/** Bootstrap overloads */
+.col-lg-6, .col-lg-12 {
+  padding: 0;
+}
+
+/*
+.btn.btn-default {
+  color: #000;
+  background-color: #fff;
+}
+
+.btn.active, .btn:active {
+  background-color: #000;
+}*/
+
 /* Header Overloads */
 .navbar-fixed-top {
   background: #000;
@@ -16,6 +31,18 @@
 .navbar-fixed-top .navbar-nav > .active > a:focus {
   color: #ADADAD;
   background-color: #292929;
+}
+
+.navbar-fixed-top.navbar-shrink {
+  padding: 0px;
+}
+
+
+
+
+
+body {
+  background-color: #f3f3f4;
 }
 
 header {
@@ -78,4 +105,35 @@ footer .footer-below {
   font-size: .9em;
   margin-top: -15px;
   padding-bottom: 30px;
+}
+
+.visual-container {
+  background-color: #fff;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.visual-container-header-top {
+  background-color: #e7eaec;
+  height: 5px;
+  width: 100%
+}
+
+.visual-container-header-text {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0;
+  margin: 5px;
+}
+
+.visual-container-header-seperator {
+  background-color: #e7eaec;
+  height: 1px;
+  width: 100%
+}
+
+#controls-container {
+  margin: 30px;
 }

@@ -7,6 +7,7 @@ $(function() {
   queue().defer(d3.json, 'processing/full_summary.json')
 	.defer(d3.json, 'processing/station_summary.json')
     .defer(d3.json, 'processing/station_series.json')
+	.defer(d3.json, 'processing/station_map_numbers.json')
 	.defer(d3.json, 'processing/station_map.json')
 	.defer(d3.json, 'processing/line_blue.json')
 	.defer(d3.json, 'processing/line_orange.json')
@@ -20,9 +21,9 @@ $(function() {
 	.defer(d3.json, 'processing/line_redB.json')
 	.defer(d3.json, 'processing/line_redM.json')
     .await(init);
-  
+
   // error should be "null" if no error
-  function init(error, timelineSummary, stationSummaries, stationSeries, station_map, line_blue, line_orange, line_green, 
+  function init(error, timelineSummary, stationSummaries, stationSeries, station_map_numbers, station_map, line_blue, line_orange, line_green,
 					line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM) {
     if (!error) {
 
@@ -30,9 +31,9 @@ $(function() {
 		var MyEventHandler = new Object();
 
 				// Instantiate map
-		var subwayMap = new SubwayMap(d3.select("#subwaymap"), station_map, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, MyEventHandler);
+		var subwayMap = new SubwayMap(d3.select("#subwaymap"), station_map, station_map_numbers, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, MyEventHandler);
 
-		
+
 		var timeline = new Timeline(
 		  {
 			parent: '#timeline-container',
@@ -56,43 +57,42 @@ $(function() {
 		};
 
 		var chartOptions = {
-		  height: 270,
-		  width: d3.select(chartElements.parent)[0][0].clientWidth,
+		  height: 200,
+		  width: d3.select(chartElements.parent)[0][0].clientWidth - 20,
 		  title: {
-			height: 30,
+			height: 10,
 		  },
 		  x_axis: {
 			height: 25,
 		  },
 		  x_axis_title: {
-			height: 25,
+			height: 20,
 		  },
 		  y_axis: {
-			width: 80,
+			width: 50,
 		  },
 		};
 
 		chart = new Chart(chartElements, chartOptions, stationSeries, MyEventHandler);
 		chart.init(1052, 0);
 
-		var summary = new Summary({
-		  root: 'summary',
-		  snow_slider: 'snow-slider',
-		},
-		stationSummaries, MyEventHandler);
+		var controls = new Controls({
+		  root: 'controls',
+      week_selection: '#week-selection',
+		  snow_slider: '#snow-slider',
+      rain_slider: '#rain-slider',
+		}, MyEventHandler);
 
-		summary.init();
-			
+    controls.init();
+
 		// bind the eventHandler to the things related to selecting in the map
 		$(MyEventHandler).bind("selectionChange", function(event){
 			// TODO
 			//anotherVis.onSelectionChange(startDate, endDate);
 		});
-					
+
     }
   };
 
 
 });
-			
-			

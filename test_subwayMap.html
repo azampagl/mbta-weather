@@ -26,7 +26,8 @@
 			
 			function asyncDataLoad(){
                 queue().defer(d3.json, 'processing/station_map.json')
-                  .defer(d3.json, 'processing/line_blue.json')
+                  .defer(d3.json, 'processing/station_map_numbers.json')
+				  .defer(d3.json, 'processing/line_blue.json')
 				  .defer(d3.json, 'processing/line_orange.json')
 				  .defer(d3.json, 'processing/line_green.json')
 				  .defer(d3.json, 'processing/line_greenB.json')
@@ -41,7 +42,7 @@
             }
 			
 			// error should be "null" if no error
-            function dataLoaded(error, station_map, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM) {
+            function dataLoaded(error, station_map, station_map_numbers, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM) {
 
                 if (!error) {
 
@@ -49,8 +50,10 @@
 					var MyEventHandler = new Object();
 
 					// Instantiate
-					var subwayMap = new SubwayMap(d3.select("#subwayMap"), station_map, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, MyEventHandler);
+					var subwayMap = new SubwayMap(d3.select("#subwayMap"), station_map, station_map_numbers, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, MyEventHandler);
 
+					// test the shading
+					subwayMap.filterChange(0, 2, 0);  // filterChange(snowTickIdx, rainTickIdx, dayFlag)
 					// bind the eventHandler to the things related to map
 					$(MyEventHandler).bind("selectionChange", function(event){
 						//anotherVis.onSelectionChange(startDate, endDate);
