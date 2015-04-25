@@ -4,14 +4,30 @@
   position: absolute;
   right: 0;
   margin-top: 20px;
+	font-size: 12px;
+	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.rickshaw_graph {
-
+#chart-y-axis-title,
+#chart-x-axis,
+#chart-x-axis-title,
+#chart-title,
+#chart-legend {
+	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+
+/*#chart-y-axis > svg > g {
+	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+}
+
+#chart > svg > g.x_ticks_d3.plain g {
+	font-family:
+	font-size: 16px;
+}*/
 
 /*#chart-container {
-	font-size: 10px;
+	font-size: 12px;
 }*/
 
 /*#chart .x_ticks_d3.plain {

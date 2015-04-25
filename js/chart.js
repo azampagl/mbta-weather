@@ -330,6 +330,8 @@ Chart.prototype.render = function() {
     .attr("height", root.options.height - root.options.title.height - root.options.x_axis_title.height);
 
   d3.selectAll(root.elements.graph + " > svg > g.x_ticks_d3.plain g > text")
+    .style("font-family", "Lato,Helvetica Neue,Helvetica,Arial,sans-serif")
+    .style("font-size", "11px")
     .attr("transform", "translate(5, " + root.options.x_axis.height + ")");
 }
 

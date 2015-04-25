@@ -56,7 +56,7 @@ $(function() {
 		};
 
 		var chartOptions = {
-		  height: 270,
+		  height: 200,
 		  width: d3.select(chartElements.parent)[0][0].clientWidth - 20,
 		  title: {
 			height: 10,
@@ -75,13 +75,14 @@ $(function() {
 		chart = new Chart(chartElements, chartOptions, stationSeries, MyEventHandler);
 		chart.init(1052, 0);
 
-		var summary = new Summary({
-		  root: 'summary',
-		  snow_slider: 'snow-slider',
-		},
-		stationSummaries, MyEventHandler);
+		var controls = new Controls({
+		  root: 'controls',
+      week_selection: '#week-selection',
+		  snow_slider: '#snow-slider',
+      rain_slider: '#rain-slider',
+		}, MyEventHandler);
 
-		summary.init();
+    controls.init();
 
 		// bind the eventHandler to the things related to selecting in the map
 		$(MyEventHandler).bind("selectionChange", function(event){

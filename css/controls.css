@@ -1,0 +1,98 @@
+.slider.slider-horizontal {
+  width: 100%;
+}
+
+.slider-handle.custom {
+  background: transparent none;
+  font-size: 12px;
+}
+
+.slider-tick.custom::before {
+  line-height: 20px;
+  font-size: 12px;
+  content: '';
+  color: #fff;
+}
+
+.slider-tick-label {
+  font-size: 12px;
+}
+
+.slider-selection.tick-slider-selection {
+  background-image: linear-gradient(to bottom, #ADD6FF 0%, #ADD6FF 100%);
+}
+
+.slider-tick.in-selection {
+  background: none;
+}
+
+.slider-handle.custom::before {
+  line-height: 20px;
+  color: #3399FF;
+}
+
+#snow-slider-widget .slider-handle.custom.active::before {
+  font-size: 35px;
+  content: '\2744';
+}
+
+#snow-slider-widget .slider-handle.custom.inactive::before {
+  font-size: 35px;
+  content: '\2744';
+  color: #b4b4b4;
+}
+
+#snow-slider-widget .slider-handle.custom.inactive {
+  font-size: 0px;
+  height: 0px;
+  width: 0px;
+  content: '';
+}
+
+#rain-slider-widget .slider-handle.custom.active::before {
+  font-size: 25px;
+  content: '\2602';
+}
+
+#rain-slider-widget .slider-handle.custom.inactive::before {
+  font-size: 25px;
+  content: '\2602';
+  color: #b4b4b4;
+}
+
+#rain-slider-widget .slider-handle.custom.inactive {
+  font-size: 0px;
+  height: 0px;
+  width: 0px;
+  content: '';
+}
+
+.btn-default {
+  color: #000;
+  background-color: #fff;
+  border-color: #b8b8b8;
+}
+
+.btn-default:hover {
+  color: #000;
+  background-color: #f4f4f4;
+}
+
+.btn-default:focus {
+  color: #000;
+  background-color: #ddd;
+}
+
+#week-slider-container {
+  margin-top: 20px;
+}
+
+#snow-slider-container {
+  padding-bottom: 15px;
+  padding-right: 40px;
+}
+
+#rain-slider-container {
+  padding-bottom: 5px;
+  padding-right: 40px;
+}

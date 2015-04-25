@@ -59,7 +59,7 @@ Timeline.prototype.init = function() {
 
   var margin = {top: 15, right: 10, bottom: 20, left: 50};
   var width = $(root.elements.chart).parent().width() - margin.left - margin.right;
-  var height = 120 - margin.top - margin.bottom;
+  var height = 100 - margin.top - margin.bottom;
 
   var x = d3.time.scale()
     .range([0, width]);
