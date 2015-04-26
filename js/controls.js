@@ -26,6 +26,13 @@ Controls = function(elements, eventHandler) {
     'rain': null
   };
 
+  // Maintain the status for the map.
+  root.mapStatus = {
+    snowId: -1,
+    rainId: -1,
+    weekTime: 'weekday'
+  };
+
 };
 
 /**
@@ -37,6 +44,9 @@ Controls.prototype.init = function() {
   $(root.elements.week_selection + ' button').on('click', function(e) {
     root.weekTimeChange($(e.target));
   });
+
+  // Set weekday active.
+  $($(root.elements.week_selection + ' button')[0]).css('background-color', root.weekTimeSelectionColors.active)
 
   // Initialize the snow amount slider.
   root.sliders.snow.slider({
@@ -55,8 +65,8 @@ Controls.prototype.init = function() {
   root.sliders.rain.slider({
     id: 'rain-slider-widget',
     handle: 'custom',
-    ticks: [-1, 0, 1, 2, 3, 4, 5],
-    ticks_labels: ['None', 'Trace', '0-2 in.', '2-4 in.', '4-8 in.', '8-15 in.', '15+ in.'],
+    ticks: [-1, 0, 1],
+    ticks_labels: ['None', 'Drizzle', 'Rain'],
     ticks_snap_bounds: 1,
     tooltip: 'hide',
     value: -1
@@ -85,8 +95,12 @@ Controls.prototype.weekTimeChange = function(target) {
   // Set the selected background color for this button.
   target.css('background-color', root.weekTimeSelectionColors.active);
 
-  // Trigger weektime change.
-  root.eventHandler.trigger("weekTimeChange", [target.data('value')]);
+  var value = target.data('value');
+  root.mapStatus.weekTime = value;
+
+  // Trigger changes.
+  root.eventHandler.trigger("controlChange", [root.mapStatus.weekTime, root.mapStatus.snowId, root.mapStatus.rainId]);
+  root.eventHandler.trigger("filterChange", [root.mapStatus.snowId + 1, root.mapStatus.rainId + 1, root.mapStatus.weekTime == 'weekday' ? 1 : 2]);
 }
 
 /**
@@ -112,7 +126,10 @@ Controls.prototype.snowChange = function(value) {
     root.sliderWidgets.rain.find('.slider-handle.custom').addClass('active');
   }
 
-  root.eventHandler.trigger("weatherAmountChange", ['snow', value]);
+  root.mapStatus.snowId = value;
+
+  root.eventHandler.trigger("controlChange", [root.mapStatus.weekTime, root.mapStatus.snowId, root.mapStatus.rainId]);
+  root.eventHandler.trigger("filterChange", [root.mapStatus.snowId + 1, root.mapStatus.rainId + 1, root.mapStatus.weekTime == 'weekday' ? 1 : 2]);
 }
 
 /**
@@ -133,5 +150,8 @@ Controls.prototype.rainChange = function(value) {
     root.sliderWidgets.snow.find('.slider-handle.custom').addClass('active');
   }
 
-  root.eventHandler.trigger("weatherAmountChange", ['rain', value]);
+  root.mapStatus.rainId = value;
+
+  root.eventHandler.trigger("controlChange", [root.mapStatus.weekTime, root.mapStatus.snowId, root.mapStatus.rainId]);
+  root.eventHandler.trigger("filterChange", [root.mapStatus.snowId + 1, root.mapStatus.rainId + 1, root.mapStatus.weekTime == 'weekday' ? 1 : 2]);
 }

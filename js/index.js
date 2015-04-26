@@ -74,7 +74,7 @@ $(function() {
 		};
 
 		chart = new Chart(chartElements, chartOptions, stationSeries, MyEventHandler);
-		chart.init(1052, 0);
+		chart.init(1052, 'snow');
 
 		var controls = new Controls({
 		  root: 'controls',
