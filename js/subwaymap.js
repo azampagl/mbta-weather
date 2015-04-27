@@ -15,9 +15,14 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 	this.eventHandler = $(eventListener);
 	this.currentSelection = [];
 	
-	this.eventHandler.on("snowAmountChange", function(e, id) {
-		this.snowAmountChange(id);
-	  });
+	var myMap = this;
+	this.eventHandler.on("dayCatChange", function(e, flag) {
+		myMap.dayCatChange(flag);
+	});
+
+	this.eventHandler.on("filterChange", function(e, id_snow, id_rain, flag_daycat) {
+		myMap.filterChange(id_snow, id_rain, flag_daycat);
+	});
 
     this.stationMap = stationMapData;
 	this.stationEntries = stationSummaryData;
@@ -442,16 +447,18 @@ SubwayMap.prototype.updateColoring = function(){
 	var myMap = this;
 
 	var stations = d3.selectAll('.node.underGround');
-	var n_stations = stations[0].length;
+	
+	myMap.colorbar.remove();
+	myMap.colorbar = d3.selectAll('colorbar');;
 	
 	var myData = stations.data();
+	var n_stations = myData.length;
 	if(this.snowBinIdx < 0 && this.rainBinIdx < 0){
 		// 'None condition'
 		for (var i = 0; i < n_stations; i++) {
 			myData[i].color = "gray";
 		}
 		stations.data(myData);
-		myMap.colorbar.remove();
 	}else{
 		
 		// find the ridership for our current filters
