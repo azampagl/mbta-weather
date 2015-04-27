@@ -12,12 +12,15 @@ Timeline = function(elements, data, eventHandler) {
   this.data = data;
   this.eventHandler = $(eventHandler);
 
+  console.log(data);
+
   this.controlKeys = {
     "snow": ['snow', 'snow_02', 'snow_24', 'snow_48', 'snow_815', 'snow_15'],
+    "rain": ['drizzle', 'rain_no_drizzle'],
   };
 
-  root.eventHandler.on("snowAmountChange", function(e, id) {
-    root.snowAmountChange(id);
+  root.eventHandler.on("controlChange", function(e, weekTime, snowId, rainId) {
+    root.controlChange(snowId, rainId);
   });
 };
 
@@ -116,8 +119,8 @@ Timeline.prototype.init = function() {
   .enter()
   .append("rect")
     .attr("class", "bar")
-    .attr("x", function(d) { return x(d.x) - 3; })
-    .attr("width", 7)
+    .attr("x", function(d) { return x(d.x) - 1; })
+    .attr("width", 3)
     .attr("opacity", 0.0)
     .attr("y", function(d) { return 0; })
     .attr("height", function(d) { return height; });
@@ -126,14 +129,22 @@ Timeline.prototype.init = function() {
 /**
  *
  */
-Timeline.prototype.snowAmountChange = function(id) {
+Timeline.prototype.controlChange = function(snowId, rainId) {
   var root = this;
 
-  d3.select(root.elements.chart).selectAll(".bar")
-    .attr("opacity", function(d, i) {
-      if (root.data[root.controlKeys["snow"][id]][i]) {
-        return 0.1;
-      }
-      return 0.0;
-    });
+  var bars = d3.select(root.elements.chart).selectAll(".bar");
+
+  console.log(snowId);
+  console.log(rainId);
+
+  bars.attr("opacity", function(d, i) {
+    if (snowId > -1 && root.data[root.controlKeys.snow[snowId]][i]) {
+      return 0.1;
+    }
+    if (rainId > -1 && root.data[root.controlKeys.rain[rainId]][i]) {
+      return 0.1;
+    }
+    return 0.0;
+  });
+
 };
