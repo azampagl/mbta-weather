@@ -453,7 +453,7 @@ SubwayMap.prototype.updateColoring = function(){
 	
 	var myData = stations.data();
 	var n_stations = myData.length;
-	if(this.snowBinIdx < 0 && this.rainBinIdx < 0){
+	if(this.snowBinIdx == 0 && this.rainBinIdx == 0){
 		// 'None condition'
 		for (var i = 0; i < n_stations; i++) {
 			myData[i].color = "gray";
@@ -474,7 +474,7 @@ SubwayMap.prototype.updateColoring = function(){
 				perChange[i] = 1.0 - (riders[i] / normRiders[i]);
 			}else{
 				perChange[i] = 0;
-			}
+			} 
 		}
 		//console.log(riders);
 		console.log(normRiders);
