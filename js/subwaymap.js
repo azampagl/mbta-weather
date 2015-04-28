@@ -14,7 +14,7 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
     this.parentElement = _parentElement;
 	this.eventHandler = $(eventListener);
 	this.currentSelection = [];
-	
+
 	var myMap = this;
 	this.eventHandler.on("dayCatChange", function(e, flag) {
 		myMap.dayCatChange(flag);
@@ -43,17 +43,17 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 	this.dayCategory = 1;  // 1 = weekday, 2 = weekend
 	this.snowBinIdx = 0;  // 0 off, index into this.snowBinKeys
 	this.rainBinIdx = 0;  // 0 off, index into this.rainBinKeys
-	
-	
-	var width = _parentElement.node().getBoundingClientRect().width;
-	
+
+
+	var width = _parentElement.node().getBoundingClientRect().width - 120;
+
     // define all constants
     this.margin = {top: 20, right: 10, bottom: 10, left: 20};
 	this.mapScale = Math.min((1.0 / 1160.0) * width, (1.0 / 1050.0) * $(document).height() );   // max x is 1147 and max y is 1039
 	this.width = this.mapScale * 1200.0 + this.margin.left + this.margin.right,
     this.height = this.mapScale * 1100.0 + this.margin.top + this.margin.bottom;
-	
-	
+
+
 	this.stationText=[]
 	this.svg=[];
 	//this.mapScale = mapScale;   // max x is 1147 and max y is 1039
@@ -64,11 +64,11 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 
 	this.yHooverTextPos = 170;
 	this.xHooverTextPos = 100;
-	
+
 	this.yColorbar = 850;
 	this.xColorbar = 390;
 	this.colorbar = d3.select("colorbar");
-	
+
     this.init();
 }
 
@@ -206,7 +206,7 @@ SubwayMap.prototype.init = function() {
 	for(var i = 0; i < stationsData.length; i++){
 		stationsData[i].color = myMap.aboveGroundColor;
 	}
-	
+
 	var newStations = myMap.svg.selectAll(".node")
 	  .data(stationsData)
 	  .enter()
@@ -233,7 +233,7 @@ SubwayMap.prototype.init = function() {
 
 	var hitBoxSize = (myMap.mapScale * myMap.stationSize) * 4;
 	var undergrounds = newStations.filter(".underGround");
-	
+
 	var stationHitBoxes = undergrounds.append("rect")
 	  .attr("width", hitBoxSize)
 	  .attr("height", hitBoxSize)
@@ -242,9 +242,9 @@ SubwayMap.prototype.init = function() {
 	  .attr("class", "stationHitBox")
 	  .style("pointer-events", "all")
 	  .style("visibility", "hidden");
-	
-	
-	  
+
+
+
 	// start with Harvard as selection
 	var harvardStation = stationDots.filter(".Harvard")
 	d3.select(harvardStation[0][0].parentNode).classed('selected', true);
@@ -252,8 +252,8 @@ SubwayMap.prototype.init = function() {
 	//d3.selectAll(".selectionName").transition().text("Selected: " + harData[0].name);
 	newSel = harData[0].id;
 	myMap.updateSelection(newSel);
-	
-	
+
+
 	undergrounds.on("mouseover", function(d){
 			//var xPos = d3.mouse(this)[0];   // this often looks pretty poor on top of the subway lines
 			//var yPos = d3.mouse(this)[1];
@@ -285,7 +285,7 @@ SubwayMap.prototype.init = function() {
 				// zero out other selections
 				d3.selectAll('.selected')
 					.classed('selected', false);
-				
+
 				this.classList.add('selected');
 				var myData = d3.select(this).data();
 				//d3.selectAll(".selectionName").text("Selected: " + myData);
@@ -301,7 +301,7 @@ SubwayMap.prototype.init = function() {
 				// zero out other selections
 				d3.selectAll('.selected')
 					.classed('selected', false);
-			
+
 				this.classList.add('selected');
 				var myData = d3.select(this).select("circle").data();
 				//d3.selectAll(".selectionName").transition().text("Selected: " + myData[0].name);
@@ -343,16 +343,16 @@ SubwayMap.prototype.updateSelection = function(newSelection){
 // dayFlag is 0 is no change, 1 = weekday, 2 = weekend
 SubwayMap.prototype.filterChange = function(snowTickIdx, rainTickIdx, dayFlag){
 	var myMap = this;
-	
+
 	myMap.snowBinIdx = snowTickIdx;
-	
+
 	myMap.rainBinIdx = rainTickIdx;  // different than snow since the 0 idx is redundant to off in our stationEntries data array
 	myMap.rainBinIdx = rainTickIdx;  // different than snow since the 0 idx is redundant to off in our stationEntries data array
-	
+
 	if(dayFlag == 1 || dayFlag == 2){
 		myMap.dayCategory = dayFlag;  // 1 = weekday, 2 = weekend
 	}
-	
+
 	myMap.updateColoring();
 }
 
@@ -361,7 +361,7 @@ SubwayMap.prototype.filterChange = function(snowTickIdx, rainTickIdx, dayFlag){
 SubwayMap.prototype.dayCatChange = function(dayFlag){
 	var myMap = this;
 	myMap.dayCategory = dayFlag;  // 1 = weekday, 2 = weekend
-	
+
 	myMap.updateColoring();
 }
 
@@ -369,7 +369,7 @@ SubwayMap.prototype.dayCatChange = function(dayFlag){
 // using the specified station ID
 SubwayMap.prototype.getEntriesWithWeather = function(stationID){
 	var myMap = this;
-	
+
 	var key1 = "";
 	if(myMap.snowBinIdx == 0 && myMap.rainBinIdx == 0){
 		if(myMap.dayCategory == 2){
@@ -377,22 +377,22 @@ SubwayMap.prototype.getEntriesWithWeather = function(stationID){
 		}else if(myMap.dayCategory == 1){
 			key1 = "weekday_daily_avg";
 		}
-		
+
 		for(var i = 0; i < myMap.stationEntries.length; i++){
 			if(stationID == myMap.stationEntries[i]["station_id"]){
 				return myMap.stationEntries[i][key1];
 			}
 		}
 	}
-	
+
 	key1 = "weekend";
 	if(myMap.dayCategory == 1){ key1 = "weekday"; }
-	
+
 	var key2 = "snow"
 	var key3 = myMap.snowBinKeys[myMap.snowBinIdx];
-	if(myMap.rainBinIdx > 0){ 
+	if(myMap.rainBinIdx > 0){
 		// since we already covered the case where both rain and snow are 0, we know either rain is set or snow is (both is not an allowed setting)
-		key2 = "rain"; 
+		key2 = "rain";
 		key3 = myMap.rainBinKeys[myMap.rainBinIdx];
 	}
 	for(var i = 0; i < myMap.stationEntries.length; i++){
@@ -409,7 +409,7 @@ SubwayMap.prototype.getEntriesWithWeather = function(stationID){
 //   and without get the global average
 SubwayMap.prototype.getNormEntries = function(stationID){
 	var myMap = this;
-	
+
 	var key1 = "";
 	if(myMap.snowBinIdx == 0 && myMap.rainBinIdx == 0){
 		if(myMap.dayCategory == 2){
@@ -417,22 +417,22 @@ SubwayMap.prototype.getNormEntries = function(stationID){
 		}else if(myMap.dayCategory == 1){
 			key1 = "weekday_daily_avg";
 		}
-		
+
 		for(var i = 0; i < myMap.stationEntries.length; i++){
 			if(stationID == myMap.stationEntries[i]["station_id"]){
 				return myMap.stationEntries[i][key1];
 			}
 		}
 	}
-	
+
 	key1 = "weekend";
 	if(myMap.dayCategory == 1){ key1 = "weekday"; }
-	
+
 	var key2 = "snow"
 	var key3 = myMap.snowBinKeys[0];  // the no snow index
-	if(myMap.rainBinIdx > 0){ 
+	if(myMap.rainBinIdx > 0){
 		// since we already covered the case where both rain and snow are 0, we know either rain is set or snow is (both is not an allowed setting)
-		key2 = "rain"; 
+		key2 = "rain";
 		key3 = myMap.rainBinKeys[0];  // the no rain index
 	}
 	for(var i = 0; i < myMap.stationEntries.length; i++){
@@ -440,17 +440,17 @@ SubwayMap.prototype.getNormEntries = function(stationID){
 			return myMap.stationEntries[i][key1][key2][key3];
 		}
 	}
-	
+
 };
 
 SubwayMap.prototype.updateColoring = function(){
 	var myMap = this;
 
 	var stations = d3.selectAll('.node.underGround');
-	
+
 	myMap.colorbar.remove();
 	myMap.colorbar = d3.selectAll('colorbar');;
-	
+
 	var myData = stations.data();
 	var n_stations = myData.length;
 	if(this.snowBinIdx == 0 && this.rainBinIdx == 0){
@@ -460,11 +460,11 @@ SubwayMap.prototype.updateColoring = function(){
 		}
 		stations.data(myData);
 	}else{
-		
+
 		// find the ridership for our current filters
 		var riders = new Array(n_stations);
 		var normRiders = new Array(n_stations);
-		var perChange = new Array(n_stations);		
+		var perChange = new Array(n_stations);
 		var stationData = stations.data();
 		for (var i = 0; i < n_stations; i++) {
 			var stationID = parseFloat(stationData[i].id);
@@ -474,11 +474,11 @@ SubwayMap.prototype.updateColoring = function(){
 				perChange[i] = 1.0 - (riders[i] / normRiders[i]);
 			}else{
 				perChange[i] = 0;
-			} 
+			}
 		}
 		//console.log(riders);
 		console.log(normRiders);
-		
+
 		var maximumChange = Math.max.apply(Math, perChange);;  // maximum percent change over all stations with current filters
 		// second loop now that maximum value is known
 		var hue = 105; // 105 is a green [range 0-360]
@@ -489,15 +489,15 @@ SubwayMap.prototype.updateColoring = function(){
 			myData[i].color = d3.hsl(hue, sat, lightness);
 		}
 		stations.data(myData);
-		
-		
+
+
 		// NOT WORKING ... move into variable of the subwaymap class instead of storing in each element -DB
 		// now applying the data makes the color super easy
 		//var stationCircs = stations.selectAll('circle')
 		//	.data(myColor);
-		//	.style("fill", function(d){return d});  // They all get the color of myColor[0] for some reason	
+		//	.style("fill", function(d){return d});  // They all get the color of myColor[0] for some reason
 		//console.log(stations)
-		
+
 		// add a colorbar
 		var oneDecimalFormat = d3.format(".1f");
 		var colorbarWidth = 250;
@@ -512,7 +512,7 @@ SubwayMap.prototype.updateColoring = function(){
 SubwayMap.prototype.addColorbar = function(x, y, width, hue, sat, minLightness, maxLightness, minLabel, maxLabel){
 	var myMap = this;
 	myMap.colorbar = this.svg.append("g").attr("class", "colorbar");
-	
+
 	var numColors = Math.min(10, Math.max( 3, width/10));   // minimum of 3 colors and maximum of 10 shades in colorbar with natural size of 10 px per color
 	var colorSplotchWidth = width/numColors;
 	var colorSplotchHeight = Math.min(colorSplotchWidth, 15) // 15 px max height for colors
@@ -520,7 +520,7 @@ SubwayMap.prototype.addColorbar = function(x, y, width, hue, sat, minLightness, 
 	for(var i=0; i< numColors; i++){
 		xs[i] = x + i * colorSplotchWidth;
 	}
-	
+
 	myMap.colorbar.append("g")
 		.attr("class", "swatches")
 		.selectAll("rect")
@@ -532,13 +532,13 @@ SubwayMap.prototype.addColorbar = function(x, y, width, hue, sat, minLightness, 
 		.attr("width", colorSplotchWidth)
 		.attr("height", colorSplotchHeight)
 		.style("fill", function(d,i){return d3.hsl(hue, sat, minLightness + (i/numColors * maxLightness))});
-		
+
 	myMap.colorbar.append("text")
 		.attr("x", x-colorSplotchWidth)
 		.attr("y", y-15)
 		.style("text-align", "center")
 		.text(minLabel);
-		
+
 	myMap.colorbar.append("text")
 		.attr("x", x+width)
 		.attr("y", y-15)

@@ -36,8 +36,9 @@ $(function() {
 
 		var timeline = new Timeline(
 		  {
-			parent: '#timeline-container',
-			chart: '#timeline',
+        container_subtitle: '#timeline-visual .visual-container-header-subtitle',
+        parent: '#timeline-container',
+        chart: '#timeline',
 		  },
 		  timelineSummary,
 		  MyEventHandler

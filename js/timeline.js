@@ -132,19 +132,22 @@ Timeline.prototype.controlChange = function(weekTime, snowId, rainId) {
 
   var bars = d3.select(root.elements.chart).selectAll(".bar");
 
-  console.log(weekTime);
-  console.log(snowId);
-  console.log(rainId);
-  console.log(root.data[weekTime]);
-
+  var count = 0;
   bars.attr("opacity", function(d, i) {
     if (snowId > -1 && root.data[weekTime][root.controlKeys.snow[snowId]][i]) {
+      count += 1;
       return 0.1;
     }
     if (rainId > -1 && root.data[weekTime][root.controlKeys.rain[rainId]][i]) {
+      count += 1;
       return 0.1;
     }
     return 0.0;
   });
 
+  if (snowId == -1 && rainId == -1 && count == 0) {
+    count = 770;
+  }
+
+  $(root.elements.container_subtitle).html("Days in Selection: <b>" + count + "</b>");
 };
