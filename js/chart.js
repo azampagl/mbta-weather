@@ -317,79 +317,6 @@ Chart.prototype.init = function(stationId) {
 
   root.render();
 
-   /*
-   var seriesData = [ [], [], [], [], [], [], [], [], [] ];
-   var random = new Rickshaw.Fixtures.RandomData(150);
-
-   for (var i = 0; i < 150; i++) {
-     random.addData(seriesData);
-   }
-
-   var palette = new Rickshaw.Color.Palette( { scheme: 'classic9' } );
-
-
-
-   var hoverDetail = new Rickshaw.Graph.HoverDetail({
-     graph: graph,
-     xFormatter: function(x) {
-       return new Date(x * 1000).toString();
-     }
-   });*/
-
-   /*var annotator = new Rickshaw.Graph.Annotate({
-     graph: graph,
-     element: document.getElementById('timeline')
-   });*/
-
-
-
-   /*Rickshaw.Graph.Behavior.Series.Toggle.prototype.updateBehaviour = function() {
-     console.log("hello");
-   };
-
-   console.log(Rickshaw.Graph.Behavior.Series.Toggle);*/
-
-   /*Rickshaw.Graph.Renderer.DanielArea = Rickshaw.Class.create(
-     Rickshaw.Graph.Behavior.Series.Toggle, {
-
-     });*/
-   //console.log(Rickshaw.Graph.Behavior.Series.Toggle.prototype);
-   //console.log(Rickshaw.Graph.Behavior.Series.Toggle.updateBehaviour);
-   /*Rickshaw.Graph.Behavior.Series.Toggle.prototype.print = function() {
-     console.log("hello");
-   }*/
-
-   /*var shelving = new Rickshaw.Custom.LegendToggle({
-     graph: graph,
-     legend: legend
-   });*/
-
-   /**
-    */
-   //console.log(Rickshaw.Graph.Behavior.Series.Toggle);
-   /*shelving._addBehavior = function() {
-     console.log("hello");
-   };*/
-   //shelving.print();
-
-
-/*
-
-*/
-   //console.log(d3.select("#chart-snow-y-axis svg").node())
-
-
-//   graph.render();
-
-   /*d3.select("#chart-snow-y-axis svg")
-     .append("g")
-     .text("Entries")
-     //.attr("text-anchor", "end")
-     .attr("x", 0)
-     .attr("y", 0)
-     //.attr("dy", ".75em")
-     .attr("transform", "rotate(-90)");*/
-
 };
 
 /**
@@ -442,6 +369,8 @@ Chart.prototype.stationChange = function(id) {
   var root = this;
 
   root.selectedStationId = id;
+
+  $(root.elements.container_subtitle).html("Current Selection: <b>" + filteredData[id].name + "</b>");
 
   //
   root.updateDisplayData();

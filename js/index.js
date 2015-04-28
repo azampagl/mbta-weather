@@ -46,6 +46,7 @@ $(function() {
 
 
 		var chartElements = {
+      container_subtitle: '#map-visual .visual-container-header-subtitle, #chart-visual .visual-container-header-subtitle',
 		  parent: '#chart-container',
 		  graph: '#chart',
 		  title: '#chart-title',
@@ -57,13 +58,13 @@ $(function() {
 		};
 
 		var chartOptions = {
-		  height: 200,
+		  height: 250,
 		  width: d3.select(chartElements.parent)[0][0].clientWidth - 20,
 		  title: {
-			height: 10,
+			height: 20,
 		  },
 		  x_axis: {
-			height: 25,
+			height: 20,
 		  },
 		  x_axis_title: {
 			height: 20,

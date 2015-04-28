@@ -12,15 +12,13 @@ Timeline = function(elements, data, eventHandler) {
   this.data = data;
   this.eventHandler = $(eventHandler);
 
-  console.log(data);
-
   this.controlKeys = {
-    "snow": ['snow', 'snow_02', 'snow_24', 'snow_48', 'snow_815', 'snow_15'],
-    "rain": ['drizzle', 'rain_no_drizzle'],
+    "snow": ['trace_snow', 'snow_02', 'snow_24', 'snow_48', 'snow_815', 'snow_15'],
+    "rain": ['drizzle', 'rain_not_drizzle'],
   };
 
   root.eventHandler.on("controlChange", function(e, weekTime, snowId, rainId) {
-    root.controlChange(snowId, rainId);
+    root.controlChange(weekTime, snowId, rainId);
   });
 };
 
@@ -129,19 +127,21 @@ Timeline.prototype.init = function() {
 /**
  *
  */
-Timeline.prototype.controlChange = function(snowId, rainId) {
+Timeline.prototype.controlChange = function(weekTime, snowId, rainId) {
   var root = this;
 
   var bars = d3.select(root.elements.chart).selectAll(".bar");
 
+  console.log(weekTime);
   console.log(snowId);
   console.log(rainId);
+  console.log(root.data[weekTime]);
 
   bars.attr("opacity", function(d, i) {
-    if (snowId > -1 && root.data[root.controlKeys.snow[snowId]][i]) {
+    if (snowId > -1 && root.data[weekTime][root.controlKeys.snow[snowId]][i]) {
       return 0.1;
     }
-    if (rainId > -1 && root.data[root.controlKeys.rain[rainId]][i]) {
+    if (rainId > -1 && root.data[weekTime][root.controlKeys.rain[rainId]][i]) {
       return 0.1;
     }
     return 0.0;

@@ -121,11 +121,21 @@ footer .footer-below {
   width: 100%
 }
 
-.visual-container-header-text {
+.visual-container-header-title {
   font-size: 14px;
   font-weight: bold;
-  padding: 0;
-  margin: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 25px;
+}
+
+.visual-container-header-subtitle {
+  font-size: 12px;
+  padding-right: 25px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  text-align: right;
+  font-style: italic;
 }
 
 .visual-container-header-seperator {
