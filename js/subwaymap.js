@@ -48,10 +48,10 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 	var width = _parentElement.node().getBoundingClientRect().width;
 
     // define all constants
-    this.margin = {top: 20, right: 0, bottom: 0, left: 20};
+    this.margin = {top: 10, right: 0, bottom: 0, left: 10};
 	this.mapScale = Math.min((1.0 / 1160.0) * width, (1.0 / 1050.0) * $(document).height() );   // max x is 1147 and max y is 1039
-	this.width = this.mapScale * 1200.0 + this.margin.left + this.margin.right,
-    this.height = this.mapScale * 1100.0 + this.margin.top + this.margin.bottom;
+	this.width = this.mapScale * 1160.0 + this.margin.left + this.margin.right,
+    this.height = this.mapScale * 1050.0 + this.margin.top + this.margin.bottom;
 
 
 	this.stationText=[]
@@ -65,8 +65,8 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 	this.yHooverTextPos = 170;
 	this.xHooverTextPos = 100;
 
-	this.yColorbar = 850;
-	this.xColorbar = 390;
+	this.yColorbar = 950;
+	this.xColorbar = 90;
 	this.colorbar = d3.select("colorbar");
 
     this.init();
@@ -535,14 +535,18 @@ SubwayMap.prototype.addColorbar = function(x, y, width, hue, sat, minLightness, 
 
 	myMap.colorbar.append("text")
 		.attr("x", x-colorSplotchWidth)
-		.attr("y", y-15)
+		.attr("y", y-5)
 		.style("text-align", "center")
+		.style("font-family", "Lato,Helvetica Neue,Helvetica,Arial,sans-serif")
+		.style("font-size", "11px")
 		.text(minLabel);
 
 	myMap.colorbar.append("text")
 		.attr("x", x+width)
-		.attr("y", y-15)
+		.attr("y", y-5)
 		.style("text-align", "center")
+		.style("font-family", "Lato,Helvetica Neue,Helvetica,Arial,sans-serif")
+		.style("font-size", "11px")
 		.text(maxLabel);
 };
 

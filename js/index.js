@@ -59,7 +59,7 @@ $(function() {
 		};
 
 		var chartOptions = {
-		  height: 250,
+		  height: 200,
 		  width: d3.select(chartElements.parent)[0][0].clientWidth - 20,
 		  title: {
 			height: 20,
