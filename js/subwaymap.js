@@ -31,9 +31,9 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 	this.line_green = line_green;
 	this.line_greenB = line_greenB;
 	this.line_greenC = line_greenC;
-	this.line_greenD = line_greenD
+	this.line_greenD = line_greenD;
 	this.line_greenE_underground = line_greenE_underground;
-	this.line_greenE = line_greenE
+	this.line_greenE = line_greenE;
 	this.line_red = line_red;
 	this.line_redB = line_redB;
 	this.line_redM = line_redM;
@@ -63,7 +63,7 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 	this.aboveGroundColor = "gray";
 
 	this.yHooverTextPos = 170;
-	this.xHooverTextPos = 100;
+	this.xHooverTextPos = 20;
 
 	this.yColorbar = 950;
 	this.xColorbar = 90;
@@ -205,6 +205,10 @@ SubwayMap.prototype.init = function() {
 	// add in default color
 	for(var i = 0; i < stationsData.length; i++){
 		stationsData[i].color = myMap.aboveGroundColor;
+		if(stationsData[i].underground != 0){
+			// station has data
+			stationsData[i].color = d3.rgb(Math.round(0.85 * 255), Math.round(0.85 * 255), Math.round(0.85 * 255));
+		}
 	}
 
 	var newStations = myMap.svg.selectAll(".node")
@@ -227,7 +231,7 @@ SubwayMap.prototype.init = function() {
 		})
 	  .attr("class", function(d){return (d.name).replace(/[\s/.]/g, '')})  		// the station names include some annoying characters for setting the class, remove white space, forward slahses, and periods
 	  .style("stroke", "black")
-	  .style("fill", function(d){return (d.color).replace(/[\s/.]/g, '')})
+	  .style("fill", function(d){return (d.color);})
 	  .style("stroke-width", 1)
 	  .style("pointer-events", "all");
 
@@ -456,7 +460,7 @@ SubwayMap.prototype.updateColoring = function(){
 	if(this.snowBinIdx == 0 && this.rainBinIdx == 0){
 		// 'None condition'
 		for (var i = 0; i < n_stations; i++) {
-			myData[i].color = "gray";
+			myData[i].color = d3.rgb(Math.round(0.85 * 255), Math.round(0.85 * 255), Math.round(0.85 * 255));
 		}
 		stations.data(myData);
 	}else{
@@ -477,7 +481,7 @@ SubwayMap.prototype.updateColoring = function(){
 			}
 		}
 		//console.log(riders);
-		console.log(normRiders);
+		//console.log(normRiders);
 
 		var maximumChange = Math.max.apply(Math, perChange);;  // maximum percent change over all stations with current filters
 		// second loop now that maximum value is known
@@ -486,7 +490,8 @@ SubwayMap.prototype.updateColoring = function(){
 		var lightness = 0;
 		for (var i = 0; i < n_stations; i++) {
 			lightness = (1 - perChange[i]/maximumChange)*0.7 + 0.15;  // range of 0.15 to 0.85
-			myData[i].color = d3.hsl(hue, sat, lightness);
+			//myData[i].color = d3.hsl(hue, sat, lightness);
+			myData[i].color = d3.rgb(Math.round(255 * lightness), Math.round(255 * lightness), Math.round(255 * lightness));
 		}
 		stations.data(myData);
 
@@ -531,7 +536,10 @@ SubwayMap.prototype.addColorbar = function(x, y, width, hue, sat, minLightness, 
 		.attr("y", y)
 		.attr("width", colorSplotchWidth)
 		.attr("height", colorSplotchHeight)
-		.style("fill", function(d,i){return d3.hsl(hue, sat, minLightness + (i/numColors * maxLightness))});
+		.style("fill", function(d,i){
+			var rgbVal = Math.round(255.0 * (minLightness + (i/numColors * maxLightness)));
+			return d3.rgb(rgbVal,rgbVal,rgbVal);
+			});  // function(d,i){return d3.hsl(hue, sat, minLightness + (i/numColors * maxLightness))});
 
 	myMap.colorbar.append("text")
 		.attr("x", x-colorSplotchWidth)
