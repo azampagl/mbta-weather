@@ -48,7 +48,7 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 	var width = _parentElement.node().getBoundingClientRect().width;
 
     // define all constants
-    this.margin = {top: 20, right: 10, bottom: 10, left: 20};
+    this.margin = {top: 20, right: 0, bottom: 0, left: 20};
 	this.mapScale = Math.min((1.0 / 1160.0) * width, (1.0 / 1050.0) * $(document).height() );   // max x is 1147 and max y is 1039
 	this.width = this.mapScale * 1200.0 + this.margin.left + this.margin.right,
     this.height = this.mapScale * 1100.0 + this.margin.top + this.margin.bottom;
@@ -513,7 +513,7 @@ SubwayMap.prototype.addColorbar = function(x, y, width, hue, sat, minLightness, 
 	var myMap = this;
 	myMap.colorbar = this.svg.append("g").attr("class", "colorbar");
 
-	var numColors = Math.min(10, Math.max( 3, width/10));   // minimum of 3 colors and maximum of 10 shades in colorbar with natural size of 10 px per color
+	var numColors = Math.round(Math.min(10, Math.max( 3, width/10)));   // minimum of 3 colors and maximum of 10 shades in colorbar with natural size of 10 px per color
 	var colorSplotchWidth = width/numColors;
 	var colorSplotchHeight = Math.min(colorSplotchWidth, 15) // 15 px max height for colors
 	var xs = new Array(numColors);
