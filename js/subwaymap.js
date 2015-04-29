@@ -45,7 +45,7 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 	this.rainBinIdx = 0;  // 0 off, index into this.rainBinKeys
 
 
-	var width = _parentElement.node().getBoundingClientRect().width - 120;
+	var width = _parentElement.node().getBoundingClientRect().width;
 
     // define all constants
     this.margin = {top: 20, right: 10, bottom: 10, left: 20};
