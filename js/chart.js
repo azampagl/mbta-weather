@@ -3,7 +3,12 @@
  */
 
 /**
+ * Constructor
  *
+ * @param elements The HTML elements to attach too.
+ * @param options The raw options to use.
+ * @param data The data that contains the station summaries.
+ * @param eventHandler The event handler shared between all views.
  */
 Chart = function(elements, options, data, eventHandler) {
   var root = this;
@@ -13,26 +18,34 @@ Chart = function(elements, options, data, eventHandler) {
   root.data = root.filterData(data);
   root.eventHandler = $(eventHandler);
 
+  // Series data is the the rickshaw library.
   root.seriesData = [[], []];
   root.graph = null;
   root.legend = null;
 
+  // Default the selection to weekday with no snow or rain selected.
   root.selectedStationId = null;
   root.selectedWeekTime = 'weekday';
   root.selectedSnowId = -1;
   root.selectedRainId = -1;
 
+  // Listen for a station change event.
   root.eventHandler.on("stationChange", function(e, id) {
     root.stationChange(id);
   });
 
+  // Listen for a control change event.
   root.eventHandler.on("controlChange", function(e, weekTime, weatherId, weatherAmountId) {
     root.controlChange(weekTime, weatherId, weatherAmountId);
   });
 };
 
 /**
+ * Fiters the raw data so it can be used by the charting library.
  *
+ * @param The raw data
+ *
+ * @return The filtered data.
  */
 Chart.prototype.filterData = function(data) {
   filteredData = {};
@@ -41,7 +54,8 @@ Chart.prototype.filterData = function(data) {
   var snow_keys = ['0', '0_2', '2_4', '4_8', '8_15', '15'];
   var rain_keys = ['drizzle', 'rain_no_drizzle'];
 
-  // The lines on the map.
+  // The lines on the map... We need to add these manually since we will
+  //   be aggregating in JavaScript.
   var lines = {
     "Red": "Red Line",
     "Blue": "Blue Line",
@@ -190,7 +204,9 @@ Chart.prototype.filterData = function(data) {
 };
 
 /**
+ * Initializes the chart.
  *
+ * @param stationId the station id to initialize the chart on.
  */
 Chart.prototype.init = function(stationId) {
   var root = this;
@@ -198,15 +214,6 @@ Chart.prototype.init = function(stationId) {
   d3.select(root.elements.parent)
     .style("position", "relative")
     .style("height", root.options.height + "px");
-
-  /*d3.select(root.elements.title)
-    .style("position", "absolute")
-    .style("top", "0")
-    .style("bottom", "0")
-    .style("height", root.options.title.height + "px")
-    .style("width", root.options.width + root.options.y_axis.width + "px")
-    .style("text-align", "center")
-    .text("Average Hourly Entries");*/
 
   d3.select(root.elements.x_axis_title)
     .style("position", "absolute")
@@ -245,6 +252,7 @@ Chart.prototype.init = function(stationId) {
     .style("left", "0")
     .style("width", root.options.y_axis.width + "px");
 
+  // Create the rickshaw graph.
   root.graph = new Rickshaw.Graph({
     element: d3.select(root.elements.graph).node(),
     renderer: 'line',
@@ -262,6 +270,7 @@ Chart.prototype.init = function(stationId) {
       },]
   });
 
+  // Add the time format.
   var timeFormat = function(d) {
     var hours = Math.floor(d);
     var minutes = (d - hours) * 60;
@@ -269,17 +278,11 @@ Chart.prototype.init = function(stationId) {
 
     hours = hours % 12;
     hours = hours ? hours : 12;
-
-    //hours = hours < 10 ? '0' + hours : hours;
-    //minutes = minutes < 10 ? '0' + minutes : minutes;
-
-    //return hours + ":" + minutes + " " + ampm;
     return hours + " " + ampm;
   };
 
   var xAxis = new Rickshaw.Graph.Axis.X({
     graph: root.graph,
-    //orientation: 'top',
     tickFormat: timeFormat,
     ticks: 10,
   });
@@ -316,7 +319,6 @@ Chart.prototype.init = function(stationId) {
   root.updateDisplayData();
 
   root.render();
-
 };
 
 /**
@@ -348,7 +350,11 @@ Chart.prototype.render = function() {
 }
 
 /**
+ * Callback for when the user changes a control.
  *
+ * @param weekTime Either weekday or weekend.
+ * @param snowId The slider id for the snow control
+ * @param rainId The slider id for the rain control.
  */
 Chart.prototype.controlChange = function(weekTime, snowId, rainId) {
   var root = this;
@@ -363,28 +369,32 @@ Chart.prototype.controlChange = function(weekTime, snowId, rainId) {
 };
 
 /**
- *
+ * Callback when a new station is selected.
  */
 Chart.prototype.stationChange = function(id) {
   var root = this;
 
   root.selectedStationId = id;
 
+  // Updates the subtitle.
   $(root.elements.container_subtitle).html("Current Selection: <b>" + filteredData[id].name + "</b>");
 
-  //
+  // Update the display.
   root.updateDisplayData();
   root.render();
 };
 
 /**
- *
+ * Updates the graph display.
  */
 Chart.prototype.updateDisplayData = function() {
   var root = this;
 
+  // Clear out the current series data.
   root.seriesData[0].length = 0;
   root.seriesData[1].length = 0;
+
+  // Defaults the legend text and display.
   root.graph.series[1].name = "Normal Entries";
   root.graph.series[0].name = "Rain Entries";
   $(root.elements.legend).css('display', 'none');
