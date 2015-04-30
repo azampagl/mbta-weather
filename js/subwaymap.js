@@ -1,13 +1,25 @@
 /**
- * subway map object for HW3 of CS171
+ * subway map object for CS171 final project
+ *     Intended to create map of Boston MBTA that would be familiar to transit users
+ *     Rollover highlighting and click selection of stations and lines
+ *	   as well as data display of quantitative data joined to stations using a fill color
+ *
+ *
  * @param _parentElement -- the HTML or SVG element (D3 node) to which to attach the vis
  *      map is scaled to fit in the parents WIDTH
  * @param stationMapData -- the data array containing station names
  * @param stationSummaryData -- the data array containing the summaries per station for each of our filter categories
  * @param stationLineData -- the meta-data / data description object
  *          parameters line_blue, line_orange, line_green, line_greenB, line_grenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM
- * @param eventListener -- the event listener
+ * @param eventListener -- the event listener object that is shared with multiple parts of the whole
  * @constructor
+ *
+ *  sized according to parent element's width with maximum size constrained by browser window height
+ *
+ *
+ *
+ *   see test_subwayMap.html for use without connection to other elements
+ *   this is the classified version of code orginally developed in test_subwayMap_simple.html
  */
 SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_blue, line_orange,
 		line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, eventListener){
@@ -38,7 +50,7 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 	this.line_redB = line_redB;
 	this.line_redM = line_redM;
 
-	this.snowBinKeys = ["no_snow", "0", "(0, 2)", "(2, 4)", "(4, 8)", "(8, 15)", "15"];
+	this.snowBinKeys = ["no_snow", "0", "(0, 2)", "(2, 4)", "(4, 8)", "(8, 15)", "15"];  // keys in our json file
 	this.rainBinKeys = ["no_rain", "drizzle", "rain_not_drizzle"];
 	this.dayCategory = 1;  // 1 = weekday, 2 = weekend
 	this.snowBinIdx = 0;  // 0 off, index into this.snowBinKeys
@@ -47,24 +59,27 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 
 	var width = _parentElement.node().getBoundingClientRect().width;
 
-    // define all constants
+    // define all placement constants  (try to be give a tight bounding box)
     this.margin = {top: 10, right: 0, bottom: 0, left: 10};
+	// mapScale is based on width unless it would create a map with hieght larger than that of the browser window
 	this.mapScale = Math.min((1.0 / 1160.0) * width, (1.0 / 1050.0) * $(document).height() );   // max x is 1147 and max y is 1039
 	this.width = this.mapScale * 1160.0 + this.margin.left + this.margin.right,
     this.height = this.mapScale * 1050.0 + this.margin.top + this.margin.bottom;
 
-
+ 
 	this.stationText=[]
 	this.svg=[];
-	//this.mapScale = mapScale;   // max x is 1147 and max y is 1039
+	//this.mapScale = mapScale;   // max x is 1147 and max y is 1039  // we now base off of parent element width
 	this.stationSize = 8;
 	this.undergroundOpacity = 0.4;
 	this.aboveGroundOpacity = 0.4;
 	this.aboveGroundColor = "gray";
 
+	// location in cartesian coord when mapScale = 1.0
 	this.yHooverTextPos = 170;
 	this.xHooverTextPos = 20;
 
+	// location in cartesian coordinates with mapScale = 1.0 colorbar when a filter is selected
 	this.yColorbar = 950;
 	this.xColorbar = 90;
 	this.colorbar = d3.select("colorbar");
@@ -73,18 +88,10 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 }
 
 /**
- *
+ *    Initialization function to create the graphic elements in initial state
  */
 SubwayMap.prototype.init = function() {
     var myMap = this;
-
-	/*myMap.stationText = myMap.parentElement.append("p")
-			.classed("selectionName", true)
-			.style("padding-left", "5em")
-			.style("font-weight", "bold")
-			.style("font-size", "2em");
-	myMap.stationText.text("(click to select)");  // &nbsp  (non-breaking space) = \u00A0
-	*/
 
 	myMap.svg = myMap.parentElement.append("svg")
 		.attr("width", myMap.width)
@@ -94,6 +101,7 @@ SubwayMap.prototype.init = function() {
 		.attr("transform", function(d) { return "translate(" + myMap.margin.left + "," + myMap.margin.top + ")"; });
 
 
+	// removed since we are not allowing a null selection
 	// a rect to eat the selection clicks inside the svg so we can nullify the selection
 	/*var clickEater = myMap.svg.append("rect")
 		.attr("width", myMap.width)
@@ -108,7 +116,7 @@ SubwayMap.prototype.init = function() {
 				myMap.updateSelection([]);
 			});*/
 
-
+	// draw the background lines
 	var blueLine = myMap.svg.append("g").attr("class", "line blue").data(["Blue Line"]);
 	myMap.drawSubwayLineArray(myMap.line_blue, blueLine, myMap.mapScale, "blue", myMap.undergroundOpacity);
 	var orangeLine = myMap.svg.append("g").attr("class", "line orange").data(["Orange Line"]);
@@ -125,6 +133,7 @@ SubwayMap.prototype.init = function() {
 	myMap.drawSubwayLineArray(myMap.line_redB, redLine, myMap.mapScale, "red", myMap.undergroundOpacity);
 	myMap.drawSubwayLineArray(myMap.line_redM, redLine, myMap.mapScale, myMap.aboveGroundColor, myMap.aboveGroundOpacity);
 
+	// line mouse over
 	redLine.on("mouseover", function(d){
 				var xPos = myMap.xHooverTextPos * myMap.mapScale;
 				var yPos = myMap.yHooverTextPos * myMap.mapScale
@@ -201,6 +210,8 @@ SubwayMap.prototype.init = function() {
 					.style("stroke-width", 3);
 			});
 
+			
+	// append the initial colors to the json data
 	var stationsData = myMap.stationMap;
 	// add in default color
 	for(var i = 0; i < stationsData.length; i++){
@@ -211,6 +222,7 @@ SubwayMap.prototype.init = function() {
 		}
 	}
 
+	// join station data with nodes that will hold station circles
 	var newStations = myMap.svg.selectAll(".node")
 	  .data(stationsData)
 	  .enter()
@@ -237,7 +249,7 @@ SubwayMap.prototype.init = function() {
 
 	var hitBoxSize = (myMap.mapScale * myMap.stationSize) * 4;
 	var undergrounds = newStations.filter(".underGround");
-
+	// a invisible selection hitbox bigger than the visible circle
 	var stationHitBoxes = undergrounds.append("rect")
 	  .attr("width", hitBoxSize)
 	  .attr("height", hitBoxSize)
@@ -257,7 +269,7 @@ SubwayMap.prototype.init = function() {
 	newSel = harData[0].id;
 	myMap.updateSelection(newSel);
 
-
+	// station circles mouseover
 	undergrounds.on("mouseover", function(d){
 			//var xPos = d3.mouse(this)[0];   // this often looks pretty poor on top of the subway lines
 			//var yPos = d3.mouse(this)[1];
@@ -281,19 +293,26 @@ SubwayMap.prototype.init = function() {
 			undergrounds.selectAll("circle").style("fill", function(d,i){return d.color});  // reset everything
 		})
 
+		
+		
+	// Selection on mouse click
 	d3.selectAll(".line").on("click", function(d){
 			alreadySelected = this.classList.contains("selected");
 
 			var newSel = [];
 			if(!alreadySelected) {
+				// clicking on something that is already selected has no effect otherwise
 				// zero out other selections
 				d3.selectAll('.selected')
 					.classed('selected', false);
-
+				
+				// give the selected element the selected class
 				this.classList.add('selected');
 				var myData = d3.select(this).data();
 				//d3.selectAll(".selectionName").text("Selected: " + myData);
 				newSel = myData;
+				
+				// update the visual as something no longer has selected class and something new now has it
 				myMap.updateSelection(newSel);
 			}
 		});
@@ -302,14 +321,18 @@ SubwayMap.prototype.init = function() {
 
 			var newSel = [];
 			if(!alreadySelected) {
+				// clicking on something that is already selected has no effect otherwise
 				// zero out other selections
 				d3.selectAll('.selected')
 					.classed('selected', false);
 
+				// give the selected element the selected class
 				this.classList.add('selected');
 				var myData = d3.select(this).select("circle").data();
 				//d3.selectAll(".selectionName").transition().text("Selected: " + myData[0].name);
 				newSel = myData[0].id;
+				
+				// update the visual as something no longer has selected class and something new now has it
 				myMap.updateSelection(newSel);
 			}
 		});
@@ -335,16 +358,19 @@ SubwayMap.prototype.updateSelection = function(newSelection){
 	selectedStation.selectAll('circle')
 		.attr("r", 2 * myMap.mapScale * myMap.stationSize);
 	if(newSelection != myMap.currentSelection){
+		// we track the current selection so we only fire this event when selection has changed and not when same selection is re-selected
 		myMap.eventHandler.trigger("stationChange", newSelection);
 		myMap.currentSelection = newSelection;
 	}
 };
 
+// handle a change to the data filters on snow / rain / weekdat or weekend
 // adjust the fill color of the stations to match their shrinkage of ridership
 // snowTickIdx is tick index - ie 0, 1, 2, 3
 // rainTickIdx is tick index - ie 0, 1, 2, 3
 //     only 1 of snowTickIdx and rainTickIdx can be non-zero!!!!!
 // dayFlag is 0 is no change, 1 = weekday, 2 = weekend
+//     no change implemented so that external control doesn't need to track state of day category
 SubwayMap.prototype.filterChange = function(snowTickIdx, rainTickIdx, dayFlag){
 	var myMap = this;
 
@@ -360,8 +386,11 @@ SubwayMap.prototype.filterChange = function(snowTickIdx, rainTickIdx, dayFlag){
 	myMap.updateColoring();
 }
 
-// adjust the fill color of the stations to match their shrinkage of ridership
-//  1 = weekday, 2 = weekend
+// handle a change in day category
+//    similar to filterChange, but useful when not all filters have changed.
+// 	  adjust the fill color of the stations to match the shrinkage of ridership
+//
+//    dayFlag - 1 = weekday, 2 = weekend
 SubwayMap.prototype.dayCatChange = function(dayFlag){
 	var myMap = this;
 	myMap.dayCategory = dayFlag;  // 1 = weekday, 2 = weekend
@@ -369,11 +398,17 @@ SubwayMap.prototype.dayCatChange = function(dayFlag){
 	myMap.updateColoring();
 }
 
-// get the entries after the snow and rain is applied and using dayCategory flags from the this.stationEntries data array
+
+// Use the current filter settings get the entries 
+//     so effect of snow and rain is applied 
+//     and effect of day category 
+//     and results are queried from the this.stationEntries data array
 // using the specified station ID
+//     stationID - integer key in stationEntries data
 SubwayMap.prototype.getEntriesWithWeather = function(stationID){
 	var myMap = this;
 
+	// stationEntries uses text keys so translate our state variables to the right keys
 	var key1 = "";
 	if(myMap.snowBinIdx == 0 && myMap.rainBinIdx == 0){
 		if(myMap.dayCategory == 2){
@@ -411,9 +446,12 @@ SubwayMap.prototype.getEntriesWithWeather = function(stationID){
 //
 //   ie with a snow bin get the winter average
 //   and without get the global average
+//
+//	  stationID - integer station id from stationEntries data
 SubwayMap.prototype.getNormEntries = function(stationID){
 	var myMap = this;
 
+	// stationEntries uses text keys so translate our state variables to the right keys
 	var key1 = "";
 	if(myMap.snowBinIdx == 0 && myMap.rainBinIdx == 0){
 		if(myMap.dayCategory == 2){
@@ -447,6 +485,11 @@ SubwayMap.prototype.getNormEntries = function(stationID){
 
 };
 
+// helper function to update the coloring of the map
+//		typically called after a change in filtering conditions ie snow or rain or weekday/weekend category
+//		draws a greyscale colorbar between the maximum change and 0 %
+//
+//      when snow/rain filtering options are unset uses a default off white coloring for all clickable stations and hides the colorbar
 SubwayMap.prototype.updateColoring = function(){
 	var myMap = this;
 
@@ -513,7 +556,16 @@ SubwayMap.prototype.updateColoring = function(){
 			.style("fill", function(d){return d.color});
 };
 
-// a colorbar for a single hue where only the lightness is changed
+// a colorbar legend for a single hue where only the lightness is changed
+//   x - x coordinate of upper left corner of the bar (text is above the bar)
+//   y - y coordinate
+//   width - pixel width
+//   hue - 0 to 360   [degrees]  (unused)
+//   sat - saturation [0-1]      (unused)
+//   minLightness - darkest rgb grey value [0-1] with 1 being white used to represent the data
+//  maxLightness - maximum rgb grey value [0-1] with 1 being white
+//  minLabel - text label displayed above left (darkest) color splotch
+//  maxLabel - text label displayed above right (lightest) color splotch
 SubwayMap.prototype.addColorbar = function(x, y, width, hue, sat, minLightness, maxLightness, minLabel, maxLabel){
 	var myMap = this;
 	myMap.colorbar = this.svg.append("g").attr("class", "colorbar");
@@ -561,7 +613,13 @@ SubwayMap.prototype.addColorbar = function(x, y, width, hue, sat, minLightness, 
 
 
 // helper function for drawing the subway lines as a path
-// line data is imported with x and y cartesian map position (pixels)
+//     draws line as stroke-width 3 with a stroke-width 11 hitbox invisible path
+//
+//   line data is imported with x and y cartesian map position (pixels)
+//   svgContainer - dom element to place the line in
+// 	 mapScale - scaling factor to natural map size
+//   color - stroke color
+//   opacity - stroke opacity 
 SubwayMap.prototype.drawSubwayLineArray = function(lineData, svgContainer, mapScale, color, opacity){
 	// line generator for nice, smooth lines
 	var line = d3.svg.line()
