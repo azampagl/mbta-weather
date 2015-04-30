@@ -55,16 +55,16 @@ $(function() {
 		  x_axis_title: '#chart-x-axis-title',
 		};
 		var chartOptions = {
-		  height: 200,
+		  height: 250,
 		  width: d3.select(chartElements.parent)[0][0].clientWidth - 20,
 		  title: {
-			     height: 20,
+			     height: 30,
 		  },
 		  x_axis: {
-			     height: 20,
+			     height: 30,
 		  },
 		  x_axis_title: {
-			     height: 20,
+			     height: 30,
 		  },
 		  y_axis: {
 			     width: 50,

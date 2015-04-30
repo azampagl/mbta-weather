@@ -66,7 +66,7 @@ SubwayMap = function(_parentElement, stationMapData, stationSummaryData, line_bl
 	this.width = this.mapScale * 1160.0 + this.margin.left + this.margin.right,
     this.height = this.mapScale * 1050.0 + this.margin.top + this.margin.bottom;
 
- 
+
 	this.stationText=[]
 	this.svg=[];
 	//this.mapScale = mapScale;   // max x is 1147 and max y is 1039  // we now base off of parent element width
@@ -210,7 +210,7 @@ SubwayMap.prototype.init = function() {
 					.style("stroke-width", 3);
 			});
 
-			
+
 	// append the initial colors to the json data
 	var stationsData = myMap.stationMap;
 	// add in default color
@@ -244,7 +244,7 @@ SubwayMap.prototype.init = function() {
 	  .attr("class", function(d){return (d.name).replace(/[\s/.]/g, '')})  		// the station names include some annoying characters for setting the class, remove white space, forward slahses, and periods
 	  .style("stroke", "black")
 	  .style("fill", function(d){return (d.color);})
-	  .style("stroke-width", 1)
+	  .style("stroke-width", .25)
 	  .style("pointer-events", "all");
 
 	var hitBoxSize = (myMap.mapScale * myMap.stationSize) * 4;
@@ -293,8 +293,8 @@ SubwayMap.prototype.init = function() {
 			undergrounds.selectAll("circle").style("fill", function(d,i){return d.color});  // reset everything
 		})
 
-		
-		
+
+
 	// Selection on mouse click
 	d3.selectAll(".line").on("click", function(d){
 			alreadySelected = this.classList.contains("selected");
@@ -305,13 +305,13 @@ SubwayMap.prototype.init = function() {
 				// zero out other selections
 				d3.selectAll('.selected')
 					.classed('selected', false);
-				
+
 				// give the selected element the selected class
 				this.classList.add('selected');
 				var myData = d3.select(this).data();
 				//d3.selectAll(".selectionName").text("Selected: " + myData);
 				newSel = myData;
-				
+
 				// update the visual as something no longer has selected class and something new now has it
 				myMap.updateSelection(newSel);
 			}
@@ -331,7 +331,7 @@ SubwayMap.prototype.init = function() {
 				var myData = d3.select(this).select("circle").data();
 				//d3.selectAll(".selectionName").transition().text("Selected: " + myData[0].name);
 				newSel = myData[0].id;
-				
+
 				// update the visual as something no longer has selected class and something new now has it
 				myMap.updateSelection(newSel);
 			}
@@ -399,9 +399,9 @@ SubwayMap.prototype.dayCatChange = function(dayFlag){
 }
 
 
-// Use the current filter settings get the entries 
-//     so effect of snow and rain is applied 
-//     and effect of day category 
+// Use the current filter settings get the entries
+//     so effect of snow and rain is applied
+//     and effect of day category
 //     and results are queried from the this.stationEntries data array
 // using the specified station ID
 //     stationID - integer key in stationEntries data
@@ -619,7 +619,7 @@ SubwayMap.prototype.addColorbar = function(x, y, width, hue, sat, minLightness, 
 //   svgContainer - dom element to place the line in
 // 	 mapScale - scaling factor to natural map size
 //   color - stroke color
-//   opacity - stroke opacity 
+//   opacity - stroke opacity
 SubwayMap.prototype.drawSubwayLineArray = function(lineData, svgContainer, mapScale, color, opacity){
 	// line generator for nice, smooth lines
 	var line = d3.svg.line()
