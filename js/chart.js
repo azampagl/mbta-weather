@@ -1,8 +1,4 @@
 /**
- *
- */
-
-/**
  * Constructor
  *
  * @param elements The HTML elements to attach too.
