@@ -1,12 +1,9 @@
-// MAKE CHART GLOBAL FOR NOW FOR DEBUGGING.
-var chart;
-
 $(function() {
 
   // Load in our data sets asynchronously and call the init function when ready.
   queue().defer(d3.json, 'processing/full_summary.json')
 	.defer(d3.json, 'processing/station_summary.json')
-    .defer(d3.json, 'processing/station_series.json')
+    .defer(d3.json, 'processing/station_series_scaled.json')
 	.defer(d3.json, 'processing/station_map_numbers.json')
 	.defer(d3.json, 'processing/station_map.json')
 	.defer(d3.json, 'processing/line_blue.json')
@@ -27,13 +24,13 @@ $(function() {
 					line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM) {
     if (!error) {
 
-		//Create an eventHandler placeholder (to be filled in later)
+		// Create an eventHandler
 		var MyEventHandler = new Object();
 
-				// Instantiate map
+		// Init map
 		var subwayMap = new SubwayMap(d3.select("#subwaymap"), station_map, station_map_numbers, line_blue, line_orange, line_green, line_greenB, line_greenC, line_greenD, line_greenE_underground, line_greenE, line_red, line_redB, line_redM, MyEventHandler);
 
-
+    // Init timeline.
 		var timeline = new Timeline(
 		  {
         container_subtitle: '#timeline-visual .visual-container-header-subtitle',
@@ -45,7 +42,7 @@ $(function() {
 		);
 		timeline.init();
 
-
+    // Init chart.
 		var chartElements = {
       container_subtitle: '#map-visual .visual-container-header-subtitle, #chart-visual .visual-container-header-subtitle',
 		  parent: '#chart-container',
@@ -57,44 +54,33 @@ $(function() {
 		  y_axis_title: '#chart-y-axis-title',
 		  x_axis_title: '#chart-x-axis-title',
 		};
-
 		var chartOptions = {
-		  height: 200,
+		  height: 250,
 		  width: d3.select(chartElements.parent)[0][0].clientWidth - 20,
 		  title: {
-			height: 20,
+			     height: 30,
 		  },
 		  x_axis: {
-			height: 20,
+			     height: 30,
 		  },
 		  x_axis_title: {
-			height: 20,
+			     height: 30,
 		  },
 		  y_axis: {
-			width: 50,
+			     width: 50,
 		  },
 		};
+		var chart = new Chart(chartElements, chartOptions, stationSeries, MyEventHandler);
+		chart.init(1052, 'snow'); // Start with harvard, of course!
 
-		chart = new Chart(chartElements, chartOptions, stationSeries, MyEventHandler);
-		chart.init(1052, 'snow');
-
+    // Init controls.
 		var controls = new Controls({
 		  root: 'controls',
       week_selection: '#week-selection',
 		  snow_slider: '#snow-slider',
       rain_slider: '#rain-slider',
 		}, MyEventHandler);
-
     controls.init();
-
-		// bind the eventHandler to the things related to selecting in the map
-		$(MyEventHandler).bind("selectionChange", function(event){
-			// TODO
-			//anotherVis.onSelectionChange(startDate, endDate);
-		});
-
     }
   };
-
-
 });

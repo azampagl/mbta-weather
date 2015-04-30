@@ -1,9 +1,8 @@
 /**
+ * Constructor.
  *
- */
-
-/**
- *
+ * @param elements The HTML elements for this view.
+ * @param eventHandler The global event handler.
  */
 Controls = function(elements, eventHandler) {
   var root = this;
@@ -36,7 +35,7 @@ Controls = function(elements, eventHandler) {
 };
 
 /**
- *
+ * View Init.
  */
 Controls.prototype.init = function() {
   var root = this;
@@ -84,7 +83,9 @@ Controls.prototype.init = function() {
 };
 
 /**
+ * Event handler when the weektime is changed.
  *
+ * @param target The clicked button.
  */
 Controls.prototype.weekTimeChange = function(target) {
   var root = this;
@@ -104,18 +105,15 @@ Controls.prototype.weekTimeChange = function(target) {
 }
 
 /**
+ * Event handler when the snow slider is changed.
  *
+ * @param value The new snow id.
  */
 Controls.prototype.snowChange = function(value) {
   var root = this;
 
-  //console.log(root.sliders.rain.find('.slider-handle.custom'));
-  //root.sliderWidgets.rain.find('.slider-handle.custom').css('background-color', '#000');
-  //root.sliderWidgets.rain.find('.slider-handle.custom').css('content', '');
-
-
   if (value != -1) {
-    // Disable the snow slider.
+    // Disable the rain slider.
     root.sliders.rain.slider("disable");
     root.sliderWidgets.rain.find('.slider-handle.custom').removeClass('active');
     root.sliderWidgets.rain.find('.slider-handle.custom').addClass('inactive');
@@ -133,7 +131,9 @@ Controls.prototype.snowChange = function(value) {
 }
 
 /**
+ * Event handler when the rain slider is changed.
  *
+ * @param value The new rain id.
  */
 Controls.prototype.rainChange = function(value) {
   var root = this;

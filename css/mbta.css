@@ -3,16 +3,6 @@
   padding: 0;
 }
 
-/*
-.btn.btn-default {
-  color: #000;
-  background-color: #fff;
-}
-
-.btn.active, .btn:active {
-  background-color: #000;
-}*/
-
 /* Header Overloads */
 .navbar-fixed-top {
   background: #000;
@@ -36,10 +26,6 @@
 .navbar-fixed-top.navbar-shrink {
   padding: 0px;
 }
-
-
-
-
 
 body {
   background-color: #f3f3f4;

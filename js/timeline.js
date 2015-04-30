@@ -1,9 +1,9 @@
 /**
+ * Timeline.
  *
- */
-
-/**
- *
+ * @param elements The HTML elements for this view.
+ * @param data The data used specifically by the timeline view.
+ * @param eventHandler The global event handler.
  */
 Timeline = function(elements, data, eventHandler) {
   var root = this;
@@ -12,6 +12,7 @@ Timeline = function(elements, data, eventHandler) {
   this.data = data;
   this.eventHandler = $(eventHandler);
 
+  // These are the control keys in the data set to access each specific data set.
   this.controlKeys = {
     "snow": ['trace_snow', 'snow_02', 'snow_24', 'snow_48', 'snow_815', 'snow_15'],
     "rain": ['drizzle', 'rain_not_drizzle'],
@@ -23,35 +24,27 @@ Timeline = function(elements, data, eventHandler) {
 };
 
 /**
+ * Generates the display data used by the timeline.
  *
+ * @param data The raw data from the json file.
+ *
+ * @return Filtered data.
  */
 Timeline.prototype.displayData = function(data) {
   var root = this;
 
   var filteredData = [];
 
-  //console.log(root.data);
-
+  // Add the x axis as time and the y axis as entries.
   for (var i = 0; i < root.data['days'].length; i++) {
-    //console.log(data['days'][i]);
-    //console.log();
-    //console.log(data['entries'][i]);
-    //break;
     filteredData.push({x: new Date(root.data['days'][i].split("T")[0]), y: root.data['entries'][i]});
   }
-
-  /*filteredData = [
-    ,
-    {x: new Date("July 30, 2013 00:00:00"), y: 7.24063492063492},
-    {x: new Date("March 1, 2014 00:00:00"), y: 7.040566893424036},
-    {x: new Date("February 20, 2015 00:00:00"), y: 8.340566893424036},
-  ];*/
 
   return filteredData;
 };
 
 /**
- *
+ * Init the timeline.
  */
 Timeline.prototype.init = function() {
   var root = this;
@@ -69,6 +62,7 @@ Timeline.prototype.init = function() {
     .range([height, 0]);
 
   x.domain(d3.extent(data, function(d) { return d.x; }));
+  // Hard code the y domain scales this way it looks elegant.
   y.domain([200000, 500000]);
 
   var xAxis = d3.svg.axis()
@@ -125,7 +119,11 @@ Timeline.prototype.init = function() {
 };
 
 /**
+ * Callback for when the controls are changed.
  *
+ * @param weekTime The current time of week selected (weekday/weektime).
+ * @param snowId The current selected snow id.
+ * @param rainId The current selected rainId.
  */
 Timeline.prototype.controlChange = function(weekTime, snowId, rainId) {
   var root = this;
@@ -145,6 +143,7 @@ Timeline.prototype.controlChange = function(weekTime, snowId, rainId) {
     return 0.0;
   });
 
+  // If neither snow or rain was selected, set the count to the full data set.
   if (snowId == -1 && rainId == -1 && count == 0) {
     count = 770;
   }
