@@ -236,7 +236,7 @@ Chart.prototype.init = function(stationId) {
     .style("transform", "rotate(-90deg)")
     .style("text-align", "center")
     .style("font-size", "12px")
-    .text("Entries");
+    .text("Entries (per Hour)");
 
   d3.select(root.elements.graph)
     .style("position", "absolute")
