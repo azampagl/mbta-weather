@@ -143,6 +143,8 @@ SubwayMap.prototype.init = function() {
 					.attr("text-anchor", "left")
 					.attr("x", xPos)
 					.attr("y", yPos)
+					.style("font-family", "Lato,Helvetica Neue,Helvetica,Arial,sans-serif")
+					.style("font-size", "12px")
 					.text(d);
 				var lin = d3.selectAll(".line.red").selectAll(".subwayPath")
 					.style("stroke-width", 4);
@@ -162,6 +164,8 @@ SubwayMap.prototype.init = function() {
 					.attr("text-anchor", "left")
 					.attr("x", xPos)
 					.attr("y", yPos)
+					.style("font-family", "Lato,Helvetica Neue,Helvetica,Arial,sans-serif")
+					.style("font-size", "12px")
 					.text(d);
 				var lin = d3.selectAll(".line.green").selectAll(".subwayPath")
 					.style("stroke-width", 4);
@@ -181,6 +185,8 @@ SubwayMap.prototype.init = function() {
 					.attr("text-anchor", "left")
 					.attr("x", xPos)
 					.attr("y", yPos)
+					.style("font-family", "Lato,Helvetica Neue,Helvetica,Arial,sans-serif")
+					.style("font-size", "12px")
 					.text(d);
 				var lin = d3.selectAll(".line.orange").selectAll(".subwayPath")
 					.style("stroke-width", 4);
@@ -200,6 +206,8 @@ SubwayMap.prototype.init = function() {
 					.attr("text-anchor", "left")
 					.attr("x", xPos)
 					.attr("y", yPos)
+					.style("font-family", "Lato,Helvetica Neue,Helvetica,Arial,sans-serif")
+					.style("font-size", "12px")
 					.text(d);
 				var lin = d3.selectAll(".line.blue").selectAll(".subwayPath")
 					.style("stroke-width", 4);
@@ -281,6 +289,8 @@ SubwayMap.prototype.init = function() {
 				.attr("text-anchor", "left")
 				.attr("x", xPos)
 				.attr("y", yPos)
+				.style("font-family", "Lato,Helvetica Neue,Helvetica,Arial,sans-serif")
+				.style("font-size", "12px")
 				.text(d.name);
 			var className = (d.name).replace(/[\s/.]/g, '');
 			var sel = d3.selectAll("."+className)
