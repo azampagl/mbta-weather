@@ -346,6 +346,8 @@ SubwayMap.prototype.init = function() {
 				myMap.updateSelection(newSel);
 			}
 		});
+
+		this.updateColoring();
 };
 
 // function to highlight elements with 'selected' class type
@@ -542,8 +544,7 @@ SubwayMap.prototype.updateColoring = function(){
 		var sat = .5; // neutral saturation
 		var lightness = 0;
 		for (var i = 0; i < n_stations; i++) {
-			lightness = (1 - perChange[i]/maximumChange)*0.7 + 0.15;  // range of 0.15 to 0.85
-			//myData[i].color = d3.hsl(hue, sat, lightness);
+			lightness = (1 - Math.max(perChange[i], 0.0)/maximumChange)*0.7 + 0.15;  // range of 0.15 to 0.85
 			myData[i].color = d3.rgb(Math.round(255 * lightness), Math.round(255 * lightness), Math.round(255 * lightness));
 		}
 		stations.data(myData);
